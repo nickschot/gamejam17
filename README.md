@@ -1,4 +1,4 @@
-# [¯\_(ツ)_/¯](https://github.com/nickschot/gamejam17/)
+# [¯\\_(ツ)_/¯](https://github.com/nickschot/gamejam17/)
 
 ---
 
