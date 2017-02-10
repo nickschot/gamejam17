@@ -20,6 +20,8 @@ const STATIC = 'static';
 // Where bundled Phaser CE builds are located.
 const PHASER_BUILDS = 'node_modules/phaser-ce/build';
 
+const JQUERY_BUILDS = 'node_modules/jquery/dist';
+
 // Which Phaser build was selected to develop the game.
 //
 // Available options:
@@ -31,6 +33,7 @@ const PHASER_BUILDS = 'node_modules/phaser-ce/build';
 //    If you're getting exceptions when trying to create these game objects,
 //    change to another build option listed above.
 const PHASER = `${PHASER_BUILDS}/phaser.js`;
+const JQUERY = `${JQUERY_BUILDS}/jquery.js`;
 
 // Build output directories.
 exports.dirs = {
@@ -47,7 +50,8 @@ exports.files = {
     scripts: `${SRC}/**/*.js`,
 
     // The selected Phaser script.
-    phaser: PHASER
+    phaser: PHASER,
+    jquery: JQUERY
 };
 
 // The Browserify settings.
