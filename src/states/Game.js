@@ -7,6 +7,7 @@
 
 import Logo from '../objects/Logo';
 import EventManager from '../objects/EventManager';
+import UI from '../objects/UI';
 
 export default class Game extends Phaser.State {
 
@@ -23,6 +24,9 @@ export default class Game extends Phaser.State {
         console.log(m.getTile(1, 1, 'Tile Layer 1'));
 
         this.event_manager = new EventManager();
+        this.ui = new UI();
+
+        this.shows_popup = false;
 
 
     }
@@ -31,6 +35,11 @@ export default class Game extends Phaser.State {
         if (this.shows_popup) return;
 
         let event = this.event_manager.spawn();
+
+        if (event) {
+            this.ui.show(event);
+
+        }
     }
 
 }

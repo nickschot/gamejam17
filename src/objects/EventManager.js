@@ -1,6 +1,11 @@
 /**
  * Created by lennart on 10/02/17.
  */
+
+
+import Decree from '../objects/Decree';
+import NewsItem from '../objects/NewsItem';
+
 export default class EventManager {
 
     constructor() {
@@ -16,8 +21,10 @@ export default class EventManager {
     }
 
     spawn() {
-        if (this.seconds_in_window == 30) {
-            plan();
+        let result = null;
+
+        if (this.seconds_in_window >= 30) {
+            this.plan();
 
             this.seconds_in_window = 0;
         } else {
@@ -25,9 +32,13 @@ export default class EventManager {
             if (this.spawn_decree && this.seconds_in_window >= this.decree_in_window) {
                 console.log("Spawning a decree!");
 
+                result = new Decree("I Ronald Rumph hereby sign into law!");
+
                 this.spawn_decree = false;
             } else if (this.spawn_news && this.seconds_in_window >= this.news_in_window) {
                 console.log("Spawning a news item!");
+
+                result = new NewsItem("Ronald Rump is an idiot!");
 
                 this.spawn_news = false;
             }
@@ -36,7 +47,7 @@ export default class EventManager {
         }
 
 
-        return null;
+        return result;
     }
 
     plan() {
