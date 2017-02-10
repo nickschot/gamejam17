@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1" generator="krita" generator_version="3.1.2">
+    <folder name="" id="0">
+        <file name="/numbers.png" pivot_x="-0.02" pivot_y="1.03" id="0" width="246.00" height="239.00"/>
+        <file name="/grass.png.png" pivot_x="-0.97" pivot_y="1.00" id="1" width="33.00" height="32.00"/>
+        <file name="/earth.png.png" pivot_x="0.00" pivot_y="1.00" id="2" width="32.00" height="32.00"/>
+        <file name="/pollution.png.png" pivot_x="-3.00" pivot_y="1.00" id="3" width="32.00" height="32.00"/>
+        <file name="/water.png.png" pivot_x="-2.00" pivot_y="1.00" id="4" width="32.00" height="32.00"/>
+        <file name="/corners.png" pivot_x="0.00" pivot_y="1.00" id="5" width="256.00" height="256.00"/>
+        <file name="/checker.png" pivot_x="0.00" pivot_y="1.00" id="6" width="256.00" height="256.00"/>
+    </folder>
+    <entity name="zL3633spritesheet" id="0">
+        <animation length="1000" name="default" id="0" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref key="0" id="0" timeline="0" z_index="0"/>
+                    <object_ref key="0" id="1" timeline="1" z_index="1"/>
+                    <object_ref key="0" id="2" timeline="2" z_index="2"/>
+                    <object_ref key="0" id="3" timeline="3" z_index="3"/>
+                    <object_ref key="0" id="4" timeline="4" z_index="4"/>
+                    <object_ref key="0" id="5" timeline="5" z_index="5"/>
+                    <object_ref key="0" id="6" timeline="6" z_index="6"/>
+                </key>
+            </mainline>
+            <timeline name="object-checker" id="0">
+                <key spin="0" id="0">
+                    <object folder="0" file="6" scale_x="1.00" scale_y="1.00" angle="0.00" x="0" y="0"/>
+                </key>
+            </timeline>
+            <timeline name="object-corners" id="1">
+                <key spin="0" id="0">
+                    <object folder="0" file="5" scale_x="1.00" scale_y="1.00" angle="0.00" x="0" y="0"/>
+                </key>
+            </timeline>
+            <timeline name="object-water.png" id="2">
+                <key spin="0" id="0">
+                    <object folder="0" file="4" scale_x="1.00" scale_y="1.00" angle="0.00" x="0" y="0"/>
+                </key>
+            </timeline>
+            <timeline name="object-pollution.png" id="3">
+                <key spin="0" id="0">
+                    <object folder="0" file="3" scale_x="1.00" scale_y="1.00" angle="0.00" x="0" y="0"/>
+                </key>
+            </timeline>
+            <timeline name="object-earth.png" id="4">
+                <key spin="0" id="0">
+                    <object folder="0" file="2" scale_x="1.00" scale_y="1.00" angle="0.00" x="0" y="0"/>
+                </key>
+            </timeline>
+            <timeline name="object-grass.png" id="5">
+                <key spin="0" id="0">
+                    <object folder="0" file="1" scale_x="1.00" scale_y="1.00" angle="0.00" x="0" y="0"/>
+                </key>
+            </timeline>
+            <timeline name="object-numbers" id="6">
+                <key spin="0" id="0">
+                    <object folder="0" file="0" scale_x="1.00" scale_y="1.00" angle="0.00" x="0" y="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

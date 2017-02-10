@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <style id="bx-google-fonts">@import url(https://fonts.googleapis.com/css?family=Holtwood+One+SC:400);</style>
+  </defs>
+  <text x="152.35" y="105.238" style="fill: rgb(5, 60, 94); font-family: &quot;Holtwood One SC&quot;; font-size: 54px; white-space: pre;">MAKE </text>
+  <text x="62.708" y="131.409" transform="matrix(0.902, 0, 0, 1, -17.898363, 39.257702)" style="fill: rgb(191, 219, 247); font-family: &quot;Holtwood One SC&quot;; font-size: 58px; white-space: pre;">SPRINGFIELD</text>
+  <g>
+    <path d="M 596.5 45.098 L 600.827 57.545 L 614.001 57.813 L 603.501 65.775 L 607.316 78.388 L 596.5 70.861 L 585.684 78.388 L 589.499 65.775 L 578.999 57.813 L 592.173 57.545 Z" transform="matrix(0.999998, 0, 0, 1, -398.998675, -23.098)" style="fill: rgb(163, 22, 33);" bx:shape="star 596.5 63.5 18.402 18.402 0.4 5 1@6c47e971"/>
+    <path d="M 317.501 22 L 321.828 34.447 L 335.002 34.715 L 324.502 42.677 L 328.317 55.29 L 317.501 47.763 L 306.685 55.29 L 310.5 42.677 L 300 34.715 L 313.174 34.447 Z" style="fill: rgb(163, 22, 33);" bx:shape="star 317.501 40.402 18.402 18.402 0.4 5 1@744b22ed"/>
+    <path d="M 257.501 22 L 261.828 34.447 L 275.002 34.715 L 264.502 42.677 L 268.317 55.29 L 257.501 47.763 L 246.685 55.29 L 250.5 42.677 L 240 34.715 L 253.174 34.447 Z" style="fill: rgb(163, 22, 33);" bx:shape="star 257.501 40.402 18.402 18.402 0.4 5 1@ae5ce5ce"/>
+  </g>
+  <text x="114.289" y="239.367" style="fill: rgb(5, 60, 94); font-family: &quot;Holtwood One SC&quot;; font-size: 72px; white-space: pre;">GREAT</text>
+  <text x="112.162" y="313.794" style="fill: rgb(163, 22, 34); font-family: &quot;Holtwood One SC&quot;; font-size: 72px; white-space: pre;">AGAIN</text>
+  <g transform="matrix(1, 0, 0, 1, -0.000027, 308.681396)">
+    <path d="M 596.5 45.098 L 600.827 57.545 L 614.001 57.813 L 603.501 65.775 L 607.316 78.388 L 596.5 70.861 L 585.684 78.388 L 589.499 65.775 L 578.999 57.813 L 592.173 57.545 Z" transform="matrix(0.999998, 0, 0, 1, -398.998675, -23.098)" style="fill: rgb(5, 60, 94);" bx:shape="star 596.5 63.5 18.402 18.402 0.4 5 1@6c47e971"/>
+    <path d="M 317.501 22 L 321.828 34.447 L 335.002 34.715 L 324.502 42.677 L 328.317 55.29 L 317.501 47.763 L 306.685 55.29 L 310.5 42.677 L 300 34.715 L 313.174 34.447 Z" style="fill: rgb(5, 60, 94);" bx:shape="star 317.501 40.402 18.402 18.402 0.4 5 1@744b22ed"/>
+    <path d="M 257.501 22 L 261.828 34.447 L 275.002 34.715 L 264.502 42.677 L 268.317 55.29 L 257.501 47.763 L 246.685 55.29 L 250.5 42.677 L 240 34.715 L 253.174 34.447 Z" style="fill: rgb(5, 60, 94);" bx:shape="star 257.501 40.402 18.402 18.402 0.4 5 1@ae5ce5ce"/>
+  </g>
+</svg>

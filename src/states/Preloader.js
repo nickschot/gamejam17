@@ -26,7 +26,7 @@ export default class Preloader extends Phaser.State {
     // --------------------------------------------------------------------------
 
     showSplashScreen() {
-        this.add.image(0, 0, 'splash-screen');
+        this.add.image(0, 0, 'shruggie');
         this.load.setPreloadSprite(this.add.image(82, 282, 'progress-bar'));
     }
 
