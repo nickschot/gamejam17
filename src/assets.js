@@ -20,5 +20,14 @@ export default {
     game: [{
         key: 'phaser',
         type: 'image'
+    },{
+        key: 'level',
+        type: 'tilemap',
+        url: 'level.json',
+        format: 'TILED_JSON'
+
+    },{
+        key: 'spritesheet',
+        type: 'image'
     }]
 };
