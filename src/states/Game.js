@@ -19,9 +19,7 @@ export default class Game extends Phaser.State {
         let m = this.add.tilemap('level');
         m.addTilesetImage('spritesheet', 'spritesheet');
 
-        let layer = m.createLayer('Tile Layer 1');
-
-        console.log(m.getTile(1, 1, 'Tile Layer 1'));
+        let layer = m.createLayer('Ground');
 
         this.event_manager = new EventManager();
         this.ui = new UI();
