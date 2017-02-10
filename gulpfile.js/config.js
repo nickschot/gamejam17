@@ -68,6 +68,7 @@ exports.server = {
         server: {
             baseDir: [STATIC, BUILD],
             routes: {
+                '/jquery.js': JQUERY,
                 '/phaser.js': PHASER
             }
         },
