@@ -34,19 +34,22 @@ body {
 
 #game-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    top: 10px;
+    left: 10px;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
     overflow: hidden;
 }
 
 #game-overlay-decree {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 0;
+    left: 0;
     width: calc(100% - 20px);
     height: 200px;
+    transform: translateY(200px);
+
+    transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 #game-overlay-decree-person {
@@ -64,6 +67,11 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+
+    transition: transform 300ms ease-out, opacity 300ms ease-out;
+    transition-delay: 500ms;
+    transform: scale(0);
+    opacity: 0;
 }
 
 #game-overlay-decree-text {
@@ -107,6 +115,17 @@ body {
     border-color: indianred;
     color: indianred;
 }
+
+/** START TRANSITIONS **/
+#game-overlay-decree.open {
+    transform: translateY(0)
+}
+
+#game-overlay-decree.open #game-overlay-decree-person {
+    transform: scale(1);
+    opacity: 1;
+}
+/** END TRANSITIONS **/
 
 canvas {
     border: 10px solid rgb(163, 22, 33);
