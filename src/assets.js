@@ -9,8 +9,9 @@
 export default {
     // -- Splash screen assets used by the Preloader.
     boot: [{
-        key: 'splash-screen',
-        type: 'image'
+        key: 'springlogo',
+        type: 'image',
+        url: 'springfield-logo.svg'
     }, {
         key: 'progress-bar',
         type: 'image'

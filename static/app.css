@@ -1,0 +1,136 @@
+html {
+    box-sizing: border-box;
+}
+
+/*
+red: rgb(163, 22, 33)
+dark blue:  rgb(5, 60, 94)
+light blue: rgb(191, 219, 247)
+*/
+
+html, body {
+    background: rgb(5, 60, 94);
+    overflow: hidden;
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+body {
+    padding: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#game {
+    position: relative;
+}
+
+#game-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    overflow: hidden;
+}
+
+#game-overlay-decree {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 20px);
+    height: 200px;
+    transform: translateY(200px);
+
+    transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#game-overlay-decree-person {
+    float: left;
+    width: calc(25% - 80px);
+    height: calc(100% - 15px);
+
+    border: 5px solid rgb(5, 60, 94);
+    border-radius: 20px;
+    background: #FFF;
+    margin: 0 40px 15px 40px;
+
+    background-color: #FFF;
+    background-image: url('assets/advisor.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: transform 300ms ease-out, opacity 300ms ease-out;
+    transition-delay: 500ms;
+    transform: scale(0);
+    opacity: 0;
+}
+
+#game-overlay-decree-text {
+    float: left;
+    margin-top: 10px;
+    width: 60%;
+    height: calc(100% - 20px);
+    background: saddlebrown;
+    border-radius: 20px;
+}
+
+#game-overlay-decree-buttons {
+    float: left;
+    width: 15%;
+    height: 100%;
+}
+
+#game-overlay-decree-buttons button {
+    border: 5px solid red;
+    border-radius: 20px;
+    height: calc(50% - 20px);
+    width: 80%;
+    margin: 10px;
+    background: none;
+    color: red;
+    font-size: 30px;
+    opacity: 0.8;
+}
+
+#game-overlay-decree-buttons button:hover {
+    opacity: 1.0;
+    cursor: pointer;
+}
+
+#game-overlay-decree-buttons #btn-sign {
+    border-color: yellowgreen;
+    color: yellowgreen;
+}
+
+#game-overlay-decree-buttons #btn-shred {
+    border-color: indianred;
+    color: indianred;
+}
+
+/** START TRANSITIONS **/
+#game-overlay-decree.open {
+    transform: translateY(0)
+}
+
+#game-overlay-decree.open #game-overlay-decree-person {
+    transform: scale(1);
+    opacity: 1;
+}
+/** END TRANSITIONS **/
+
+canvas {
+    border: 10px solid rgb(163, 22, 33);
+    width:100%!important;
+    height:100%!important;
+    max-width:1280px!important;
+    max-height: 720px!important;
+}

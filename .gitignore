@@ -6,9 +6,11 @@ yarn.lock
 dist/
 build/
 node_modules/
+.idea/
 
 !.git*
 !.babelrc
 !.eslint*
 !.yo-rc.json
 !.editorconfig
+

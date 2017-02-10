@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <title>gamejam17</title>
+        <meta name="description" content="">
+        <link href="app.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="game">
+            <div id="game-canvas">
 
-  <head>
-    <meta charset="utf-8">
-    <title>gamejam17</title>
-    <meta name="description" content="">
-    <style>
-      html { box-sizing: border-box; }
-      html, body { background: #000; overflow: hidden; -ms-touch-action: none; touch-action: none; }
-      * { margin: 0; padding: 0; }
-      *, *:before, *:after { box-sizing: inherit; }
-    </style>
-  </head>
+            </div>
+            <div id="game-overlay">
+                <div id="game-overlay-decree">
+                    <div id="game-overlay-decree-person">
 
-  <body>
-    <!-- build:js phaser.min.js -->
-    <script src="phaser.js"></script>
-    <!-- /build -->
-    <!-- NOTE: Add third-party library scripts here. -->
-    <!-- build:js game.min.js -->
-    <script src="game.js"></script>
-    <!-- /build -->
-    <script>window.app.init()</script>
-  </body>
+                    </div>
+                    <div id="game-overlay-decree-text">
 
+                    </div>
+                    <div id="game-overlay-decree-buttons">
+                        <button id="btn-sign">Sign</button>
+                        <button id="btn-shred">Shred</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- build:js phaser.min.js -->
+        <script src="phaser.js"></script>
+        <!-- /build -->
+        <!-- NOTE: Add third-party library scripts here. -->
+        <!-- build:js game.min.js -->
+        <script src="game.js"></script>
+        <!-- /build -->
+        <script>window.app.init()</script>
+    </body>
 </html>

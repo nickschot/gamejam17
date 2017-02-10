@@ -9,7 +9,7 @@
 export default class Logo extends Phaser.Sprite {
 
     constructor(game, x, y) {
-        super(game, x, y, 'phaser');
+        super(game, x, y, 'springlogo');
 
         this.anchor.set(0.5);
     }
