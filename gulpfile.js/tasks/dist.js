@@ -26,6 +26,15 @@ module.exports = function (gulp, $, config) {
             .pipe(gulp.dest(dirs.dist)));
 
     // Copy a minified Phaser build for distribution.
+    gulp.task('copyJquery', () =>
+        gulp.src([files.jquery])
+            .pipe($.sourcemaps.init({loadMaps: true}))
+            .pipe($.uglify())
+            .pipe($.rename('jquery.min.js'))
+            .pipe($.sourcemaps.write('.'))
+            .pipe(gulp.dest(dirs.dist)));
+
+    // Copy a minified Phaser build for distribution.
     gulp.task('copyPhaser', () =>
         gulp.src([files.phaser])
             .pipe($.sourcemaps.init({loadMaps: true}))
