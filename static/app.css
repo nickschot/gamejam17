@@ -30,7 +30,19 @@ body {
 
 #game {
     position: relative;
+    max-width:1280px!important;
+    max-height: 720px!important;
+    margin: 0 auto;
 }
+
+canvas {
+    border: 10px solid rgb(163, 22, 33);
+    width:100%!important;
+    height:100%!important;
+    max-width:1280px!important;
+    max-height: 720px!important;
+}
+
 
 #game-overlay {
     position: absolute;
@@ -126,11 +138,3 @@ body {
     opacity: 1;
 }
 /** END TRANSITIONS **/
-
-canvas {
-    border: 10px solid rgb(163, 22, 33);
-    width:100%!important;
-    height:100%!important;
-    max-width:1280px!important;
-    max-height: 720px!important;
-}
