@@ -38,9 +38,6 @@ export default class Game extends Phaser.State {
 
         this.level = new Level(m, buildingsLayer);
 
-
-
-
     }
 
     update() {

@@ -1,45 +1,182 @@
 [{
-    "text": "Raise our money to 2 Million!",
-    "weight": 1,
-    "spawnconditions": [
-        {
-            "type": "variable_compare",
-            "arguments": {
-                "operator": "equal",
-                "variable": "money",
-                "value": 1000000
-            }
-        }
-    ],
+    "text": "My best friends tell me to raise a wall! This great wall will shield us from evil immigrants!",
+    "weight": 10,
     "impacts": [
         {
             "type": "variable_operator",
             "arguments": {
                 "operator": "multiply",
-                "variable": "money",
+                "variable": "crime",
                 "value": 2
             }
-        }
+        },
+        { "type": "build_wall" }
     ]
 },{
-    "text": "Lower our money to 1 Million!",
+    "text": "We have the best people in Springfield. The best people don't need healthcare, they are already the best.",
     "weight": 1,
-    "spawnconditions": [
-        {
-            "type": "variable_compare",
-            "arguments": {
-                "operator": "equal",
-                "variable": "money",
-                "value": 2000000
-            }
-        }
-    ],
     "impacts": [
         {
             "type": "variable_operator",
             "arguments": {
                 "operator": "divide",
                 "variable": "money",
+                "value": 2
+            }
+        }
+    ]
+},{
+    "text": "The best pipe",
+    "weight": 1,
+    "impacts": [
+        {
+            "type": "building_create",
+            "arguments": {
+                "name": "divide",
+                "type": "",
+                "jobs": 10,
+                "profit": 100,
+                "pollution": 100,
+                "x" : 4,
+                "y" : 4
+            }
+        }
+    ]
+},{
+    "text": "My friends have the best companies.",
+    "weight": 1,
+    "impacts": [
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "divide",
+                "variable": "corporate_tax",
+                "value": 1.5
+            }
+        },
+        {
+            "type": "building_create",
+            "arguments": {
+                "type": "Industrial",
+                "jobs": 100,
+                "profit": 100,
+                "pollution": 100
+            }
+        },
+        {
+            "type": "building_create",
+            "arguments": {
+                "type": "Commercial",
+                "jobs": 100,
+                "profit": 20,
+                "pollution": 10
+            }
+        }
+    ]
+},{
+    "text": "My daughter wants a park. Lets build the best parky park park!",
+    "weight": 1,
+    "impacts": [
+        {
+            "type": "building_create",
+            "arguments": {
+                "type": "Parkje",
+                "jobs": 1,
+                "profit": -1000,
+                "pollution": -100
+            }
+        }
+    ]
+},{
+    "text": "The best energy is coal.",
+    "weight": 1,
+    "impacts": [
+        {
+            "type": "building_create",
+            "arguments": {
+                "type": "Industrial",
+                "jobs": 50,
+                "profit": 200,
+                "pollution": 200
+            }
+        }, {
+            "type": "building_create",
+            "arguments": {
+                "type": "Industrial",
+                "jobs": 50,
+                "profit": 200,
+                "pollution": 200
+            }
+        }
+    ]
+},{
+    "text": "My friends tell me I'm the best rich. Work makes rich. People who don't work are not great.",
+    "weight": 1,
+    "impacts": [
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "assign",
+                "variable": "welfare",
+                "value": 0
+            }
+        },
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "multiply",
+                "variable": "wage",
+                "value": 1.05
+            }
+        }
+    ]
+},{
+    "text": "Bad people are bad. So bad, they are not great. More jails is less bad and more great!",
+    "weight": 1,
+    "impacts": [
+        {
+            "type": "building_create",
+            "arguments": {
+                "type": "Jail",
+                "jobs": 10,
+                "profit": -10000,
+                "pollution": 10
+            }
+        },
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "divide",
+                "variable": "crime",
+                "value": 4
+            }
+        },
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "subtract",
+                "variable": "money",
+                "value": 200000
+            }
+        }
+    ]
+},{
+    "text": "I make the best decisions. Not people. I decide where money goes!",
+    "weight": 1,
+    "impacts": [
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "add",
+                "variable": "money",
+                "value": 500000
+            }
+        },
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "multiply",
+                "variable": "incomeTax",
                 "value": 2
             }
         }
