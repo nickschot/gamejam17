@@ -1,9 +1,8 @@
 
 export default class Level {
 
-    constructor(map, layerMap) {
-        this.map = map;
-        this.layerMap = layerMap;
+    constructor(game) {
+        this.game = game;
 
 
 
@@ -79,5 +78,6 @@ export default class Level {
 
     setBuilding(x, y, building) {
         // TODO: JELTE HALP IK WEET NIET HOE JE DIT WIL
+        this.game.map.putTile( this.game.buildingtypes[building.type].sprite, x, y, 'Buildings');
     }
 }
