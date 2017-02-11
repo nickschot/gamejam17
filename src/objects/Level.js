@@ -1,8 +1,8 @@
 
 export default class Level {
 
-    constructor(map, layer) {
-        this.map = map;
+    constructor(tilemap, layer) {
+        this.tilemap = tilemap;
         this.layer = layer;
 
 
@@ -24,7 +24,7 @@ export default class Level {
         this.jobFulfillment = this.employed / this.jobs;
         this.unemployed = this.population - this.employed;
 
-        for(let tile of tiles)
+        for(let tile of this.tilemap)
         {
             this.calculateTile(tile);
         }
@@ -38,7 +38,6 @@ export default class Level {
 
         this.crime = 0.95 * this.crime + 0.05 * this.unemployed / this.population;
 
-
         if(this.crime > 0.30) {
             this.greatness -= (this.crime - 0.30) * this.population;
         }
@@ -47,29 +46,68 @@ export default class Level {
             this.greatness -= ((this.unemployed/this.population) - 0.30) * this.population;
         }
 
-        for(let tile of tiles)
+        for(let tile of this.tilemap)
         {
             this.updateTile(tile);
         }
 
     }
 
+    getGroundTile(x, y) {
+        return null;
+    }
+
+    getBuilding(x, y) {
+        return null;
+    }
+
     sumTiles(func) {
-        // TODO: Loop over all tiles and excecute func, return sum of results
+        let result = 0;
+        for(let tile of this.tilemap) {
+            result += func(tile);
+        }
+        return result;
     }
 
-    calculateTile(tile) {
-        let neighbourPollution = 0; // TODO!!
+    calculateGroundTile(tile) {
+        let neighbours = [
+            this.getGroundTile(this.x + 1, this.y),
+            this.getGroundTile(this.x - 1, this.y),
+            this.getGroundTile(this.x, this.y + 1),
+            this.getGroundTile(this.x, this.y - 1),
+        ];
+        let neighbourPollution = 0;
 
-        tile.newPollution = 0.05 * neighbourPollution + 0.8 * tile.pollution + tile.building.pollutionPerTick;
+        for(let groundTile of neighbours) {
+            if(groundTile) {
+                neighbourPollution += groundTile.pollution;
+            }
+        }
 
-        let growFactor = Math.min(0.01, Math.max(-0.01, 0.05*(this.jobs - this.population)/this.population));
+        tile.newPollution = 0.05 * neighbourPollution + 0.8 * tile.pollution;
 
-        tile.newPopulation = (1+growFactor) * tile.population;
+        let building = getBuilding(tile.x, tile.y);
+        if(building) {
+            tile.newPollution += building.pollution;
+        }
     }
 
-    updateTile(tile) {
+    calculateBuilding(tile) {
+        if(tile.population) {
+            let growFactor = Math.min(0.01, Math.max(-0.01, 0.05 * (this.jobs - this.population) / this.population));
+            growFactor += Math.min(0, -0.01 * this.crime + 0.005);
+            growFactor += Math.min(0, -0.01 * this.pollution + 0.005);
+            tile.newPopulation = (1 + growFactor) * tile.population;
+        } else {
+            tile.newPopulation = 0;
+        }
+    }
+
+    updateGroundTile(tile) {
         tile.pollution = tile.newPollution;
+    }
+
+    updateBuilding(tile) {
         tile.population = tile.newPopulation;
     }
 
