@@ -42,9 +42,7 @@ export default class Game extends Phaser.State {
         this.shows_popup = false;
         this.current_event = null;
 
-        this.level = new Level(this);
-
-        this.buildingtypes = BuildingType.createBuildingTypeMap(this.cache.getJSON('buildingtypes'));
+        this.level = new Level(m, buildingsLayer);
     }
 
     update() {

@@ -12,6 +12,7 @@ html, body {
     overflow: hidden;
     -ms-touch-action: none;
     touch-action: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -227,7 +228,7 @@ canvas {
     height: 100%;
 }
 
-#sidebar h2 {
+#sidebar h2, #sidebar h3 {
     display: block;
     width: 100%;
     margin: 10px 0 0 0;
@@ -238,13 +239,24 @@ canvas {
     color: rgb(5, 60, 94);
 }
 
+#sidebar h3 {
+    font-size: 30px;
+}
+
+.sidebar-item {
+    width: 170px;
+    border-radius: 15px;
+    box-shadow: 0 2px 3px -1px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.75);
+    margin: 0 15px 5px 15px;
+    overflow: hidden;
+}
+
 #sidebar-greatness {
     height: 150px;
     width: 150px;
     border-radius: 100%;
-    box-shadow: 0 2px 5px 0px rgba(0,0,0,0.5);
-    background: rgba(255,255,255,0.75);
-    margin: 0 25px 25px 25px;
+    margin: 0 25px 15px 25px;
 }
 
 #sidebar-greatness svg {
@@ -284,6 +296,63 @@ canvas {
 #sidebar-greatness[data-percentage='18'] .meter svg { transform: rotate(119.2deg); }
 #sidebar-greatness[data-percentage='19'] .meter svg { transform: rotate(134.1deg); }
 #sidebar-greatness[data-percentage='20'] .meter svg { transform: rotate(149deg); }
+
+#sidebar-tax, #sidebar-income {
+    padding: 10px;
+}
+
+.state-capital-title {
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+    color: rgb(5, 60, 94);
+}
+
+#state-capital {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-family: 'Tangerine', cursive;
+    font-size: 45px;
+    font-weight:bold;
+    color: rgb(5, 60, 94);
+}
+
+.progress {
+    position: relative;
+    overflow: hidden;
+    background: #DDD;
+    height: 16px;
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px 0px rgba(0,0,0,0.2);
+}
+
+.progress:last-child {
+    margin-bottom: 0;
+}
+
+.progress-bar {
+    background: #0c0;
+    height: 100%;
+}
+
+.progress-bar.blue { background: #0078cc; }
+.progress-bar.red  { background: #c00; }
+
+.progress-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    text-shadow: 0.05em 0.05em rgba(0,0,0,0.6);
+    font-size: 10px;
+    line-height: 14px;
+}
 
 /** UTIL **/
 .clear {
