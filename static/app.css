@@ -9,7 +9,6 @@ light blue: rgb(191, 219, 247)
 */
 
 html, body {
-    overflow: hidden;
     -ms-touch-action: none;
     touch-action: none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
