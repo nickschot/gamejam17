@@ -30,7 +30,7 @@
     "weight": 1,
     "impacts": [
         {
-            "type": "building_create",
+            "type": "TODO_building_create",
             "arguments": {
                 "name": "divide",
                 "type": "",
@@ -191,9 +191,7 @@
             "type": "building_create",
             "arguments": {
                 "name": "Blaat B.V.",
-                "type": "Industrial",
-                "x": 2,
-                "y": 2
+                "type": "Industrial"
             }
         }
     ]
