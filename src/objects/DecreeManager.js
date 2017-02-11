@@ -19,29 +19,18 @@ export default class DecreeManager {
 
 
     load_decrees () {
-
-        console.log(this.game.cache.getJSON('decrees'));
-
-
         for (let decree of this.game.cache.getJSON('decrees')) {
             console.log(decree);
             this.decrees.push(Decree.factory(decree));
         }
-
-
     }
 
     spawnDecree(level) {
         let active_decrees = this.decrees.filter(x => x.canSpawn(level));
 
-        console.log(active_decrees);
-
         let total_weight = active_decrees.map(x => x.weight).reduce((pv, cv) => pv+cv, 0);
 
         let decree_roll = choose_in(0, total_weight);
-
-        console.log(decree_roll);
-
         let accum = 0;
 
 

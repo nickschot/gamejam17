@@ -6,4 +6,11 @@ import Impact from './Impact';
 
 export default class BuildingCreateImpact extends Impact {
 
+    execute (level) {
+
+    }
+
+    static factory(args) {
+
+    }
 }

@@ -19,4 +19,6 @@ export default class BuildingType {
         let pollution = Math.floor(Math.random() * this.maxPollution);
         return new Building(game, x, y, name, this, jobs, profit, pollution);
     }
+
+    
 }
