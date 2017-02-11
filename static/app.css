@@ -184,7 +184,7 @@ canvas {
     width: 75px;
     border-radius: 100%;
     box-shadow: 0 2px 3px -1px rgba(0,0,0,0.8);
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.8);
     border: none;
     margin: 0 auto 15px auto;
     display: block;
@@ -192,14 +192,15 @@ canvas {
     line-height: 75px;
     outline:none!important;
 
-    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-    transition-delay: 0s;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out, background 0.2s, box-shadow 0.2s;;
+    transition-delay: 0s!important;
     transform: scale(0);
     opacity: 0;
 }
 
 #game-overlay-decree-buttons button:hover, #game-overlay-news-buttons button:hover {
-    opacity: 1.0;
+    background: rgba(255,255,255,1);
+    box-shadow: 0 6px 16px -1px rgba(0,0,0,0.8);
     cursor: pointer;
 }
 
