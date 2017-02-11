@@ -51,7 +51,7 @@ export default class EventManager {
                 this.spawn_news = false;
             }
 
-            this.seconds_in_window += 1 / 6;
+            this.seconds_in_window += 1 / 60;
         }
 
 
