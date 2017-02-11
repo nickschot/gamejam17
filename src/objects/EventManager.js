@@ -3,12 +3,16 @@
  */
 
 
-import Decree from '../objects/Decree';
-import NewsItem from '../objects/NewsItem';
+import Decree from './showables/Decree';
+import NewsItem from './showables/NewsItem';
+
+
+import DecreeManager from './DecreeManager';
+
 
 export default class EventManager {
 
-    constructor() {
+    constructor(game) {
         this.seconds_in_window = 0;
 
         this.decree_in_window = 0;
@@ -18,6 +22,8 @@ export default class EventManager {
         this.spawn_news = false;
 
         this.plan();
+
+        this.decree_manager = new DecreeManager(game);
     }
 
     spawn() {
@@ -57,7 +63,7 @@ export default class EventManager {
         this.spawn_decree = true;
         this.spawn_news = true;
 
-        console.log("planned: " + this.decree_in_window + " " + this.news_in_window)
+        console.log("planned: " + this.decree_in_window + " " + this.news_in_window);
     }
 
     roll (chance) {

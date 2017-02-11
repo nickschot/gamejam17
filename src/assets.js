@@ -30,5 +30,8 @@ export default {
     },{
         key: 'spritesheet',
         type: 'image'
+    },{
+        key: 'decrees',
+        type: 'json'
     }]
 };

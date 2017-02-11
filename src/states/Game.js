@@ -8,7 +8,6 @@
 import Logo from '../objects/Logo';
 import EventManager from '../objects/EventManager';
 import UI from '../objects/UI';
-
 export default class Game extends Phaser.State {
 
     create() {
@@ -19,25 +18,37 @@ export default class Game extends Phaser.State {
         let m = this.add.tilemap('level');
         m.addTilesetImage('spritesheet', 'spritesheet');
 
+
         let layer = m.createLayer('Ground');
 
-        this.event_manager = new EventManager();
-        this.ui = new UI();
+        this.event_manager = new EventManager(this);
+        this.ui = new UI(this);
 
         this.shows_popup = false;
+        this.current_event = null;
+
+
 
 
     }
 
     update() {
-        if (this.shows_popup) return;
+        if (this.ui.paused) return;
 
         let event = this.event_manager.spawn();
 
         if (event) {
+            this.current_event = event;
             this.ui.show(event);
-
         }
+    }
+
+    current_decree_signed () {
+
+    }
+
+    current_decree_dismissed () {
+
     }
 
 }

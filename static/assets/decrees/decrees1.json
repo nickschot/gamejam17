@@ -1,0 +1,33 @@
+[{
+    'text': "Template of an income tax decree",
+    'weight': 1,
+    'spawnconditions': [
+        {
+            'type': 'variable_compare',
+            'arguments': {
+                'op': 'above',
+                'variable': 'money',
+                'value': 50
+            }
+        }
+    ],
+    'impacts': [
+        {
+            'type': 'variable_assign',
+            'arguments': {
+                'variable': 'income_tax',
+                'range': {
+                    'min': 50,
+                    'max': 75
+                }
+            }
+        },
+        {
+            'type': 'building_create',
+            'arguments': {
+                'building_type': 7,
+
+            }
+        }
+    ]
+}]

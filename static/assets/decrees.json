@@ -1,0 +1,36 @@
+[{
+    "text": "Decree1",
+    "weight": 1,
+    "spawnconditions": [
+    ],
+    "impacts": [
+    ]
+},{
+    "text": "Decree2",
+    "weight": 2,
+    "spawnconditions": [
+    ],
+    "impacts": [
+    ]
+},{
+    "text": "Decree3",
+    "weight": 3,
+    "spawnconditions": [
+    ],
+    "impacts": [
+    ]
+},{
+    "text": "Decree4",
+    "weight": 4,
+    "spawnconditions": [
+    ],
+    "impacts": [
+    ]
+},{
+    "text": "Decree5",
+    "weight": 5,
+    "spawnconditions": [
+    ],
+    "impacts": [
+    ]
+}]

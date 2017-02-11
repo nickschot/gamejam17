@@ -1,0 +1,15 @@
+/**
+ * Created by lennart on 11/02/17.
+ */
+export default class SpawnConditionTemplate extends VariableCompare {
+
+
+    satisfied (level) {
+
+    }
+
+    static factory(arguments) {
+
+    }
+
+}
