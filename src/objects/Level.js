@@ -11,30 +11,31 @@ export default class Level {
         this.wage = 100;
         this.incomeTax = 0.25;
         this.welfare = 70;
+
+        this.setGroundStartState();
+        this.setBuildingStartState();
     }
 
     update() {
-        this.population = this.sumTiles(t => t.population);
-        this.jobs = this.sumTiles(t => t.jobs);
+        this.population = this.sumTiles(t => t.properties.population, 'Buildings');
+        this.jobs = this.sumTiles(t => t.properties.jobs, 'Buildings');
         this.employed = Math.min(this.jobs, this.population);
         this.jobFulfillment = this.employed / this.jobs || 0;
         this.unemployed = this.population - this.employed;
 
-        for(let tile of this.game.map.tiles)
+        for(let tile of this.layerToArray('Ground'))
         {
-            if(tile) {
-                if (tile.layer == this.game.layerMap['ground']) {
-                    this.calculateGroundTile(tile);
-                }
-                if (tile.layer == this.game.layerMap['buildings']) {
-                    this.calculateBuilding(tile);
-                }
-            }
+            this.calculateGroundTile(tile);
+        }
+
+        for(let tile of this.layerToArray('Buildings'))
+        {
+            this.calculateBuilding(tile);
         }
 
         let incomeTax = this.employed * this.wage * this.incomeTax;
-        let corporateTax = this.jobFulfillment * this.sumTiles(t => t.profitPerTick) * this.corporateTax;
-        let buildingCosts = this.sumTiles(t => t.costsPerTick);
+        let corporateTax = this.jobFulfillment * this.sumTiles(t => t.properties.profit, 'Buildings') * this.corporateTax;
+        let buildingCosts = this.sumTiles(t => t.properties.costs, 'Buildings');
         let welfare = this.unemployed * this.welfare;
 
         this.money = this.money + incomeTax + corporateTax - buildingCosts - welfare;
@@ -53,16 +54,33 @@ export default class Level {
             this.greatness -= ((this.unemployed/this.population) - 0.30) * this.population;
         }
 
-        for(let tile of this.game.map.tiles)
+        for(let tile of this.layerToArray('Ground'))
         {
-            if(tile) {
-                if (tile.layer == this.game.layerMap['ground']) {
-                    this.updateGroundTile(tile);
-                }
-                if (tile.layer == this.game.layerMap['buildings']) {
-                    this.updateBuilding(tile);
-                }
-            }
+            this.updateGroundTile(tile);
+        }
+
+        for(let tile of this.layerToArray('Buildings'))
+        {
+            this.updateBuilding(tile);
+        }
+
+        console.log(this);
+    }
+
+    setGroundStartState () {
+        for (let tile of this.layerToArray('Ground')) {
+            tile.properties["pollution"] = 0;
+            //tile.properties["pollution_text"] = this.game.add.text(tile.x * 64, tile.y * 64, "Hoi");
+        }
+    }
+
+    setBuildingStartState () {
+        for (let tile of this.layerToArray('Buildings')) {
+            tile.properties["jobs"] = tile.properties["jobs"] || 0;
+            tile.properties["profit"] = tile.properties["profit"] || 0;
+            tile.properties["pollution"] = tile.properties["pollution"] || 0;
+            tile.properties["costs"] = tile.properties["costs"] || 0;
+            tile.properties["population"] = tile.properties["population"] || 0;
         }
     }
 
@@ -74,56 +92,93 @@ export default class Level {
         return this.game.map.getTile(x, y, this.game.layerMap['buildings']);
     }
 
-    sumTiles(func) {
+    sumTiles(func, layer) {
         let result = 0;
-        for(let tile of this.game.map.tiles) {
-            if(tile) {
-                result += func(tile) || 0;
+        for (let tile of this.layerToArray(layer)) {
+            let val = func(tile);
+            if(val != val) {
+                console.error(func);
+                console.error(layer);
+                console.log(tile);
+
+                throw new Error();
+            }
+            result += func(tile);
+
+
+            if (result != result) {
+                console.error(func);
+                console.error(layer);
+                console.log(tile);
+
+                throw new Error();
             }
         }
+
+
+
         return result;
     }
 
     calculateGroundTile(tile) {
         let neighbours = [
-            this.getGroundTile(this.x + 1, this.y),
-            this.getGroundTile(this.x - 1, this.y),
-            this.getGroundTile(this.x, this.y + 1),
-            this.getGroundTile(this.x, this.y - 1),
+            this.getGroundTile(tile.x + 1, tile.y),
+            this.getGroundTile(tile.x - 1, tile.y),
+            this.getGroundTile(tile.x, tile.y + 1),
+            this.getGroundTile(tile.x, tile.y - 1),
         ];
         let neighbourPollution = 0;
 
         for(let groundTile of neighbours) {
             if(groundTile) {
-                neighbourPollution += groundTile.pollution;
+                neighbourPollution += groundTile.properties.pollution;
             }
         }
 
-        tile.newPollution = 0.05 * neighbourPollution + 0.8 * tile.pollution;
+        tile.properties.newPollution = 0.05 * neighbourPollution + 0.8 * tile.properties.pollution;
 
-        let building = getBuilding(tile.x, tile.y);
+        let building = this.getBuilding(tile.x, tile.y);
         if(building) {
-            tile.newPollution += building.pollution;
+            tile.properties.newPollution += building.properties.pollution;
         }
+
+        if(tile.properties.newPollution != tile.properties.newPollution) {
+            console.error("newPollution ERROR", this, tile, tile.properties.newPollution);
+            throw new Error();
+        }
+
+        tile.properties.newPollution = Math.max(0, Math.max(1, tile.properties.newPollution));
     }
 
     calculateBuilding(tile) {
-        if(tile.population) {
+        let pollution = 0;
+        let groundTile = this.getGroundTile(tile.x, tile.y);
+        if(groundTile) {
+            pollution = groundTile.properties.pollution;
+        }
+
+        if(tile.properties.population) {
             let growFactor = Math.min(0.01, Math.max(-0.01, 0.05 * (this.jobs - this.population) / this.population));
             growFactor += Math.min(0, -0.01 * this.crime + 0.005);
-            growFactor += Math.min(0, -0.01 * this.pollution + 0.005);
-            tile.newPopulation = (1 + growFactor) * tile.population;
+            growFactor += Math.min(0, -0.01 * pollution + 0.005);
+            tile.properties.newPopulation = Math.round((1 + growFactor) * tile.properties.population + Math.random() - 0.5);
         } else {
-            tile.newPopulation = 0;
+            tile.properties.newPopulation = 0;
+        }
+
+        if(tile.properties.newPopulation != tile.properties.newPopulation) {
+            console.error("newPopulation ERROR", this, tile, tile.properties.newPopulation);
+            throw new Error();
         }
     }
 
     updateGroundTile(tile) {
-        tile.pollution = tile.newPollution;
+        tile.properties.pollution = tile.properties.newPollution;
+        //tile.properties.pollution_text.text = Math.round(tile.properties.pollution);
     }
 
     updateBuilding(tile) {
-        tile.population = tile.newPopulation;
+        tile.properties.population = tile.properties.newPopulation;
     }
 
     executeDecree(decree) {
@@ -131,7 +186,29 @@ export default class Level {
     }
 
     setBuilding(x, y, building) {
-        // TODO: JELTE HALP IK WEET NIET HOE JE DIT WIL
-        this.game.map.putTile( this.game.buildingtypes[building.type].sprite, x, y, 'Buildings');
+        console.log(building.type);
+        let tile = this.game.map.putTile( this.game.buildingtypes[building.type].sprite, x, y, 'Buildings');
+
+        tile.properties["jobs"] = tile.properties["jobs"] || 0;
+        tile.properties["profit"] = tile.properties["profit"] || 0;
+        tile.properties["pollution"] = tile.properties["pollution"] || 0;
+        tile.properties["costs"] = tile.properties["costs"] || 0;
+        tile.properties["population"] = tile.properties["population"] || 0;
+    }
+
+    layerToArray (layer) {
+        let arr = [];
+
+        for (let x = 0; x < this.game.map.width; x++) {
+            for (let y = 0; y < this.game.map.height; y++) {
+                let tile = this.game.map.getTile(x, y, layer);
+
+                if (tile) {
+                    arr.push(tile);
+                }
+            }
+        }
+
+        return arr;
     }
 }

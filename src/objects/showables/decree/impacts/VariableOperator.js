@@ -37,8 +37,13 @@ export default class VariableOperatorImpact extends Impact {
     }
 
     static factory(args) {
-        if (!(args.operator && args.variable && args.value)) {
-            throw new Error("This is not a sane spawn condition!");
+        if (typeof args.operator == "undefined"
+                ||
+                typeof args.variable == "undefined"
+                    ||
+                    typeof args.value == "undefined") {
+            console.log(args);
+            throw new Error("This is not a sane variableoperatorimpact!");
         }
 
         return new VariableOperatorImpact(args.operator, args.variable, args.value);
