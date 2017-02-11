@@ -13,6 +13,17 @@ import Level from '../objects/Level';
 
 
 export default class Game extends Phaser.State {
+    map;
+    layerMap;
+    level;
+    buildingtypes;
+
+    tick;
+    event_manager;
+    current_event;
+
+    ui;
+    shows_popup;
 
     create() {
         // TODO: Replace this with a really cool game code here :)
@@ -65,6 +76,7 @@ export default class Game extends Phaser.State {
 
         if(this.tick % 60 == 0) {
             this.level.update();
+            this.ui.update();
         }
 
         this.tick++;

@@ -241,7 +241,7 @@ canvas {
     float: left;
     width: 200px;
     height: 100%;
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
 #sidebar h2, #sidebar h3 {
@@ -269,18 +269,18 @@ canvas {
 }
 
 #sidebar-greatness {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     border-radius: 100%;
-    margin: 0 25px 15px 25px;
+    margin: 0 50px 5px 50px;
     position: relative;
 }
 
 #sidebar-greatness svg {
     display: block;
     margin: 0 auto;
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
 }
 
 #sidebar-greatness svg.meter {
@@ -314,25 +314,47 @@ canvas {
 #sidebar-greatness[data-percentage='19'] svg.meter { transform: rotate(134.1deg); }
 #sidebar-greatness[data-percentage='20'] svg.meter { transform: rotate(149deg); }
 
-#sidebar-tax, #sidebar-income {
+#sidebar-tax, #sidebar-income, #sidebar-balance {
     padding: 10px;
 }
 
-.state-capital-title {
-    text-align: center;
+.state-title {
+    text-align: right;
     margin: 0;
     font-size: 12px;
     color: rgb(5, 60, 94);
 }
 
-#state-capital {
-    text-align: center;
-    margin-top: -10px;
-    margin-bottom: 10px;
+.state-currency, .state-number {
+    text-align: right;
+    margin-top: -6px;
+    margin-bottom: 0;
     font-family: 'Tangerine', cursive;
-    font-size: 45px;
+    font-size: 35px;
     font-weight:bold;
     color: rgb(5, 60, 94);
+}
+
+.state-number {
+    font-size: 30px;
+}
+
+.sidebar-table {
+    display: block;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.sidebar-table td {
+    width: 75px;
+}
+
+.sidebar-table td:first-child h5, .sidebar-table td:first-child div {
+    text-align: left;
+}
+
+.sidebar-table td:last-child h5, .sidebar-table td:last-child div {
+    text-align: right;
 }
 
 .progress {
@@ -357,6 +379,21 @@ canvas {
 
 .progress-bar.blue { background: #0078cc; }
 .progress-bar.red  { background: #c00; }
+
+.progress-bar.left, .progress-bar.right {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-bar.left {
+    margin-right: 50%;
+    border-right: 1px solid black;
+}
+
+.progress-bar.right {
+    margin-left: 50%;
+}
 
 .progress-text {
     position: absolute;
