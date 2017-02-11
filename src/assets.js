@@ -30,5 +30,8 @@ export default {
     },{
         key: 'spritesheet',
         type: 'image'
+    }, {
+        key: 'buildingtypes',
+        type: 'json'
     }]
 };

@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Industrial",
+        "sprite": 14,
+        "possibleNames": ["ChemCorp", "IndustriCorp"]
+    },
+    {
+        "name": "Commercial",
+        "sprite": 15,
+        "possibleNames": ["McTrumps", "Clothes Shop #1"]
+    }
+]
