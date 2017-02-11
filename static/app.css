@@ -177,29 +177,32 @@ canvas {
     width: 100px;
     height: 100%;
     outline: none;
+    overflow: hidden;
 }
 
-#game-overlay-decree-buttons button, #game-overlay-news-buttons button {
+#game-overlay-decree-buttons a, #game-overlay-news-buttons a {
     height: 75px;
     width: 75px;
     border-radius: 100%;
     box-shadow: 0 2px 3px -1px rgba(0,0,0,0.8);
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.8);
     border: none;
     margin: 0 auto 15px auto;
     display: block;
     font-size: 75px;
     line-height: 75px;
     outline:none!important;
+    text-align: center;
 
-    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-    transition-delay: 0s;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out, background 0.2s, box-shadow 0.2s;;
+    transition-delay: 0s!important;
     transform: scale(0);
     opacity: 0;
 }
 
-#game-overlay-decree-buttons button:hover, #game-overlay-news-buttons button:hover {
-    opacity: 1.0;
+#game-overlay-decree-buttons a:hover, #game-overlay-news-buttons a:hover {
+    background: rgba(255,255,255,1);
+    box-shadow: 0 6px 16px -1px rgba(0,0,0,0.8);
     cursor: pointer;
 }
 
@@ -223,7 +226,7 @@ canvas {
     background-size: contain;*/
 }
 
-#game-overlay-news-buttons button {
+#game-overlay-news-buttons a {
     border-color: #FFF;
     color: #FFF;
 }
@@ -234,7 +237,7 @@ canvas {
     transition-delay: 0s;
 }
 
-#game-overlay-decree.open #game-overlay-decree-person, #game-overlay-decree.open #game-overlay-decree-buttons button {
+#game-overlay-decree.open #game-overlay-decree-person, #game-overlay-decree.open #game-overlay-decree-buttons a {
     transform: scale(1);
     opacity: 1;
     transition-delay: 600ms;
