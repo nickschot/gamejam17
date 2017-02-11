@@ -5,9 +5,6 @@ export default class Level {
         this.tilemap = tilemap;
         this.layerMap = layerMap;
 
-
-
-
         this.money = 1000000;
         this.crime = 0.0;
         this.greatness = 0;
@@ -21,12 +18,19 @@ export default class Level {
         this.population = this.sumTiles(t => t.population);
         this.jobs = this.sumTiles(t => t.jobs);
         this.employed = Math.min(this.jobs, this.population);
-        this.jobFulfillment = this.employed / this.jobs;
+        this.jobFulfillment = this.employed / this.jobs || 0;
         this.unemployed = this.population - this.employed;
 
-        for(let tile of this.tilemap)
+        for(let tile of this.tilemap.tiles)
         {
-            this.calculateTile(tile);
+            if(tile) {
+                if (tile.layer == this.layerMap['ground']) {
+                    this.calculateGroundTile(tile);
+                }
+                if (tile.layer == this.layerMap['buildings']) {
+                    this.calculateBuilding(tile);
+                }
+            }
         }
 
         let incomeTax = this.employed * this.wage * this.incomeTax;
@@ -36,7 +40,11 @@ export default class Level {
 
         this.money = this.money + incomeTax + corporateTax - buildingCosts - welfare;
 
-        this.crime = 0.95 * this.crime + 0.05 * this.unemployed / this.population;
+        if(this.population) {
+            this.crime = 0.95 * this.crime + 0.05 * this.unemployed / this.population;
+        } else {
+            this.crime = 0;
+        }
 
         if(this.crime > 0.30) {
             this.greatness -= (this.crime - 0.30) * this.population;
@@ -46,25 +54,33 @@ export default class Level {
             this.greatness -= ((this.unemployed/this.population) - 0.30) * this.population;
         }
 
-        for(let tile of this.tilemap)
+        for(let tile of this.tilemap.tiles)
         {
-            this.updateTile(tile);
+            if(tile) {
+                if (tile.layer == this.layerMap['ground']) {
+                    this.updateGroundTile(tile);
+                }
+                if (tile.layer == this.layerMap['buildings']) {
+                    this.updateBuilding(tile);
+                }
+            }
         }
-
     }
 
     getGroundTile(x, y) {
-        return null;
+        return this.tilemap.getTile(x, y, this.layerMap['ground']);
     }
 
     getBuilding(x, y) {
-        return null;
+        return this.tilemap.getTile(x, y, this.layerMap['buildings']);
     }
 
     sumTiles(func) {
         let result = 0;
-        for(let tile of this.tilemap) {
-            result += func(tile);
+        for(let tile of this.tilemap.tiles) {
+            if(tile) {
+                result += func(tile) || 0;
+            }
         }
         return result;
     }

@@ -19,6 +19,7 @@ export default class Game extends Phaser.State {
         const {centerX: x, centerY: y} = this.world;
         //this.add.existing(new Logo(this.game, x, y));
 
+        this.tick = 0;
 
         let m = this.add.tilemap('level');
         m.addTilesetImage('spritesheet', 'spritesheet');
@@ -31,7 +32,7 @@ export default class Game extends Phaser.State {
             'ground': layerGround,
             'roads': layerRoads,
             'buildings': buildingsLayer
-        }
+        };
 
         this.buildingtypes = [];
         this.createBuildingTypes();
@@ -46,7 +47,6 @@ export default class Game extends Phaser.State {
 
 
 
-
     }
 
     update() {
@@ -58,6 +58,12 @@ export default class Game extends Phaser.State {
             this.current_event = event;
             this.ui.show(event);
         }
+
+        if(this.tick % 60 == 0) {
+            this.level.update();
+        }
+
+        this.tick++;
     }
 
     current_decree_signed () {
