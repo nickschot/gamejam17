@@ -1,7 +1,13 @@
 
 export default class Level {
 
-    constructor() {
+    constructor(map, layer) {
+        this.map = map;
+        this.layer = layer;
+
+
+
+
         this.money = 1000000;
         this.crime = 0.0;
         this.greatness = 0;
