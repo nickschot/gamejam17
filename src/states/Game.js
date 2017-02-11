@@ -19,16 +19,22 @@ export default class Game extends Phaser.State {
         const {centerX: x, centerY: y} = this.world;
         //this.add.existing(new Logo(this.game, x, y));
 
+        this.tick = 0;
 
         let m = this.add.tilemap('level');
         m.addTilesetImage('spritesheet', 'spritesheet');
+
+        this.map = m;
 
         let layerGround = m.createLayer('Ground');
         let layerRoads = m.createLayer('Roads');
         let buildingsLayer = m.createLayer('Buildings');
 
-        this.buildingtypes = [];
-        this.createBuildingTypes();
+        this.layerMap = {
+            'ground': layerGround,
+            'roads': layerRoads,
+            'buildings': buildingsLayer
+        };
 
         this.event_manager = new EventManager(this);
         this.ui = new UI(this);
@@ -37,7 +43,6 @@ export default class Game extends Phaser.State {
         this.current_event = null;
 
         this.level = new Level(m, buildingsLayer);
-
     }
 
     update() {
@@ -49,6 +54,12 @@ export default class Game extends Phaser.State {
             this.current_event = event;
             this.ui.show(event);
         }
+
+        if(this.tick % 60 == 0) {
+            this.level.update();
+        }
+
+        this.tick++;
     }
 
     current_decree_signed () {
@@ -60,13 +71,4 @@ export default class Game extends Phaser.State {
 
 
     }
-
-    createBuildingTypes() {
-        let data = this.game.cache.getJSON('buildingtypes');
-        data.forEach(function(x) {
-            let bt = new BuildingType(x.name, x.sprite, x.possibleNames);
-            //TODO: boundness of this this.buildingtypes.push(bt);
-        });
-    }
-
 }

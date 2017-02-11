@@ -9,14 +9,14 @@ light blue: rgb(191, 219, 247)
 */
 
 html, body {
-    background: rgb(5, 60, 94);
     overflow: hidden;
     -ms-touch-action: none;
     touch-action: none;
 }
 
 body {
-    padding: 10px;
+    padding: 0;
+    background: #eee9d0;
 }
 
 * {
@@ -28,15 +28,40 @@ body {
     box-sizing: inherit;
 }
 
+#game-wrapper {
+    margin: 0 auto;
+    max-width:1280px!important;
+    max-height: 720px!important;
+    overflow:hidden;
+}
+
+.stars {
+    height: 34px;
+    width: 100%;
+    background-color: rgb(5, 60, 94);
+    background-image: url('assets/star.svg');
+    background-size: 20px;
+    background-position: 3px 3px;
+    background-repeat: repeat-x;
+    border: 7px solid rgb(163, 22, 33);
+    border-left: 0;
+    border-right: 0;
+}
+
 #game {
     position: relative;
     max-width:1280px!important;
     max-height: 720px!important;
-    margin: 0 auto;
+    margin: 0;
+    background: rgb(191, 219, 247);
+}
+#game-canvas {
+    position: relative;
+    width: calc(100% - 200px);
+    float: left;
 }
 
 canvas {
-    border: 10px solid rgb(163, 22, 33);
     width:100%!important;
     height:100%!important;
     max-width:1280px!important;
@@ -195,3 +220,72 @@ canvas {
     opacity: 1;
 }
 /** END TRANSITIONS **/
+
+#sidebar {
+    float: left;
+    width: 200px;
+    height: 100%;
+}
+
+#sidebar h2 {
+    display: block;
+    width: 100%;
+    margin: 10px 0 0 0;
+    font-family: 'Tangerine', cursive;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    color: rgb(5, 60, 94);
+}
+
+#sidebar-greatness {
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    box-shadow: 0 2px 5px 0px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.75);
+    margin: 0 25px 25px 25px;
+}
+
+#sidebar-greatness svg {
+    display: block;
+    margin: 0 auto;
+}
+
+#sidebar-greatness svg, #sidebar-greatness .meter {
+    height: 150px;
+    width: 150px;
+}
+
+#sidebar-greatness .meter svg {
+    transform-origin: center!important;
+    transform: rotate(0deg);
+    transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#sidebar-greatness[data-percentage='0']  .meter svg { transform: rotate(-149deg); }
+#sidebar-greatness[data-percentage='1']  .meter svg { transform: rotate(-134.1deg); }
+#sidebar-greatness[data-percentage='2']  .meter svg { transform: rotate(-119.2deg); }
+#sidebar-greatness[data-percentage='3']  .meter svg { transform: rotate(-104.3deg); }
+#sidebar-greatness[data-percentage='4']  .meter svg { transform: rotate(-89.4deg); }
+#sidebar-greatness[data-percentage='5']  .meter svg { transform: rotate(-74.5deg); }
+#sidebar-greatness[data-percentage='6']  .meter svg { transform: rotate(-59.6deg); }
+#sidebar-greatness[data-percentage='7']  .meter svg { transform: rotate(-44.7deg); }
+#sidebar-greatness[data-percentage='8']  .meter svg { transform: rotate(-29.8deg); }
+#sidebar-greatness[data-percentage='9']  .meter svg { transform: rotate(-14.9deg); }
+#sidebar-greatness[data-percentage='10'] .meter svg { transform: rotate(0deg); }
+#sidebar-greatness[data-percentage='11'] .meter svg { transform: rotate(14.9deg); }
+#sidebar-greatness[data-percentage='12'] .meter svg { transform: rotate(29.8deg); }
+#sidebar-greatness[data-percentage='13'] .meter svg { transform: rotate(44.7deg); }
+#sidebar-greatness[data-percentage='14'] .meter svg { transform: rotate(59.6deg); }
+#sidebar-greatness[data-percentage='15'] .meter svg { transform: rotate(74.5deg); }
+#sidebar-greatness[data-percentage='16'] .meter svg { transform: rotate(89.4deg); }
+#sidebar-greatness[data-percentage='17'] .meter svg { transform: rotate(104.3deg); }
+#sidebar-greatness[data-percentage='18'] .meter svg { transform: rotate(119.2deg); }
+#sidebar-greatness[data-percentage='19'] .meter svg { transform: rotate(134.1deg); }
+#sidebar-greatness[data-percentage='20'] .meter svg { transform: rotate(149deg); }
+
+/** UTIL **/
+.clear {
+    clear: both;
+}

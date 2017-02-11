@@ -181,4 +181,20 @@
             }
         }
     ]
+},{
+    "text": "Lets build a factory!",
+    "weight": 100,
+    "spawnconditions": [
+    ],
+    "impacts": [
+        {
+            "type": "building_create",
+            "arguments": {
+                "name": "Blaat B.V.",
+                "type": "Industrial",
+                "x": 2,
+                "y": 2
+            }
+        }
+    ]
 }]
