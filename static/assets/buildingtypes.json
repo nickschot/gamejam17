@@ -1,7 +1,7 @@
 [
     {
         "name": "Industrial",
-        "sprite": 14,
+        "sprite": 62,
         "possibleNames": ["ChemCorp", "IndustriCorp"]
     },
     {

@@ -1,9 +1,8 @@
 
 export default class Level {
 
-    constructor(tilemap, layerMap) {
-        this.tilemap = tilemap;
-        this.layerMap = layerMap;
+    constructor(game) {
+        this.game = game;
 
         this.money = 1000000;
         this.crime = 0.0;
@@ -21,13 +20,13 @@ export default class Level {
         this.jobFulfillment = this.employed / this.jobs || 0;
         this.unemployed = this.population - this.employed;
 
-        for(let tile of this.tilemap.tiles)
+        for(let tile of this.game.map.tiles)
         {
             if(tile) {
-                if (tile.layer == this.layerMap['ground']) {
+                if (tile.layer == this.game.layerMap['ground']) {
                     this.calculateGroundTile(tile);
                 }
-                if (tile.layer == this.layerMap['buildings']) {
+                if (tile.layer == this.game.layerMap['buildings']) {
                     this.calculateBuilding(tile);
                 }
             }
@@ -54,13 +53,13 @@ export default class Level {
             this.greatness -= ((this.unemployed/this.population) - 0.30) * this.population;
         }
 
-        for(let tile of this.tilemap.tiles)
+        for(let tile of this.game.map.tiles)
         {
             if(tile) {
-                if (tile.layer == this.layerMap['ground']) {
+                if (tile.layer == this.game.layerMap['ground']) {
                     this.updateGroundTile(tile);
                 }
-                if (tile.layer == this.layerMap['buildings']) {
+                if (tile.layer == this.game.layerMap['buildings']) {
                     this.updateBuilding(tile);
                 }
             }
@@ -68,16 +67,16 @@ export default class Level {
     }
 
     getGroundTile(x, y) {
-        return this.tilemap.getTile(x, y, this.layerMap['ground']);
+        return this.game.map.getTile(x, y, this.game.layerMap['ground']);
     }
 
     getBuilding(x, y) {
-        return this.tilemap.getTile(x, y, this.layerMap['buildings']);
+        return this.game.map.getTile(x, y, this.game.layerMap['buildings']);
     }
 
     sumTiles(func) {
         let result = 0;
-        for(let tile of this.tilemap.tiles) {
+        for(let tile of this.game.map.tiles) {
             if(tile) {
                 result += func(tile) || 0;
             }
@@ -133,5 +132,6 @@ export default class Level {
 
     setBuilding(x, y, building) {
         // TODO: JELTE HALP IK WEET NIET HOE JE DIT WIL
+        this.game.map.putTile( this.game.buildingtypes[building.type].sprite, x, y, 'Buildings');
     }
 }
