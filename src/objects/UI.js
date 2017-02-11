@@ -52,7 +52,7 @@ export default class UI {
             jobs
         } = this.gamestate.level;
 
-        $('#state-greatness');
+        $('#sidebar-greatness').attr('data-percentage', Math.round(greatness*20));
         $('#state-capital').html(`\$${this._toDecimalNumber(money)}`);
         $('#state-population').html(`${this._toDecimalNumber(population)}`);
         $('#state-jobs').html(`${this._toDecimalNumber(jobs)}`);
