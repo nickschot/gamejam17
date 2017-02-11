@@ -3,12 +3,16 @@
  */
 
 
-import Decree from '../objects/Decree';
-import NewsItem from '../objects/NewsItem';
+import Decree from './showables/decree/Decree';
+import NewsItem from './showables/NewsItem';
+
+
+import DecreeManager from './DecreeManager';
+
 
 export default class EventManager {
 
-    constructor() {
+    constructor(game) {
         this.seconds_in_window = 0;
 
         this.decree_in_window = 0;
@@ -18,6 +22,10 @@ export default class EventManager {
         this.spawn_news = false;
 
         this.plan();
+
+        this.decree_manager = new DecreeManager(game);
+
+        this.game = game;
     }
 
     spawn() {
@@ -32,7 +40,7 @@ export default class EventManager {
             if (this.spawn_decree && this.seconds_in_window >= this.decree_in_window) {
                 console.log("Spawning a decree!");
 
-                result = new Decree("I Ronald Rumph hereby sign into law!");
+                result = this.decree_manager.spawnDecree(this.game.level);
 
                 this.spawn_decree = false;
             } else if (this.spawn_news && this.seconds_in_window >= this.news_in_window) {
@@ -43,7 +51,7 @@ export default class EventManager {
                 this.spawn_news = false;
             }
 
-            this.seconds_in_window += 1 / 60;
+            this.seconds_in_window += 1 / 6;
         }
 
 
@@ -55,9 +63,9 @@ export default class EventManager {
         this.decree_in_window = this.choose_in(15, 25);
 
         this.spawn_decree = true;
-        this.spawn_news = true;
+        //this.spawn_news = true;
 
-        console.log("planned: " + this.decree_in_window + " " + this.news_in_window)
+        console.log("planned: " + this.decree_in_window + " " + this.news_in_window);
     }
 
     roll (chance) {

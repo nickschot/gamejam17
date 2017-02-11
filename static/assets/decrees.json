@@ -1,0 +1,47 @@
+[{
+    "text": "Raise our money to 2 Million!",
+    "weight": 1,
+    "spawnconditions": [
+        {
+            "type": "variable_compare",
+            "arguments": {
+                "operator": "equal",
+                "variable": "money",
+                "value": 1000000
+            }
+        }
+    ],
+    "impacts": [
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "multiply",
+                "variable": "money",
+                "value": 2
+            }
+        }
+    ]
+},{
+    "text": "Lower our money to 1 Million!",
+    "weight": 1,
+    "spawnconditions": [
+        {
+            "type": "variable_compare",
+            "arguments": {
+                "operator": "equal",
+                "variable": "money",
+                "value": 2000000
+            }
+        }
+    ],
+    "impacts": [
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "divide",
+                "variable": "money",
+                "value": 2
+            }
+        }
+    ]
+}]

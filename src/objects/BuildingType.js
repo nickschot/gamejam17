@@ -1,13 +1,15 @@
-import Building from 'Building';
+import Building from './Building';
 
 export default class BuildingType {
 
-    maxPollution = 10;
-    maxJobs = 100;
-    maxProfit = 1000;
+
 
     constructor(name, sprite, possibleNames) {
         this.name = name; this.sprite = sprite; this.possibleNames = possibleNames;
+
+        this.maxPollution = 10;
+        this.maxJobs = 100;
+        this.maxProfit = 1000;
     }
 
     createBuilding(game, x, y){

@@ -113,6 +113,12 @@ canvas {
     background-image: url('assets/scroll-mid.png');
     background-repeat: repeat-x;
     background-size: contain;
+
+    padding: 20px;
+    padding-top: 50px;
+
+    font-size: 20pt;
+    font-family: 'Tangerine', cursive;
 }
 
 #game-overlay-decree-text::after {

@@ -30,6 +30,9 @@ export default {
     },{
         key: 'spritesheet',
         type: 'image'
+    },{
+        key: 'decrees',
+        type: 'json'
     }, {
         key: 'buildingtypes',
         type: 'json'
