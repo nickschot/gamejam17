@@ -147,7 +147,7 @@ export default class Level {
             throw new Error();
         }
 
-        tile.properties.newPollution = Math.max(0, Math.max(1, tile.properties.newPollution));
+        tile.properties.newPollution = Math.max(0, Math.min(1, tile.properties.newPollution));
     }
 
     calculateBuilding(tile) {
