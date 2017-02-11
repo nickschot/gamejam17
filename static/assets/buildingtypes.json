@@ -7,6 +7,16 @@
     {
         "name": "Commercial",
         "sprite": 15,
-        "possibleNames": ["McTrumps", "Clothes Shop #1"]
+        "possibleNames": ["McDrumpfs", "Clothes Shop #1", "The great mall", "Tremendous shops"]
+    },
+    {
+        "name": "Parkje",
+        "sprite": 16,
+        "possibleNames": ["The best park", "Great park", "Parky mcparkface", "Park Orwell", "Parky park park"]
+    },
+    {
+        "name": "Wall",
+        "sprite": 17,
+        "possibleNames": ["The best wall", "Great wall"]
     }
 ]

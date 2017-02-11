@@ -30,21 +30,27 @@ export default class Game extends Phaser.State {
         let layerRoads = m.createLayer('Roads');
         let buildingsLayer = m.createLayer('Buildings');
 
+        let collisionLayer = m.createLayer('BuildingSpots');
+        collisionLayer.visible = false;
+
         this.layerMap = {
             'ground': layerGround,
             'roads': layerRoads,
             'buildings': buildingsLayer
         };
 
+
+        this.buildingtypes = BuildingType.createBuildingTypeMap(this.cache.getJSON('buildingtypes'));
+
+        this.level = new Level(this);
+
         this.event_manager = new EventManager(this);
         this.ui = new UI(this);
+
 
         this.shows_popup = false;
         this.current_event = null;
 
-        this.level = new Level(this);
-
-        this.buildingtypes = BuildingType.createBuildingTypeMap(this.cache.getJSON('buildingtypes'));
     }
 
     update() {
