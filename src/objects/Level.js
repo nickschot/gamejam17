@@ -1,9 +1,8 @@
 
 export default class Level {
 
-    constructor(map, layer) {
-        this.map = map;
-        this.layer = layer;
+    constructor(game) {
+        this.game = game;
 
         this.money = 1000000;
         this.crime = 0.0;
@@ -183,8 +182,14 @@ export default class Level {
     }
 
     setBuilding(x, y, building) {
-        // TODO: JELTE HALP IK WEET NIET HOE JE DIT WIL
-        this.game.map.putTile( this.game.buildingtypes[building.type].sprite, x, y, 'Buildings');
+        console.log(building.type);
+        let tile = this.game.map.putTile( this.game.buildingtypes[building.type].sprite, x, y, 'Buildings');
+
+        tile.properties["jobs"] = tile.properties["jobs"] || 0;
+        tile.properties["profit"] = tile.properties["profit"] || 0;
+        tile.properties["pollution"] = tile.properties["pollution"] || 0;
+        tile.properties["costs"] = tile.properties["costs"] || 0;
+        tile.properties["population"] = tile.properties["population"] || 0;
     }
 
     layerToArray (layer) {

@@ -1,6 +1,5 @@
 export default class Building {
-    constructor(name, type, jobs, profit, pollution) {
-        this.name = name;
+    constructor(type, jobs, profit, pollution) {
         this.type = type;
         this.jobs = jobs;
         this.profit = profit;
@@ -8,14 +7,14 @@ export default class Building {
     }
 
     static factory (jsonobj) {
-        if (!(jsonobj.name && jsonobj.type)) {
-            throw new Error("This is not a sane building!");
+        if (!(jsonobj.type)) {
+            throw new Error("This is not a sane building!", jsonobj);
         }
 
         let jobs = jsonobj.jobs | 0;
         let profit = jsonobj.profit | 0;
         let pollution = jsonobj.pollution | 0;
 
-        return new Building(jsonobj.name, jsonobj.type, jobs, profit, pollution);
+        return new Building(jsonobj.type, jobs, profit, pollution);
     }
 }

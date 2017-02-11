@@ -34,11 +34,14 @@ export default class Decree extends Showable {
 
 
     static factory(jsonobj) {
-        if (!(jsonobj.text && jsonobj.weight && jsonobj.spawnconditions && jsonobj.impacts)) {
+        if (!(jsonobj.text && jsonobj.weight)) {
             throw new Error("This is not a sane decree!");
         }
 
-        return new Decree(jsonobj.text, jsonobj.weight, jsonobj.spawnconditions.map(x => SpawnConditionFactory.factory(x)), jsonobj.impacts.map(y => ImpactFactory.factory(y)));
+        let spawnconditions =  jsonobj.spawnconditions || [];
+        let impacts =  jsonobj.impacts || [];
+
+        return new Decree(jsonobj.text, jsonobj.weight, spawnconditions.map(x => SpawnConditionFactory.factory(x)), impacts.map(y => ImpactFactory.factory(y)));
     }
 
 
