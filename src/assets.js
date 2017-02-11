@@ -33,5 +33,8 @@ export default {
     },{
         key: 'decrees',
         type: 'json'
+    }, {
+        key: 'buildingtypes',
+        type: 'json'
     }]
 };
