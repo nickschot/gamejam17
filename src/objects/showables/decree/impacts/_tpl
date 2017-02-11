@@ -1,0 +1,13 @@
+import Impact from './Impact';
+
+export default class ImpactName extends Impact {
+
+    execute (level) {
+
+    }
+
+    static factory(args) {
+
+    }
+
+}

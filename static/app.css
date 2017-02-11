@@ -53,9 +53,8 @@ canvas {
     overflow: hidden;
 }
 
-#game-overlay-decree {
+#game-overlay-decree, #game-overlay-news {
     position: absolute;
-    padding-left: 220px;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -63,6 +62,10 @@ canvas {
     transform: translateY(250px);
 
     transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#game-overlay-decree {
+    padding-left: 220px;
 }
 
 #game-overlay-decree-person {
@@ -113,6 +116,12 @@ canvas {
     background-image: url('assets/scroll-mid.png');
     background-repeat: repeat-x;
     background-size: contain;
+
+    padding: 20px;
+    padding-top: 50px;
+
+    font-size: 20pt;
+    font-family: 'Tangerine', cursive;
 }
 
 #game-overlay-decree-text::after {
@@ -121,14 +130,14 @@ canvas {
     width: 50px;
 }
 
-#game-overlay-decree-buttons {
+#game-overlay-decree-buttons, #game-overlay-news-buttons {
     float: left;
     width: 20%;
     height: 100%;
     outline: none;
 }
 
-#game-overlay-decree-buttons button {
+#game-overlay-decree-buttons button, #game-overlay-news-buttons button {
     border: 5px solid red;
     border-radius: 20px;
     height: calc(50% - 20px);
@@ -141,9 +150,10 @@ canvas {
     font-family: "Courier New", Courier, monospace;
     opacity: 0.8;
     background: rgba(0,0,0,0.4);
+    outline:none!important;
 }
 
-#game-overlay-decree-buttons button:hover {
+#game-overlay-decree-buttons button:hover, #game-overlay-news-buttons button:hover {
     opacity: 1.0;
     cursor: pointer;
 }
@@ -158,8 +168,25 @@ canvas {
     color: indianred;
 }
 
+#game-overlay-news-text {
+    position: relative;
+    float: left;
+    margin: -20px 70px 0 66px;
+    width: calc(80% - 136px);
+    height: 100%;
+    background: #FFF;
+    /*background-image: url('assets/scroll-mid.png');
+    background-repeat: repeat-x;
+    background-size: contain;*/
+}
+
+#game-overlay-news-buttons button {
+    border-color: #FFF;
+    color: #FFF;
+}
+
 /** START TRANSITIONS **/
-#game-overlay-decree.open {
+#game-overlay-decree.open, #game-overlay-news.open {
     transform: translateY(0)
 }
 

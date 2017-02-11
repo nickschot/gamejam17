@@ -1,0 +1,14 @@
+import SpawnCondition from './SpawnCondition';
+
+export default class SpawnConditionTemplate extends SpawnCondition {
+
+
+    satisfied (level) {
+
+    }
+
+    static factory(arguments) {
+
+    }
+
+}
