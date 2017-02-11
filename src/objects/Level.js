@@ -1,9 +1,9 @@
 
 export default class Level {
 
-    constructor(tilemap, layer) {
+    constructor(tilemap, layerMap) {
         this.tilemap = tilemap;
-        this.layer = layer;
+        this.layerMap = layerMap;
 
 
 
@@ -113,5 +113,9 @@ export default class Level {
 
     executeDecree(decree) {
         decree.execute(this);
+    }
+
+    setBuilding(x, y, building) {
+        // TODO: JELTE HALP IK WEET NIET HOE JE DIT WIL
     }
 }
