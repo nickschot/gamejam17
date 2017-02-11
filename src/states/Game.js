@@ -9,6 +9,8 @@ import Logo from '../objects/Logo';
 import EventManager from '../objects/EventManager';
 import UI from '../objects/UI';
 import BuildingType from '../objects/BuildingType';
+import Level from '../objects/Level';
+
 
 export default class Game extends Phaser.State {
 
@@ -33,6 +35,8 @@ export default class Game extends Phaser.State {
         this.shows_popup = false;
         this.current_event = null;
 
+        this.level = new Level();
+
 
 
 
@@ -50,6 +54,7 @@ export default class Game extends Phaser.State {
     }
 
     current_decree_signed () {
+        this.level.executeDecree(this.current_event);
 
     }
 

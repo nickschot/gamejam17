@@ -1,8 +1,11 @@
 /**
  * Created by lennart on 11/02/17.
  */
-export default class VariableCompareSpawnCondition extends VariableCompare {
+import SpawnCondition from './SpawnCondition';
+
+export default class VariableCompareSpawnCondition extends SpawnCondition {
     constructor (operator, variable, value) {
+        super();
         this.operator = operator;
         this.variable = variable;
         this.value = value;
@@ -10,6 +13,8 @@ export default class VariableCompareSpawnCondition extends VariableCompare {
 
 
     satisfied (level) {
+        console.log(level);
+
         switch (this.operator) {
             case 'above':
                 return level[this.variable] > this.value;
@@ -25,12 +30,12 @@ export default class VariableCompareSpawnCondition extends VariableCompare {
 
     }
 
-    static factory(arguments) {
-        if (!(arguments.operator && arguments.variable && arguments.value)) {
+    static factory(args) {
+        if (!(args.operator && args.variable && args.value)) {
             throw new Error("This is not a sane spawn condition!");
         }
 
-        return new VariableCompareSpawnCondition(arguments.operator, arguments.variable, arguments.value);
+        return new VariableCompareSpawnCondition(args.operator, args.variable, args.value);
 
     }
 

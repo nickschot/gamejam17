@@ -1,36 +1,47 @@
 [{
-    "text": "Decree1",
+    "text": "Raise our money to 2 Million!",
     "weight": 1,
     "spawnconditions": [
+        {
+            "type": "variable_compare",
+            "arguments": {
+                "operator": "equal",
+                "variable": "money",
+                "value": 1000000
+            }
+        }
     ],
     "impacts": [
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "multiply",
+                "variable": "money",
+                "value": 2
+            }
+        }
     ]
 },{
-    "text": "Decree2",
-    "weight": 2,
+    "text": "Lower our money to 1 Million!",
+    "weight": 1,
     "spawnconditions": [
+        {
+            "type": "variable_compare",
+            "arguments": {
+                "operator": "equal",
+                "variable": "money",
+                "value": 2000000
+            }
+        }
     ],
     "impacts": [
-    ]
-},{
-    "text": "Decree3",
-    "weight": 3,
-    "spawnconditions": [
-    ],
-    "impacts": [
-    ]
-},{
-    "text": "Decree4",
-    "weight": 4,
-    "spawnconditions": [
-    ],
-    "impacts": [
-    ]
-},{
-    "text": "Decree5",
-    "weight": 5,
-    "spawnconditions": [
-    ],
-    "impacts": [
+        {
+            "type": "variable_operator",
+            "arguments": {
+                "operator": "divide",
+                "variable": "money",
+                "value": 2
+            }
+        }
     ]
 }]

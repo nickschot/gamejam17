@@ -18,7 +18,7 @@ export default class Level {
         this.jobFulfillment = this.employed / this.jobs;
         this.unemployed = this.population - this.employed;
 
-        for(let tile in tiles)
+        for(let tile of tiles)
         {
             this.calculateTile(tile);
         }
@@ -41,7 +41,7 @@ export default class Level {
             this.greatness -= ((this.unemployed/this.population) - 0.30) * this.population;
         }
 
-        for(let tile in tiles)
+        for(let tile of tiles)
         {
             this.updateTile(tile);
         }
@@ -68,6 +68,6 @@ export default class Level {
     }
 
     executeDecree(decree) {
-        // TODO DO STUFF
+        decree.execute(this);
     }
 }

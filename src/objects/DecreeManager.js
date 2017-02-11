@@ -3,7 +3,7 @@
  */
 
 import {choose_in} from './RandomUtils';
-import Decree from './showables/Decree';
+import Decree from './showables/decree/Decree';
 
 export default class DecreeManager {
 
@@ -32,7 +32,9 @@ export default class DecreeManager {
     }
 
     spawnDecree(level) {
-        let active_decrees = this.decrees.filter(x => x.canSpawn);
+        let active_decrees = this.decrees.filter(x => x.canSpawn(level));
+
+        console.log(active_decrees);
 
         let total_weight = active_decrees.map(x => x.weight).reduce((pv, cv) => pv+cv, 0);
 

@@ -6,7 +6,7 @@ function roll (chance) {
 }
 
 function choose_in(start, end) {
-    return start + Math.round(Math.random() * (end - start));
+    return start + Math.floor(Math.random() * (end - start));
 }
 
 export { roll, choose_in };
