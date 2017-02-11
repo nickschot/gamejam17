@@ -36,7 +36,7 @@
                 </div>
                 <div id="sidebar">
                     <h2>Greatness</h2>
-                    <div id="sidebar-greatness" data-percentage="10">
+                    <div id="sidebar-greatness" class="sidebar-item" data-percentage="10">
                         <svg height="400" width="400" xmlns="http://www.w3.org/2000/svg" viewbox='0 0 400 400' xmlns:xlink="http://www.w3.org/1999/xlink">
                             <defs>
                                 <clipPath id='nw'><polygon points='0 200 200 200 80 0' /></clipPath>
@@ -69,6 +69,30 @@
                                 </svg>
                             </foreignObject>
                         </svg>
+                    </div>
+                    <h3>Overview</h3>
+                    <div id="sidebar-income" class="sidebar-item">
+                        <h5 class="state-capital-title">capital</h5>
+                        <div id="state-capital">&euro; 10.000</div>
+                        <div class="progress">
+                            <div class="progress-bar blue" style="width:60%" id="state-welfare"></div>
+                            <div class="progress-text">welfare</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar red" style="width:20%" id="state-crime"></div>
+                            <div class="progress-text">crime</div>
+                        </div>
+                    </div>
+                    <h3>Tax</h3>
+                    <div id="sidebar-tax" class="sidebar-item">
+                        <div class="progress">
+                            <div class="progress-bar" style="width:60%" id="state-income-tax"></div>
+                            <div class="progress-text">income</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar blue" style="width:30%" id="state-corporate-tax"></div>
+                            <div class="progress-text">corporate</div>
+                        </div>
                     </div>
                 </div>
                 <div class="clear"></div>
