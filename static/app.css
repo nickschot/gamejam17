@@ -87,10 +87,10 @@ canvas {
 
 #game-overlay {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    height: calc(100% - 20px);
-    width: calc(100% - 20px);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -102,7 +102,8 @@ canvas {
     height: 200px;
     transform: translateY(250px);
 
-    transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: 0.2s;
 }
 
 #game-overlay-decree {
@@ -127,8 +128,8 @@ canvas {
     background-position: center;
     background-size: contain;
 
-    transition: transform 300ms ease-out, opacity 300ms ease-out;
-    transition-delay: 500ms;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    transition-delay: 0.6s;
     transform: scale(0);
     opacity: 0;
 }
@@ -152,7 +153,7 @@ canvas {
     position: relative;
     float: left;
     margin: -20px 70px 0 66px;
-    width: calc(80% - 136px);
+    width: calc(100% - 136px - 100px);
     height: 100%;
     background-image: url('assets/scroll-mid.png');
     background-repeat: repeat-x;
@@ -173,25 +174,28 @@ canvas {
 
 #game-overlay-decree-buttons, #game-overlay-news-buttons {
     float: left;
-    width: 20%;
+    width: 100px;
     height: 100%;
     outline: none;
 }
 
 #game-overlay-decree-buttons button, #game-overlay-news-buttons button {
-    border: 5px solid red;
-    border-radius: 20px;
-    height: calc(50% - 20px);
-    width: calc(100% - 20px);
-    margin: 10px;
-    background: none;
-    color: red;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: "Courier New", Courier, monospace;
-    opacity: 0.8;
-    background: rgba(0,0,0,0.4);
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    box-shadow: 0 2px 3px -1px rgba(0,0,0,0.8);
+    background: rgba(255,255,255,0.95);
+    border: none;
+    margin: 0 auto 15px auto;
+    display: block;
+    font-size: 75px;
+    line-height: 75px;
     outline:none!important;
+
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    transition-delay: 0s;
+    transform: scale(0);
+    opacity: 0;
 }
 
 #game-overlay-decree-buttons button:hover, #game-overlay-news-buttons button:hover {
@@ -200,12 +204,10 @@ canvas {
 }
 
 #game-overlay-decree-buttons #btn-sign {
-    border-color: yellowgreen;
     color: yellowgreen;
 }
 
 #game-overlay-decree-buttons #btn-shred {
-    border-color: indianred;
     color: indianred;
 }
 
@@ -228,20 +230,28 @@ canvas {
 
 /** START TRANSITIONS **/
 #game-overlay-decree.open, #game-overlay-news.open {
-    transform: translateY(0)
+    transform: translateY(0);
+    transition-delay: 0s;
 }
 
-#game-overlay-decree.open #game-overlay-decree-person {
+#game-overlay-decree.open #game-overlay-decree-person, #game-overlay-decree.open #game-overlay-decree-buttons button {
     transform: scale(1);
     opacity: 1;
+    transition-delay: 600ms;
 }
 /** END TRANSITIONS **/
 
 #sidebar {
-    float: left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow-y: auto;
+
+    /*float: left;*/
     width: 200px;
     height: 100%;
     padding-top: 60px;
+    padding-bottom: 20px;
 }
 
 #sidebar h2, #sidebar h3 {
