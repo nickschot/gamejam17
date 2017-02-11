@@ -9,6 +9,7 @@
     <body>
         <div id="game-wrapper">
             <div class="stars"></div>
+            <div id="game-header"><img src="assets/springfield-logo.svg"></div>
             <div id="game">
                 <div id="game-canvas">
                     <div id="game-overlay">
@@ -37,7 +38,7 @@
                 <div id="sidebar">
                     <h2>Greatness</h2>
                     <div id="sidebar-greatness" class="sidebar-item" data-percentage="10">
-                        <svg height="400" width="400" xmlns="http://www.w3.org/2000/svg" viewbox='0 0 400 400' xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <svg class="meter-base" height="400" width="400" xmlns="http://www.w3.org/2000/svg" viewbox='0 0 400 400' xmlns:xlink="http://www.w3.org/1999/xlink">
                             <defs>
                                 <clipPath id='nw'><polygon points='0 200 200 200 80 0' /></clipPath>
                                 <clipPath id='sw'><polygon points='0 200 200 200 80 400' /></clipPath>
@@ -51,23 +52,20 @@
                             <circle cx='200' cy='200' r='180' fill='#fc0' clip-path='url(#n)' />
                             <circle cx='200' cy='200' r='180' fill='#0c0' clip-path='url(#ne)' />
                             <circle cx='200' cy='200' r='180' fill='#0f0' clip-path='url(#se)' />
+                        </svg>
+                        <svg class="meter" height="400" width="400" xmlns="http://www.w3.org/2000/svg" viewbox='0 0 400 400' xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <defs>
+                                <clipPath id='e'> <rect x='200' y='0' width='200' height='400' /> </clipPath>
+                            </defs>
 
-                            <foreignObject width="400" height="400" class="meter" x="0" y="0">
-                                <svg height="400" width="400" xmlns="http://www.w3.org/2000/svg" viewbox='0 0 400 400' xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <defs>
-                                        <clipPath id='e'> <rect x='200' y='0' width='200' height='400' /> </clipPath>
-                                    </defs>
+                            <circle cx='200' cy='200' r='80' fill='#567' />
+                            <circle cx='200' cy='200' r='80' fill='#345' clip-path='url(#e)' />
+                            <polygon points='200 50 230 140 170 140' fill='#567'/>
+                            <polygon points='200 50 230 140 170 140' fill='#345' clip-path='url(#e)'/>
 
-                                    <circle cx='200' cy='200' r='80' fill='#567' />
-                                    <circle cx='200' cy='200' r='80' fill='#345' clip-path='url(#e)' />
-                                    <polygon points='200 50 230 140 170 140' fill='#567'/>
-                                    <polygon points='200 50 230 140 170 140' fill='#345' clip-path='url(#e)'/>
-
-                                    <circle cx='200' cy='200' r='20' fill='#9ab' />
-                                    <circle cx='200' cy='200' r='20' fill='#789' clip-path='url(#e)'/>
-                                    <circle cx='200' cy='200' r='20' fill='none' stroke='black' stroke-width='4' />
-                                </svg>
-                            </foreignObject>
+                            <circle cx='200' cy='200' r='20' fill='#9ab' />
+                            <circle cx='200' cy='200' r='20' fill='#789' clip-path='url(#e)'/>
+                            <circle cx='200' cy='200' r='20' fill='none' stroke='black' stroke-width='4' />
                         </svg>
                     </div>
                     <h3>Overview</h3>
