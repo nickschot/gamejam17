@@ -1,4 +1,6 @@
 
+import {choose_float} from './RandomUtils';
+
 export default class Level {
 
     constructor(game) {
@@ -66,6 +68,7 @@ export default class Level {
         }
 
         console.log(this);
+        this.updatePollution();
     }
 
     setGroundStartState () {
@@ -211,5 +214,20 @@ export default class Level {
         }
 
         return arr;
+    }
+
+
+    updatePollution () {
+        for (let tile of this.layerToArray('Pollution')) {
+            let ground_tile = this.getGroundTile(tile.x, tile.y);
+
+            tile.alpha = ground_tile.properties.pollution * choose_float(0.7, 0.9);
+            tile.dirty = true;
+
+
+        }
+
+        this.game.map.layers[this.game.map.getLayer('Pollution')].dirty = true;
+
     }
 }
