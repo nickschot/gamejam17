@@ -10,12 +10,12 @@
   </tile>
   <tile id="59">
    <properties>
-    <property name="population" type="int" value="100"/>
+    <property name="maxPopulation" type="int" value="100"/>
    </properties>
   </tile>
   <tile id="62">
    <properties>
-    <property name="jobs" type="int" value="200"/>
+    <property name="maxJobs" type="int" value="200"/>
     <property name="pollution" type="float" value="0.05"/>
     <property name="profit" type="int" value="5000"/>
    </properties>

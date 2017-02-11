@@ -80,11 +80,11 @@
                 },
              "59":
                 {
-                 "population":100
+                 "maxPopulation":100
                 },
              "62":
                 {
-                 "jobs":200,
+                 "maxJobs":200,
                  "pollution":0.05,
                  "profit":5000
                 },
@@ -103,11 +103,11 @@
                 },
              "59":
                 {
-                 "population":"int"
+                 "maxPopulation":"int"
                 },
              "62":
                 {
-                 "jobs":"int",
+                 "maxJobs":"int",
                  "pollution":"float",
                  "profit":"int"
                 },
