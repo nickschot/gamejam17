@@ -44,6 +44,10 @@ export default class Game extends Phaser.State {
         let collisionLayer = m.createLayer('BuildingSpots');
         collisionLayer.visible = false;
 
+
+        let pollutionLayer = m.createLayer('Pollution');
+
+
         this.layerMap = {
             'ground': layerGround,
             'roads': layerRoads,

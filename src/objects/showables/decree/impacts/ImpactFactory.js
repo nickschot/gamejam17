@@ -4,6 +4,7 @@
 
 import VariableOperatorImpact from './VariableOperator';
 import BuildingCreateImpact from './BuildingCreate';
+import ClampImpact from './Clamp';
 
 
 export default class SpawnConditionFactory {
@@ -13,6 +14,8 @@ export default class SpawnConditionFactory {
                 return VariableOperatorImpact.factory(obj['arguments']);
             case "building_create":
                 return BuildingCreateImpact.factory(obj['arguments']);
+            case "clamp_impact":
+                return ClampImpact.factory(obj['arguments']);
             default:
                 return null; // Sad story
         }

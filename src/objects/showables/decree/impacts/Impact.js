@@ -3,9 +3,7 @@
  */
 
 export default class Impact {
-
-
-    execute (level) {
+    execute (level, parameters) {
 
     }
 }
