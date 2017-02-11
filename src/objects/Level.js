@@ -70,6 +70,7 @@ export default class Level {
     setGroundStartState () {
         for (let tile of this.layerToArray('Ground')) {
             tile.properties["pollution"] = 0;
+            //tile.properties["pollution_text"] = this.game.add.text(tile.x * 64, tile.y * 64, "Hoi");
         }
     }
 
@@ -121,10 +122,10 @@ export default class Level {
 
     calculateGroundTile(tile) {
         let neighbours = [
-            this.getGroundTile(this.x + 1, this.y),
-            this.getGroundTile(this.x - 1, this.y),
-            this.getGroundTile(this.x, this.y + 1),
-            this.getGroundTile(this.x, this.y - 1),
+            this.getGroundTile(tile.x + 1, tile.y),
+            this.getGroundTile(tile.x - 1, tile.y),
+            this.getGroundTile(tile.x, tile.y + 1),
+            this.getGroundTile(tile.x, tile.y - 1),
         ];
         let neighbourPollution = 0;
 
@@ -145,6 +146,8 @@ export default class Level {
             console.error("newPollution ERROR", this, tile, tile.properties.newPollution);
             throw new Error();
         }
+
+        tile.properties.newPollution = Math.max(0, tile.properties.newPollution);
     }
 
     calculateBuilding(tile) {
@@ -158,7 +161,7 @@ export default class Level {
             let growFactor = Math.min(0.01, Math.max(-0.01, 0.05 * (this.jobs - this.population) / this.population));
             growFactor += Math.min(0, -0.01 * this.crime + 0.005);
             growFactor += Math.min(0, -0.01 * pollution + 0.005);
-            tile.properties.newPopulation = (1 + growFactor) * tile.properties.population;
+            tile.properties.newPopulation = Math.round((1 + growFactor) * tile.properties.population + Math.random() - 0.5);
         } else {
             tile.properties.newPopulation = 0;
         }
@@ -171,6 +174,7 @@ export default class Level {
 
     updateGroundTile(tile) {
         tile.properties.pollution = tile.properties.newPollution;
+        //tile.properties.pollution_text.text = Math.round(tile.properties.pollution);
     }
 
     updateBuilding(tile) {
