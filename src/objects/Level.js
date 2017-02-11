@@ -38,7 +38,8 @@ export default class Level {
         let buildingCosts = this.sumTiles(t => t.properties.costs, 'Buildings');
         let welfare = this.unemployed * this.welfare;
 
-        this.money = this.money + incomeTax + corporateTax - buildingCosts - welfare;
+        this.balance =  incomeTax + corporateTax - buildingCosts - welfare;
+        this.money = this.money + this.balance;
 
         if(this.population) {
             this.crime = 0.95 * this.crime + 0.05 * this.unemployed / this.population;
