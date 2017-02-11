@@ -35,7 +35,7 @@ export default class Boot extends Phaser.State {
 
         // Uncomment the following line to adjust the rendering of the canvas to
         // crisp graphics. Great for pixel-art!
-        //Phaser.Canvas.setImageRenderingCrisp(this.game.canvas);
+        Phaser.Canvas.setImageRenderingCrisp(this.game.canvas);
 
         // Uncomment this line to disable smoothing of textures.
         //this.stage.smoothed = false;
