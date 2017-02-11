@@ -8,7 +8,7 @@ export default class Level {
 
         this.money = 1000000;
         this.crime = 0.0;
-        this.greatness = 0;
+        this.greatness = 0.25;
         this.corporateTax = 0.15;
         this.wage = 100;
         this.incomeTax = 0.25;
@@ -44,17 +44,25 @@ export default class Level {
         this.money = this.money + this.balance;
 
         if(this.population) {
-            this.crime = 0.95 * this.crime + 0.05 * this.unemployed / this.population;
+            let targetCrime = Math.min(1, (1.2- (this.welfare/this.wage)) * (this.unemployed / this.population));
+            console.log('targetCrime', targetCrime);
+            this.crime = 0.95 * this.crime + 0.05 * targetCrime;
         } else {
             this.crime = 0;
         }
 
+        // Greatness
+
         if(this.crime > 0.30) {
-            this.greatness -= (this.crime - 0.30) * this.population;
+            this.greatness -= (this.crime - 0.1) * 0.001;
         }
 
-        if((this.unemployed/this.population) > 0.30) {
-            this.greatness -= ((this.unemployed/this.population) - 0.30) * this.population;
+        if((this.unemployed/this.population) > 0.10) {
+            this.greatness -= ((this.unemployed/this.population) - 0.10) * 0.001;
+        }
+
+        if(this.incomeTax + this.corporateTax > 0.30) {
+            this.greatness -= ((this.incomeTax + this.corporateTax) - 0.30) * 0.001;
         }
 
         for(let tile of this.layerToArray('Ground'))
@@ -80,11 +88,15 @@ export default class Level {
 
     setBuildingStartState () {
         for (let tile of this.layerToArray('Buildings')) {
-            tile.properties["jobs"] = tile.properties["jobs"] || 0;
+            tile.properties["maxJobs"] = tile.properties["maxJobs"] || 0;
             tile.properties["profit"] = tile.properties["profit"] || 0;
             tile.properties["pollution"] = tile.properties["pollution"] || 0;
             tile.properties["costs"] = tile.properties["costs"] || 0;
-            tile.properties["population"] = tile.properties["population"] || 0;
+            tile.properties["maxPopulation"] = tile.properties["maxPopulation"] || 0;
+
+            // Set initial
+            tile.properties["jobs"] = Math.round((1 - this.corporateTax) * tile.properties["maxJobs"]);
+            tile.properties["population"] = tile.properties["maxPopulation"];
         }
     }
 
@@ -161,8 +173,16 @@ export default class Level {
             pollution = groundTile.properties.pollution;
         }
 
+        tile.properties["newJobs"] = Math.round((1 - this.corporateTax) * tile.properties["maxJobs"]);
+
         if(tile.properties.population) {
-            let growFactor = Math.min(0.01, Math.max(-0.01, 0.05 * (this.jobs - this.population) / this.population));
+            let growFactor = 0;
+            if(this.jobs >= this.population) {
+                growFactor += Math.min(0.01, 0.05 * (this.jobs - this.population) / this.population);
+            } else {
+                growFactor += Math.max(-0.01, 0.05 * (1- (this.welfare/this.wage)) * (this.jobs - this.population) / this.population);
+            }
+
             growFactor += Math.min(0, -0.01 * this.crime + 0.005);
             growFactor += Math.min(0, -0.01 * pollution + 0.005);
             tile.properties.newPopulation = Math.round((1 + growFactor) * tile.properties.population + Math.random() - 0.5);
@@ -174,6 +194,8 @@ export default class Level {
             console.error("newPopulation ERROR", this, tile, tile.properties.newPopulation);
             throw new Error();
         }
+
+        tile.properties.newPopulation = Math.max(0, Math.min(tile.properties.maxPopulation, tile.properties.newPopulation));
     }
 
     updateGroundTile(tile) {
@@ -182,6 +204,7 @@ export default class Level {
     }
 
     updateBuilding(tile) {
+        tile.properties.jobs = tile.properties.newJobs;
         tile.properties.population = tile.properties.newPopulation;
     }
 
