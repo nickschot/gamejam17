@@ -87,10 +87,10 @@ canvas {
 
 #game-overlay {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    height: calc(100% - 20px);
-    width: calc(100% - 20px);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -242,7 +242,12 @@ canvas {
 /** END TRANSITIONS **/
 
 #sidebar {
-    float: left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow-y: auto;
+
+    /*float: left;*/
     width: 200px;
     height: 100%;
     padding-top: 60px;
