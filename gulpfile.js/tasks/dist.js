@@ -57,6 +57,7 @@ module.exports = function (gulp, $, config) {
     gulp.task('dist', done =>
         runSequence('clean', [
             'copyAssets',
+            'copyJquery',
             'copyPhaser',
             'bundleDist'
         ], done));
