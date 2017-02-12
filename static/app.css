@@ -187,7 +187,7 @@ canvas {
     bottom: 30px;
 
     width: 160px;
-    height: calc(100% - 15px);
+    height: 160px;
 
     border: 5px solid rgb(5, 60, 94);
     border-radius: 20px;
