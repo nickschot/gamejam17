@@ -82,7 +82,6 @@
           }
       ]
   },
-
   {
       "text": "Crime is not great, we need to solve this problem!",
       "weight": 1,
@@ -159,14 +158,13 @@
           { "type": "value",
             "arguments": {
               "name": "crime_factor",
-              "round": true,
+              "round": false,
               "min": -0.5,
               "max": -0.4
               }
           }
       ]
   },
-
   {
       "text": "Lets build the best Hospitals!",
       "weight": 1,
@@ -326,7 +324,7 @@
           { "type": "value",
             "arguments": {
               "name": "crime_factor",
-              "round": true,
+              "round": false,
               "min": 0.3,
               "max": 0.5
               }
@@ -335,7 +333,7 @@
   },
   {
       "text": "If you're interested in 'balancing' work and pleasure, stop trying to balance them. Instead make your work more pleasurable.",
-      "weight": 1,
+      "weight": 1000,
       "advisor": "businessman",
       "explanation": "We need a place where we can enjoy the pleasures of our society even though the risks may be larger. Let's build a brothel!",
       "impacts": [
@@ -409,7 +407,7 @@
           { "type": "value",
             "arguments": {
               "name": "crime_factor",
-              "round": true,
+              "round": false,
               "min": 0.2,
               "max": 0.3
               }
