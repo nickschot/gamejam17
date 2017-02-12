@@ -41,6 +41,9 @@ export default class Level {
         let perCitizenCosts = this.sumTiles(t => t.properties.costsPerCitizen, 'Buildings') * this.population;
         let welfare = this.unemployed * this.welfare;
         let pollution = this.averageTiles(t => t.properties.pollution, 'Ground');
+        let buildingCrimeFactor = 1 + this.sumTiles(t => t.properties.crimeFactor, 'Buildings');
+
+        console.log('Crime?', buildingCrimeFactor);
 
         this.balance =  incomeTax + corporateTax - buildingCosts - welfare - perCitizenCosts;
         this.money = this.money + this.balance;
@@ -56,7 +59,7 @@ export default class Level {
 
 
 
-            let targetCrime = Math.min(1, (1.3- (this.welfare/this.wage)) * (this.unemployed / this.population) * bonusfactor);
+            let targetCrime = Math.min(1, (1.3- (this.welfare/this.wage)) * (this.unemployed / this.population) * bonusfactor * buildingCrimeFactor);
             this.crime = 0.95 * this.crime + 0.05 * targetCrime;
 
             console.log('targetCrime', targetCrime);
@@ -136,6 +139,7 @@ export default class Level {
         tile.properties["costs"] = tile.properties["costs"] || 0;
         tile.properties["maxPopulation"] = tile.properties["maxPopulation"] || 0;
         tile.properties["costsPerCitizen"] = tile.properties["costsPerCitizen"] || 0;
+        tile.properties["crimeFactor"] = tile.properties["crimeFactor"] || 0;
 
         // Set initial
         tile.properties["jobs"] = Math.round((1 - this.corporateTax) * tile.properties["maxJobs"]);
@@ -184,6 +188,35 @@ export default class Level {
 
         return result/count;
     }
+
+    multiplicativeTiles (func, layer) {
+        let result = 0;
+        for (let tile of this.layerToArray(layer)) {
+            let val = func(tile);
+            if(val != val) {
+                console.error(func);
+                console.error(layer);
+                console.log(tile);
+
+                throw new Error();
+            }
+            result *= func(tile);
+
+
+            if (result != result) {
+                console.error(func);
+                console.error(layer);
+                console.log(tile);
+
+                throw new Error();
+            }
+        }
+
+
+
+        return result;
+    }
+
 
     calculateGroundTile(tile) {
         let neighbours = [

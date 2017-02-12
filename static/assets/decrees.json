@@ -432,6 +432,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -487,6 +488,15 @@
                     "min": 0,
                     "max": 0
                 }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
             }
         ]
     },
@@ -506,6 +516,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -561,6 +572,15 @@
                     "min": 0,
                     "max": 0
                 }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
             }
         ]
     },
@@ -578,7 +598,9 @@
                     "profit_parameter": "profit",
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
+                    "cost_per_citizen_parameter": "cost_per_citizen",
                     "population_parameter": "population",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -620,10 +642,27 @@
             {
                 "type": "value",
                 "arguments": {
+                    "name": "cost_per_citizen",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
                     "name": "population",
                     "round": true,
                     "min": 200,
                     "max": 750
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
                 }
             }
         ]
@@ -644,6 +683,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -698,6 +738,15 @@
                     "round": false,
                     "min": 0.25,
                     "max": 0.75
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
                 }
             }
         ]
@@ -1015,6 +1064,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -1069,6 +1119,15 @@
                     "min": 0.25,
                     "max": 0.75
                 }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
             }
         ]
     },
@@ -1088,6 +1147,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -1142,6 +1202,15 @@
                     "min": 0.25,
                     "max": 0.75
                 }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": false,
+                    "min": 0,
+                    "max": 0
+                }
             }
         ]
     },
@@ -1160,6 +1229,8 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -1200,6 +1271,22 @@
             {
                 "type": "value",
                 "arguments": {
+                    "name": "cost_per_citizen",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
                     "name": "population",
                     "round": true,
                     "min": 0,
@@ -1223,7 +1310,8 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
-                    "crime_parameter": "crime",
+                    "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime",
                     "can_replace": false
                 }
             }
@@ -1257,8 +1345,17 @@
                 "type": "value",
                 "arguments": {
                     "name": "costs",
-                    "min": 500,
+                    "min": 0,
                     "max": 700
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "cost_per_citizen",
+                    "round": true,
+                    "min": 1,
+                    "max": 2
                 }
             },
             {
