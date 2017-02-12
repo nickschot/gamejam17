@@ -1,192 +1,368 @@
 [
-    {
-        "text": "I make the best decisions. Not people. I decide where money goes!",
-        "effect": "Income tax %(income_percentage)%.",
-        "weight": 1,
-        "impacts": [
-            {
-                "type": "variable_operator",
-                "arguments": {
-                    "operator": "add",
-                    "variable": "incomeTax",
-                    "parameter": "income_percentage"
-                }
-            },
-            {
-                "type": "clamp_impact",
-                "arguments": {
-                    "variable": "incomeTax",
-                    "min": 0,
-                    "max": 1
-                }
-            }
-        ],
-        "parameters": [
-            {
-                "type": "percentage",
-                "arguments": {
-                    "name": "income_percentage",
-                    "min": 5,
-                    "max": 15
-                }
-            }
-        ]
-    },
-    {
-        "text": "We have the best city, we don't need to improve the best city, it is already the best!",
-        "effect": "Income tax %(income_percentage)%.",
-        "weight": 1,
-        "impacts": [
-            {
-                "type": "variable_operator",
-                "arguments": {
-                    "operator": "subtract",
-                    "variable": "incomeTax",
-                    "parameter": "income_percentage"
-                }
-            },
-            {
-                "type": "clamp_impact",
-                "arguments": {
-                    "variable": "incomeTax",
-                    "min": 0,
-                    "max": 1
-                }
-            }
-        ],
-        "parameters": [
-            {
-                "type": "percentage",
-                "arguments": {
-                    "name": "income_percentage",
-                    "min": 5,
-                    "max": 15
-                }
-            }
-        ]
-    },
-    {
-        "text": "My friends tell me I'm the best rich. Work makes rich. People who don't work are not great.",
-        "effect": "Welfare %(income_percentage)%.",
-        "weight": 1,
-        "impacts": [
-            {
-                "type": "variable_operator",
-                "arguments": {
-                    "operator": "add",
-                    "variable": "welfare",
-                    "parameter": "welfare_percentage"
-                }
-            },
-            {
-                "type": "clamp_impact",
-                "arguments": {
-                    "variable": "incomeTax",
-                    "min": 0,
-                    "max": 1
-                }
-            }
-        ],
-        "parameters": [
-            {
-                "type": "percentage",
-                "arguments": {
-                    "name": "welfare_percentage",
-                    "min": 5,
-                    "max": 15
-                }
-            }
-        ]
-    },
-    {
-        "text": "Some people have can't work. they don't get anything, they are dying. So bad!",
-        "effect": "Welfare %(income_percentage)%.",
-        "weight": 1,
-        "impacts": [
-            {
-                "type": "variable_operator",
-                "arguments": {
-                    "operator": "add",
-                    "variable": "welfare",
-                    "parameter": "welfare_percentage"
-                }
-            }
-        ],
-        "parameters": [
-            {
-                "type": "percentage",
-                "arguments": {
-                    "name": "welfare_percentage",
-                    "min": 5,
-                    "max": 15
-                }
-            }
-        ]
-    },
-    {
-        "text": "My friends have the best companies. Honest businessmen, they are great.",
-        "effect": "Corporate tax %(income_percentage)%.",
-        "weight": 1,
-        "impacts": [
-            {
-                "type": "variable_operator",
-                "arguments": {
-                    "operator": "subtract",
-                    "variable": "corporateTax",
-                    "parameter": "corporate_tax_percentage"
-                }
-            },
-            {
-                "type": "clamp_impact",
-                "arguments": {
-                    "variable": "corporateTax",
-                    "min": 0,
-                    "max": 1
-                }
-            }
-        ],
-        "parameters": [
-            {
-                "type": "percentage",
-                "arguments": {
-                    "name": "corporate_tax_percentage",
-                    "min": 1,
-                    "max": 15
-                }
-            }
-        ]
-    },
-    {
-        "text": "Companies pay no taxes, they steal your money. So bad!.",
-        "effect": "Corporate tax %(income_percentage)%.",
-        "weight": 1,
-        "impacts": [
-            {
-                "type": "variable_operator",
-                "arguments": {
-                    "operator": "add",
-                    "variable": "corporateTax",
-                    "parameter": "corporate_tax_percentage"
-                }
-            },
-            {
-                "type": "clamp_impact",
-                "arguments": {
-                    "variable": "corporateTax",
-                    "min": 0,
-                    "max": 1
-                }
-            }
-        ],
-        "parameters": [
-            {
-                "type": "percentage",
-                "arguments": {
-                    "name": "corporate_tax_percentage",
-                    "min": 5,
-                    "max": 15
-                }
-            }
-        ]
-    }
+  {
+    "text": "Pear is taking jobs to China. We have to make Springfield great again. Make Pear create Jobs in Springfield!",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "building_create",
+        "arguments": {
+          "type": "Industrial",
+          "jobs_parameter": "jobs",
+          "profit_parameter": "profit",
+          "pollution_parameter": "pollution",
+          "costs_parameter": "costs",
+          "population_parameter": "population",
+          "can_replace": false
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "value",
+        "arguments": {
+          "name": "jobs",
+          "round": true,
+          "min": 100,
+          "max": 350
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "profit",
+          "min": 3500,
+          "max": 7000
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "pollution",
+          "min": 0.02,
+          "max": 0.15
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "costs",
+          "min": 0,
+          "max": 0
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "population",
+          "round": true,
+          "min": 0,
+          "max": 0
+        }
+      }
+    ]
+  },
+  {
+    "text": "Living in Springfield is great, its just fantastic. We have to have more people living in Springfield. That easy!",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "building_create",
+        "arguments": {
+          "type": "Residential",
+          "jobs_parameter": "jobs",
+          "profit_parameter": "profit",
+          "pollution_parameter": "pollution",
+          "costs_parameter": "costs",
+          "population_parameter": "population",
+          "can_replace": false
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "value",
+        "arguments": {
+          "name": "jobs",
+          "round": true,
+          "min": 0,
+          "max": 5
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "profit",
+          "min": 250,
+          "max": 500
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "pollution",
+          "min": 0,
+          "max": 0
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "costs",
+          "min": 25,
+          "max": 75
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "population",
+          "round": true,
+          "min": 75,
+          "max": 200
+        }
+      }
+    ]
+  },
+  {
+    "text": "My daughter wants a park. Lets build the best pony park!",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "building_create",
+        "arguments": {
+          "type": "SmallPark",
+          "jobs_parameter": "jobs",
+          "profit_parameter": "profit",
+          "pollution_parameter": "pollution",
+          "costs_parameter": "costs",
+          "population_parameter": "population",
+          "can_replace": false
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "value",
+        "arguments": {
+          "name": "jobs",
+          "round": true,
+          "min": 0,
+          "max": 2
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "profit",
+          "min": 0,
+          "max": 0
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "pollution",
+          "min": -0.10,
+          "max": -0.03
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "costs",
+          "min": 275,
+          "max": 500
+        }
+      },
+      {
+        "type": "value",
+        "arguments": {
+          "name": "population",
+          "round": true,
+          "min": 0,
+          "max": 2
+        }
+      }
+    ]
+  },
+  {
+    "text": "I make the best decisions. Not people. I decide where money goes!",
+    "effect": "Income tax %(income_percentage)%.",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "variable_operator",
+        "arguments": {
+          "operator": "add",
+          "variable": "incomeTax",
+          "parameter": "income_percentage"
+        }
+      },
+      {
+        "type": "clamp_impact",
+        "arguments": {
+          "variable": "incomeTax",
+          "min": 0,
+          "max": 1
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "percentage",
+        "arguments": {
+          "name": "income_percentage",
+          "min": 5,
+          "max": 15
+        }
+      }
+    ]
+  },
+  {
+    "text": "We have the best city, we don't need to improve the best city, it is already the best!",
+    "effect": "Income tax %(income_percentage)%.",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "variable_operator",
+        "arguments": {
+          "operator": "subtract",
+          "variable": "incomeTax",
+          "parameter": "income_percentage"
+        }
+      },
+      {
+        "type": "clamp_impact",
+        "arguments": {
+          "variable": "incomeTax",
+          "min": 0,
+          "max": 1
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "percentage",
+        "arguments": {
+          "name": "income_percentage",
+          "min": 5,
+          "max": 15
+        }
+      }
+    ]
+  },
+  {
+    "text": "My friends tell me I'm the best rich. Work makes rich. People who don't work are not great.",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "variable_operator",
+        "arguments": {
+          "operator": "subtract",
+          "variable": "welfare",
+          "parameter": "welfare_adjust"
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "value",
+        "arguments": {
+          "name": "welfare_adjust",
+          "min": 5,
+          "max": 15
+        }
+      }
+    ]
+  },
+  {
+    "text": "Some people can't work. they don't get anything, they are dying. So bad!",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "variable_operator",
+        "arguments": {
+          "operator": "add",
+          "variable": "welfare",
+          "parameter": "welfare_adjust"
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "value",
+        "arguments": {
+          "name": "welfare_adjust",
+          "min": 5,
+          "max": 15
+        }
+      }
+    ]
+  },
+  {
+    "text": "My friends have the best companies. Honest businessmen, they are great.",
+    "effect": "Corporate tax %(income_percentage)%.",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "variable_operator",
+        "arguments": {
+          "operator": "subtract",
+          "variable": "corporateTax",
+          "parameter": "corporate_tax_percentage"
+        }
+      },
+      {
+        "type": "clamp_impact",
+        "arguments": {
+          "variable": "corporateTax",
+          "min": 0,
+          "max": 1
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "percentage",
+        "arguments": {
+          "name": "corporate_tax_percentage",
+          "min": 1,
+          "max": 15
+        }
+      }
+    ]
+  },
+  {
+    "text": "Companies pay no taxes, they steal your money. So bad!.",
+    "effect": "Corporate tax %(income_percentage)%.",
+    "weight": 1,
+    "impacts": [
+      {
+        "type": "variable_operator",
+        "arguments": {
+          "operator": "add",
+          "variable": "corporateTax",
+          "parameter": "corporate_tax_percentage"
+        }
+      },
+      {
+        "type": "clamp_impact",
+        "arguments": {
+          "variable": "corporateTax",
+          "min": 0,
+          "max": 1
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "type": "percentage",
+        "arguments": {
+          "name": "corporate_tax_percentage",
+          "min": 5,
+          "max": 15
+        }
+      }
+    ]
+  }
 ]

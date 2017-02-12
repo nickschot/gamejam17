@@ -1,22 +1,22 @@
 [
     {
         "name": "Industrial",
-        "sprite": 62,
-        "possibleNames": ["ChemCorp", "IndustriCorp"]
+        "sprite": 63
+    },
+    {
+        "name": "Residential",
+        "sprite": 60
     },
     {
         "name": "Commercial",
-        "sprite": 15,
-        "possibleNames": ["McDrumpfs", "Clothes Shop #1", "The great mall", "Tremendous shops"]
+        "sprite": 57
     },
     {
-        "name": "Parkje",
-        "sprite": 16,
-        "possibleNames": ["The best park", "Great park", "Parky mcparkface", "Park Orwell", "Parky park park"]
+        "name": "ApartmentBuilding",
+        "sprite": 59
     },
     {
-        "name": "Wall",
-        "sprite": 17,
-        "possibleNames": ["The best wall", "Great wall"]
+        "name": "SmallPark",
+        "sprite": 55
     }
 ]

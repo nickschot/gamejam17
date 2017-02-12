@@ -51,7 +51,7 @@ export default class EventManager {
                 this.spawn_news = false;
             }
 
-            this.seconds_in_window += 1 / 60;
+            this.seconds_in_window += 1 / 6;
         }
 
 
@@ -59,8 +59,8 @@ export default class EventManager {
     }
 
     plan() {
-        this.news_in_window = this.choose_in(1, 6);
-        this.decree_in_window = this.choose_in(7, 12);
+        this.decree_in_window = this.choose_in(1, 6);
+        this.news_in_window = this.choose_in(7, 12);
 
         this.spawn_decree = true;
         //this.spawn_news = true;

@@ -78,7 +78,7 @@ export default class Game extends Phaser.State {
             this.ui.show(event);
         }
 
-        if(this.tick % 60 == 0) {
+        if(this.tick % 6 == 0) {
             this.level.update();
             this.ui.update();
         }
