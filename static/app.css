@@ -166,6 +166,15 @@ body {
     font-size: 80px;
 }
 
+@keyframes game-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 #game {
     position: relative;
     max-width:1280px!important;
@@ -173,7 +182,17 @@ body {
     margin: 0;
     background: rgb(191, 219, 247);
     display: none;
+    opacity: 0;
 }
+
+#game.animate {
+    display: block;
+    animation-name: game-in;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
 #game-canvas {
     position: relative;
     width: calc(100% - 200px);

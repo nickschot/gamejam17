@@ -13,7 +13,7 @@ export default class Menu extends Phaser.State {
       $('#btn-start').on('click', () => {
           $('#btn-start').off('click');
           $('#menu').hide();
-          $('#game').show();
+          $('#game').addClass('animate');
           $('#over').hide();
           this.state.start('Game');
       });

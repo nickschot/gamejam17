@@ -13,7 +13,7 @@ export default class Over extends Phaser.State {
           $('#game-header').removeClass('animate');
           $('#btn-over').off('click');
           $('#menu').show();
-          $('#game').hide();
+          $('#game').removeClass('animate');
           $('#over').hide();
           this.state.start('Menu');
       });
