@@ -33,18 +33,22 @@ export default class DecreeManager {
         let decree_roll = choose_in(0, total_weight);
         let accum = 0;
 
+        let res_decree = null;
 
-        for (let i = 0; i < active_decrees.length; i++) {
+
+        for (let i = 0; i < active_decrees.length && !res_decree; i++) {
             if (accum + active_decrees[i].weight > decree_roll && accum <= decree_roll) {
-                return active_decrees[i];
+                res_decree = active_decrees[i];
             }
 
             accum += active_decrees[i].weight;
         }
 
-        console.log("No decree was issued!");
+        res_decree.seed();
 
-        return null;
+        console.log(res_decree);
+
+        return res_decree;
     }
 
 }

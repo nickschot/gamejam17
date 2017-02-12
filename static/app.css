@@ -64,12 +64,58 @@ body {
     display: block;
 }
 
+#menu {
+    display: block;
+    max-width:1280px!important;
+    max-height: 720px!important;
+    text-align:center;
+    background: #d2cdb8;
+    background-image: url('assets/star-menu.svg');
+    background-size: 500px;
+    background-opacity: 0.5;
+    padding: 40px 50px 40px 50px;
+}
+
+#menu .menu-text {
+    border: 5px solid rgb(5, 60, 94);
+    padding: 40px;
+    display: block;
+    border-radius: 15px;
+    background: #eee9d0;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: 'Tangerine', cursive;
+    font-size: 30px;
+}
+
+#menu .menu-text p {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#btn-start {
+    border: 5px solid rgba(163, 22, 33, 0.5);
+    font-family: 'Tagerine', cursive;
+    font-weight: bold;
+    font-size: 55px;
+    color: rgb(5, 60, 94);
+    padding: 0 20px;
+    border-radius: 20px;
+    display:inline-block;
+}
+
+#btn-start:hover {
+    border-color: rgba(163, 22, 33, 1);
+    cursor: pointer;
+}
+
 #game {
     position: relative;
     max-width:1280px!important;
     max-height: 720px!important;
     margin: 0;
     background: rgb(191, 219, 247);
+    display: none;
 }
 #game-canvas {
     position: relative;
@@ -87,11 +133,32 @@ canvas {
 
 #game-overlay {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    height: calc(100% - 20px);
-    width: calc(100% - 20px);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
+}
+
+#game-overlay-week-number {
+    color: rgb(5, 60, 94);
+    border-radius: 15px;
+    box-shadow: 0 2px 3px -1px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.85);
+    overflow: hidden;
+    padding: 5px 20px 2px;
+    font-family: 'Tangerine', cursive;
+    font-weight: bold;
+    font-size: 27px;
+    display: block;
+    margin: 3px auto;
+    width: 140px;
+    text-align: center;
+}
+
+#game-overlay-week-number span {
+    font-size: 27px;
+    margin-left: 10px;
 }
 
 #game-overlay-decree, #game-overlay-news {
@@ -102,7 +169,8 @@ canvas {
     height: 200px;
     transform: translateY(250px);
 
-    transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: 0.2s;
 }
 
 #game-overlay-decree {
@@ -115,7 +183,7 @@ canvas {
     bottom: 30px;
 
     width: 160px;
-    height: calc(100% - 15px);
+    height: 160px;
 
     border: 5px solid rgb(5, 60, 94);
     border-radius: 20px;
@@ -127,8 +195,8 @@ canvas {
     background-position: center;
     background-size: contain;
 
-    transition: transform 300ms ease-out, opacity 300ms ease-out;
-    transition-delay: 500ms;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    transition-delay: 0.6s;
     transform: scale(0);
     opacity: 0;
 }
@@ -152,7 +220,7 @@ canvas {
     position: relative;
     float: left;
     margin: -20px 70px 0 66px;
-    width: calc(80% - 136px);
+    width: calc(100% - 136px - 100px);
     height: 100%;
     background-image: url('assets/scroll-mid.png');
     background-repeat: repeat-x;
@@ -173,39 +241,43 @@ canvas {
 
 #game-overlay-decree-buttons, #game-overlay-news-buttons {
     float: left;
-    width: 20%;
+    width: 100px;
     height: 100%;
     outline: none;
+    overflow: hidden;
 }
 
-#game-overlay-decree-buttons button, #game-overlay-news-buttons button {
-    border: 5px solid red;
-    border-radius: 20px;
-    height: calc(50% - 20px);
-    width: calc(100% - 20px);
-    margin: 10px;
-    background: none;
-    color: red;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: "Courier New", Courier, monospace;
-    opacity: 0.8;
-    background: rgba(0,0,0,0.4);
+#game-overlay-decree-buttons a, #game-overlay-news-buttons a {
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    box-shadow: 0 2px 3px -1px rgba(0,0,0,0.8);
+    background: rgba(255,255,255,0.8);
+    border: none;
+    margin: 0 auto 15px auto;
+    display: block;
+    font-size: 75px;
+    line-height: 75px;
     outline:none!important;
+    text-align: center;
+
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out, background 0.2s, box-shadow 0.2s;;
+    transition-delay: 0s!important;
+    transform: scale(0);
+    opacity: 0;
 }
 
-#game-overlay-decree-buttons button:hover, #game-overlay-news-buttons button:hover {
-    opacity: 1.0;
+#game-overlay-decree-buttons a:hover, #game-overlay-news-buttons a:hover {
+    background: rgba(255,255,255,1);
+    box-shadow: 0 6px 16px -1px rgba(0,0,0,0.8);
     cursor: pointer;
 }
 
 #game-overlay-decree-buttons #btn-sign {
-    border-color: yellowgreen;
     color: yellowgreen;
 }
 
 #game-overlay-decree-buttons #btn-shred {
-    border-color: indianred;
     color: indianred;
 }
 
@@ -221,27 +293,35 @@ canvas {
     background-size: contain;*/
 }
 
-#game-overlay-news-buttons button {
+#game-overlay-news-buttons a {
     border-color: #FFF;
     color: #FFF;
 }
 
 /** START TRANSITIONS **/
 #game-overlay-decree.open, #game-overlay-news.open {
-    transform: translateY(0)
+    transform: translateY(0);
+    transition-delay: 0s;
 }
 
-#game-overlay-decree.open #game-overlay-decree-person {
+#game-overlay-decree.open #game-overlay-decree-person, #game-overlay-decree.open #game-overlay-decree-buttons a {
     transform: scale(1);
     opacity: 1;
+    transition-delay: 600ms;
 }
 /** END TRANSITIONS **/
 
 #sidebar {
-    float: left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow-y: auto;
+
+    /*float: left;*/
     width: 200px;
     height: 100%;
-    padding-top: 70px;
+    padding-top: 60px;
+    padding-bottom: 20px;
 }
 
 #sidebar h2, #sidebar h3 {
@@ -269,18 +349,18 @@ canvas {
 }
 
 #sidebar-greatness {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     border-radius: 100%;
-    margin: 0 25px 15px 25px;
+    margin: 0 50px 5px 50px;
     position: relative;
 }
 
 #sidebar-greatness svg {
     display: block;
     margin: 0 auto;
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
 }
 
 #sidebar-greatness svg.meter {
@@ -292,47 +372,47 @@ canvas {
     transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-#sidebar-greatness[data-percentage='0']  svg.meter { transform: rotate(-149deg); }
-#sidebar-greatness[data-percentage='1']  svg.meter { transform: rotate(-134.1deg); }
-#sidebar-greatness[data-percentage='2']  svg.meter { transform: rotate(-119.2deg); }
-#sidebar-greatness[data-percentage='3']  svg.meter { transform: rotate(-104.3deg); }
-#sidebar-greatness[data-percentage='4']  svg.meter { transform: rotate(-89.4deg); }
-#sidebar-greatness[data-percentage='5']  svg.meter { transform: rotate(-74.5deg); }
-#sidebar-greatness[data-percentage='6']  svg.meter { transform: rotate(-59.6deg); }
-#sidebar-greatness[data-percentage='7']  svg.meter { transform: rotate(-44.7deg); }
-#sidebar-greatness[data-percentage='8']  svg.meter { transform: rotate(-29.8deg); }
-#sidebar-greatness[data-percentage='9']  svg.meter { transform: rotate(-14.9deg); }
-#sidebar-greatness[data-percentage='10'] svg.meter { transform: rotate(0deg); }
-#sidebar-greatness[data-percentage='11'] svg.meter { transform: rotate(14.9deg); }
-#sidebar-greatness[data-percentage='12'] svg.meter { transform: rotate(29.8deg); }
-#sidebar-greatness[data-percentage='13'] svg.meter { transform: rotate(44.7deg); }
-#sidebar-greatness[data-percentage='14'] svg.meter { transform: rotate(59.6deg); }
-#sidebar-greatness[data-percentage='15'] svg.meter { transform: rotate(74.5deg); }
-#sidebar-greatness[data-percentage='16'] svg.meter { transform: rotate(89.4deg); }
-#sidebar-greatness[data-percentage='17'] svg.meter { transform: rotate(104.3deg); }
-#sidebar-greatness[data-percentage='18'] svg.meter { transform: rotate(119.2deg); }
-#sidebar-greatness[data-percentage='19'] svg.meter { transform: rotate(134.1deg); }
-#sidebar-greatness[data-percentage='20'] svg.meter { transform: rotate(149deg); }
-
-#sidebar-tax, #sidebar-income {
+#sidebar-tax, #sidebar-income, #sidebar-balance {
     padding: 10px;
 }
 
-.state-capital-title {
-    text-align: center;
+.state-title {
+    text-align: right;
     margin: 0;
     font-size: 12px;
     color: rgb(5, 60, 94);
 }
 
-#state-capital {
-    text-align: center;
-    margin-top: -10px;
-    margin-bottom: 10px;
+.state-currency, .state-number {
+    text-align: right;
+    margin-top: -6px;
+    margin-bottom: 0;
     font-family: 'Tangerine', cursive;
-    font-size: 45px;
+    font-size: 35px;
     font-weight:bold;
     color: rgb(5, 60, 94);
+}
+
+.state-number {
+    font-size: 30px;
+}
+
+.sidebar-table {
+    display: block;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.sidebar-table td {
+    width: 75px;
+}
+
+.sidebar-table td:first-child h5, .sidebar-table td:first-child div {
+    text-align: left;
+}
+
+.sidebar-table td:last-child h5, .sidebar-table td:last-child div {
+    text-align: right;
 }
 
 .progress {
@@ -343,7 +423,7 @@ canvas {
     width: 100%;
     margin-bottom: 5px;
     border-radius: 8px;
-    box-shadow: inset 0 1px 2px 0px rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
 .progress:last-child {
@@ -353,10 +433,26 @@ canvas {
 .progress-bar {
     background: #0c0;
     height: 100%;
+    transition: width 0.3s;
 }
 
 .progress-bar.blue { background: #0078cc; }
 .progress-bar.red  { background: #c00; }
+
+.progress-bar.left, .progress-bar.right {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-bar.left {
+    margin-right: 50%;
+    border-right: 1px solid black;
+}
+
+.progress-bar.right {
+    margin-left: 50%;
+}
 
 .progress-text {
     position: absolute;

@@ -13,6 +13,17 @@ import Level from '../objects/Level';
 
 
 export default class Game extends Phaser.State {
+    map;
+    layerMap;
+    level;
+    buildingtypes;
+
+    tick;
+    event_manager;
+    current_event;
+
+    ui;
+    shows_popup;
 
     create() {
         // TODO: Replace this with a really cool game code here :)
@@ -32,6 +43,10 @@ export default class Game extends Phaser.State {
 
         let collisionLayer = m.createLayer('BuildingSpots');
         collisionLayer.visible = false;
+
+
+        let pollutionLayer = m.createLayer('Pollution');
+
 
         this.layerMap = {
             'ground': layerGround,
@@ -63,8 +78,9 @@ export default class Game extends Phaser.State {
             this.ui.show(event);
         }
 
-        if(this.tick % 60 == 0) {
+        if(this.tick % 6 == 0) {
             this.level.update();
+            this.ui.update();
         }
 
         this.tick++;

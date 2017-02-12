@@ -4,21 +4,34 @@
 import Showable from '../Showable';
 import SpawnConditionFactory from './spawn_condtions/SpawnConditionFactory';
 import ImpactFactory from './impacts/ImpactFactory';
+import ParameterFactory from './parameters/ParameterFactory';
+
 
 export default class Decree extends Showable {
 
-    constructor(text, weight, spawnconditions, impacts) {
-        super(text);
+    constructor(text, advisor, explanation, weight, spawnconditions, impacts, parameters) {
+        super(text, advisor, explanation);
 
         this.weight = weight;
         this.spawnconditions = spawnconditions;
         this.impacts = impacts;
 
+        this.parameters = parameters;
+
     }
+
+    seed () {
+        for (let parameter of this.parameters) {
+            parameter.seed();
+        }
+    }
+
+
 
     execute(level) {
         for (let impact of this.impacts) {
-            impact.execute(level);
+            console.log(impact);
+            impact.execute(level, this.parameters);
         }
     }
 
@@ -40,8 +53,17 @@ export default class Decree extends Showable {
 
         let spawnconditions =  jsonobj.spawnconditions || [];
         let impacts =  jsonobj.impacts || [];
+        let parameters = jsonobj.parameters || [];
 
-        return new Decree(jsonobj.text, jsonobj.weight, spawnconditions.map(x => SpawnConditionFactory.factory(x)), impacts.map(y => ImpactFactory.factory(y)));
+        return new Decree(
+            jsonobj.text,
+            jsonobj.advisor,
+            jsonobj.explanation,
+            jsonobj.weight,
+            spawnconditions.map(x => SpawnConditionFactory.factory(x)),
+            impacts.map(y => ImpactFactory.factory(y)),
+            parameters.map(z => ParameterFactory.factory(z))
+        );
     }
 
 

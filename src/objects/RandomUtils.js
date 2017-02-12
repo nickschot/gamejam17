@@ -9,4 +9,8 @@ function choose_in(start, end) {
     return start + Math.floor(Math.random() * (end - start));
 }
 
-export { roll, choose_in };
+function choose_float(start, end) {
+    return start + (Math.random() * (end - start));
+}
+
+export { roll, choose_in, choose_float};

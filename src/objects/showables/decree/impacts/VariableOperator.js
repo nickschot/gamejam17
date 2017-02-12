@@ -5,29 +5,31 @@
 import Impact from './Impact';
 
 export default class VariableOperatorImpact extends Impact {
-    constructor (operator, variable, value) {
+    constructor (operator, variable, parameter) {
         super();
         this.operator = operator;
         this.variable = variable;
-        this.value = value;
+        this.parameter = parameter;
     }
 
-    execute (level) {
+    execute (level, parameters) {
+        let param = parameters.find(x => x.name == this.parameter).instance;
+
         switch (this.operator) {
             case "multiply":
-                level[this.variable] *= this.value;
+                level[this.variable] *= param;
                 break;
             case "add":
-                level[this.variable] += this.value;
+                level[this.variable] += param;
                 break;
             case "divide":
-                level[this.variable] /= this.value;
+                level[this.variable] /= param;
                 break;
             case "subtract":
-                level[this.variable] -= this.value;
+                level[this.variable] -= param;
                 break;
             case "assign":
-                level[this.variable] = this.value;
+                level[this.variable] = param;
                 break;
             default:
                 console.log("Impact is misconfigured!");
@@ -41,12 +43,12 @@ export default class VariableOperatorImpact extends Impact {
                 ||
                 typeof args.variable == "undefined"
                     ||
-                    typeof args.value == "undefined") {
+                    typeof args.parameter == "undefined") {
             console.log(args);
             throw new Error("This is not a sane variableoperatorimpact!");
         }
 
-        return new VariableOperatorImpact(args.operator, args.variable, args.value);
+        return new VariableOperatorImpact(args.operator, args.variable, args.parameter);
 
     }
 

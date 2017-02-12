@@ -1,198 +1,713 @@
-[{
-    "text": "My best friends tell me to raise a wall! This great wall will shield us from evil immigrants!",
-    "weight": 10,
-    "impacts": [
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "multiply",
-                "variable": "crime",
-                "value": 2
+[
+    {
+        "text": "Pear is taking jobs to China. We have to make Springfield great again!",
+        "weight": 1,
+        "advisor": "businessman",
+        "explanation": "Those chinese are stealing our jobs, let's build a factory to keep the jobs!",
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "Industrial",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "can_replace": false
+                }
             }
-        },
-        { "type": "build_wall" }
-    ]
-},{
-    "text": "We have the best people in Springfield. The best people don't need healthcare, they are already the best.",
-    "weight": 1,
-    "impacts": [
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "divide",
-                "variable": "money",
-                "value": 2
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "round": true,
+                    "min": 100,
+                    "max": 350
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 3500,
+                    "max": 7000
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": 0.02,
+                    "max": 0.15
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
             }
-        }
-    ]
-},{
-    "text": "The best pipe",
-    "weight": 1,
-    "impacts": [
-        {
-            "type": "TODO_building_create",
-            "arguments": {
-                "name": "divide",
-                "type": "",
-                "jobs": 10,
-                "profit": 100,
-                "pollution": 100,
-                "x" : 4,
-                "y" : 4
+        ]
+    },
+    {
+        "text": "Living in Springfield is great, its just fantastic. We have to have more people living in Springfield. That easy!",
+        "advisor": "businessman",
+        "explanation": "We need more suburbia, let's build some!",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "Residential",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "advisor": "businessman",
+                    "can_replace": false
+                }
             }
-        }
-    ]
-},{
-    "text": "My friends have the best companies.",
-    "weight": 1,
-    "impacts": [
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "divide",
-                "variable": "corporate_tax",
-                "value": 1.5
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "round": true,
+                    "min": 0,
+                    "max": 5
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 250,
+                    "max": 500
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 25,
+                    "max": 75
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 75,
+                    "max": 200
+                }
             }
-        },
-        {
-            "type": "building_create",
-            "arguments": {
-                "type": "Industrial",
-                "jobs": 100,
-                "profit": 100,
-                "pollution": 100
+        ]
+    },
+    {
+        "text": "Living in Springfield is great, its just fantastic. We have to have more people living in Springfield. That easy!",
+        "advisor": "businessman",
+        "explanation": "Let's build some real estate. We need apartment buildings, right here, right now!",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "ApartmentBuilding",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "can_replace": false
+                }
             }
-        },
-        {
-            "type": "building_create",
-            "arguments": {
-                "type": "Commercial",
-                "jobs": 100,
-                "profit": 20,
-                "pollution": 10
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "round": true,
+                    "min": 0,
+                    "max": 5
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 250,
+                    "max": 500
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 100,
+                    "max": 250
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 200,
+                    "max": 750
+                }
             }
-        }
-    ]
-},{
-    "text": "My daughter wants a park. Lets build the best parky park park!",
-    "weight": 1,
-    "impacts": [
-        {
-            "type": "building_create",
-            "arguments": {
-                "type": "Parkje",
-                "jobs": 1,
-                "profit": -1000,
-                "pollution": -100
+        ]
+    },
+    {
+        "text": "Lets build the best pony park!",
+        "advisor": "hippie",
+        "explanation": "We want a park to relax and enjoy nature!",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "SmallPark",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "can_replace": false
+                }
             }
-        }
-    ]
-},{
-    "text": "The best energy is coal.",
-    "weight": 1,
-    "impacts": [
-        {
-            "type": "building_create",
-            "arguments": {
-                "type": "Industrial",
-                "jobs": 50,
-                "profit": 200,
-                "pollution": 200
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "round": true,
+                    "min": 0,
+                    "max": 2
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": -0.30,
+                    "max": -0.13
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 275,
+                    "max": 500
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 0,
+                    "max": 2
+                }
             }
-        }, {
-            "type": "building_create",
-            "arguments": {
-                "type": "Industrial",
-                "jobs": 50,
-                "profit": 200,
-                "pollution": 200
+        ]
+    },
+    {
+        "text": "I make the best decisions. Not people. I decide where money goes!",
+        "advisor": "businessman",
+        "explanation": "The people are stupid and we need more money, let's increase the taxes!",
+        "effect": "Income tax %(income_percentage)%.",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "add",
+                    "variable": "incomeTax",
+                    "parameter": "income_percentage"
+                }
+            },
+            {
+                "type": "clamp_impact",
+                "arguments": {
+                    "variable": "incomeTax",
+                    "min": 0,
+                    "max": 1
+                }
             }
-        }
-    ]
-},{
-    "text": "My friends tell me I'm the best rich. Work makes rich. People who don't work are not great.",
-    "weight": 1,
-    "impacts": [
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "assign",
-                "variable": "welfare",
-                "value": 0
+        ],
+        "parameters": [
+            {
+                "type": "percentage",
+                "arguments": {
+                    "name": "income_percentage",
+                    "min": 5,
+                    "max": 15
+                }
             }
-        },
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "multiply",
-                "variable": "wage",
-                "value": 1.05
+        ]
+    },
+    {
+        "text": "We have the best city, we don't need to improve the best city, it is already the best!",
+        "advisor": "businessman",
+        "explanation": "Since we are the best, let's reduce the income tax! We don't need more money!",
+        "effect": "Income tax %(income_percentage)%.",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "subtract",
+                    "variable": "incomeTax",
+                    "parameter": "income_percentage"
+                }
+            },
+            {
+                "type": "clamp_impact",
+                "arguments": {
+                    "variable": "incomeTax",
+                    "min": 0,
+                    "max": 1
+                }
             }
-        }
-    ]
-},{
-    "text": "Bad people are bad. So bad, they are not great. More jails is less bad and more great!",
-    "weight": 1,
-    "impacts": [
-        {
-            "type": "building_create",
-            "arguments": {
-                "type": "Jail",
-                "jobs": 10,
-                "profit": -10000,
-                "pollution": 10
+        ],
+        "parameters": [
+            {
+                "type": "percentage",
+                "arguments": {
+                    "name": "income_percentage",
+                    "min": 5,
+                    "max": 15
+                }
             }
-        },
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "divide",
-                "variable": "crime",
-                "value": 4
+        ]
+    },
+    {
+        "text": "My friends tell me I'm the best rich. Work makes rich. People who don't work are not great.",
+        "weight": 1,
+        "advisor": "businessman",
+        "explanation": "The people that do not contribute to society should not get anything, cut the welfare!",
+        "impacts": [
+            {
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "subtract",
+                    "variable": "welfare",
+                    "parameter": "welfare_adjust"
+                }
             }
-        },
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "subtract",
-                "variable": "money",
-                "value": 200000
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "welfare_adjust",
+                    "min": 5,
+                    "max": 15
+                }
             }
-        }
-    ]
-},{
-    "text": "I make the best decisions. Not people. I decide where money goes!",
-    "weight": 1,
-    "impacts": [
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "add",
-                "variable": "money",
-                "value": 500000
+        ]
+    },
+    {
+        "text": "Some people can't work. they don't get anything, they are dying. So bad!",
+        "weight": 1,
+        "advisor": "hippie",
+        "explanation": "We should help the helpless eventhough they are not contributing to society",
+        "impacts": [
+            {
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "add",
+                    "variable": "welfare",
+                    "parameter": "welfare_adjust"
+                }
             }
-        },
-        {
-            "type": "variable_operator",
-            "arguments": {
-                "operator": "multiply",
-                "variable": "incomeTax",
-                "value": 2
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "welfare_adjust",
+                    "min": 5,
+                    "max": 15
+                }
             }
-        }
-    ]
-},{
-    "text": "Lets build a factory!",
-    "weight": 100,
-    "spawnconditions": [
-    ],
-    "impacts": [
-        {
-            "type": "building_create",
-            "arguments": {
-                "name": "Blaat B.V.",
-                "type": "Industrial"
+        ]
+    },
+    {
+        "text": "My friends have the best companies. Honest businessmen, they are great.",
+        "explanation": "Since we create so much profit you should give us a benefit, decrease the taxes!",
+        "effect": "Corporate tax %(income_percentage)%.",
+        "advisor": "businessman",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "subtract",
+                    "variable": "corporateTax",
+                    "parameter": "corporate_tax_percentage"
+                }
+            },
+            {
+                "type": "clamp_impact",
+                "arguments": {
+                    "variable": "corporateTax",
+                    "min": 0,
+                    "max": 1
+                }
             }
-        }
-    ]
-}]
+        ],
+        "parameters": [
+            {
+                "type": "percentage",
+                "arguments": {
+                    "name": "corporate_tax_percentage",
+                    "min": 1,
+                    "max": 15
+                }
+            }
+        ]
+    },
+    {
+        "text": "Companies pay no taxes, they steal your money. So bad!.",
+        "explanation": "We want to increase the corporate taxes, because they pollute the city!",
+        "advisor": "hippie",
+        "effect": "Corporate tax %(income_percentage)%.",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "add",
+                    "variable": "corporateTax",
+                    "parameter": "corporate_tax_percentage"
+                }
+            },
+            {
+                "type": "clamp_impact",
+                "arguments": {
+                    "variable": "corporateTax",
+                    "min": 0,
+                    "max": 1
+                }
+            }
+        ],
+        "parameters": [
+            {
+                "type": "percentage",
+                "arguments": {
+                    "name": "corporate_tax_percentage",
+                    "min": 5,
+                    "max": 15
+                }
+            }
+        ]
+    },
+    {
+        "text": "Pollution is bad, sooo bad! UNLESS someone like you cares a whole awful lot, it's not going to get better. It's not!",
+        "explanation": "We want to save the environment by creating a national forrest!",
+        "advisor": "hippie",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "BroadLeafTrees",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "can_replace": false
+                }
+            }
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": -0.30,
+                    "max": -0.13
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 275,
+                    "max": 500
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 0,
+                    "max": 2
+                }
+            }
+        ]
+    },
+    {
+        "text": "Pollution is bad and we need more jobs! Let's chop some wood!",
+        "explanation": "We want to decrease the pollution by planting a forrest, however we want to make it profitable",
+        "advisor": "hippie",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "PineTrees",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "can_replace": false
+                }
+            }
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "min": 0,
+                    "max": 2
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 0,
+                    "max": 0.5
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": -0.20,
+                    "max": -0.03
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 275,
+                    "max": 350
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 0,
+                    "max": 1
+                }
+            }
+        ]
+    },
+    {
+        "text": "Great people need great malls. Let's spend money!!",
+        "explanation": "We want to build a mall, this will create jobs!",
+        "advisor": "businessman",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "Commercial",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "can_replace": false
+                }
+            }
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "min": 10,
+                    "max": 50
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 1,
+                    "max": 10
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 500,
+                    "max": 700
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
+            }
+        ]
+    },
+    {
+        "text": "Crime is not great, great cities do not have crime!",
+        "explanation": "We want to build a jail, to decrease the crime rate. This will cost you approx. 600 per day.",
+        "advisor": "policeman",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "Jail",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "crime_parameter": "crime",
+                    "can_replace": false
+                }
+            }
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "min": 10,
+                    "max": 50
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": -30,
+                    "max": -10
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime",
+                    "min": -0.5,
+                    "max": -0.2
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 500,
+                    "max": 700
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
+            }
+        ]
+    }
+]
