@@ -31,9 +31,14 @@ export default class VariableCompareSpawnCondition extends SpawnCondition {
     }
 
     static factory(args) {
-        if (!(args.operator && args.variable && args.value)) {
-            throw new Error("This is not a sane spawn condition!");
+        if (typeof args.operator == "undefined"
+            ||
+            typeof args.variable == "undefined"
+            ||
+            typeof args.value == "undefined") {
+            throw new Error("This is not a sane building_create!");
         }
+
 
         return new VariableCompareSpawnCondition(args.operator, args.variable, args.value);
 

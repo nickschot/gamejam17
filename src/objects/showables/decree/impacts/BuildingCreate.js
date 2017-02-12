@@ -6,7 +6,7 @@ import Impact from './Impact';
 import Building from '../../../Building'
 export default class BuildingCreateImpact extends Impact {
 
-    constructor(type, jobs_parameter, profit_parameter, pollution_parameter, costs_parameter, population_parameter, can_replace) {
+    constructor(type, jobs_parameter, profit_parameter, pollution_parameter, costs_parameter, population_parameter, cost_per_citizen_parameter, can_replace) {
         super();
         this.type = type;
         this.jobs_parameter = jobs_parameter;
@@ -15,6 +15,7 @@ export default class BuildingCreateImpact extends Impact {
         this.costs_parameter = costs_parameter;
         this.population_parameter = population_parameter;
         this.can_replace = can_replace;
+        this.cost_per_citizen_parameter = cost_per_citizen_parameter;
 
         this.parameters = {};
     }
@@ -43,7 +44,8 @@ export default class BuildingCreateImpact extends Impact {
             "profit": parameters.find(x => x.name == this.profit_parameter).instance,
             "pollution": parameters.find(x => x.name == this.pollution_parameter).instance,
             "costs": parameters.find(x => x.name == this.costs_parameter).instance,
-            "maxPopulation": parameters.find(x => x.name == this.population_parameter).instance
+            "maxPopulation": parameters.find(x => x.name == this.population_parameter).instance,
+            "costPerCitizen": parameters.find(x => x.name == this.cost_per_citizen_parameter).instance
         };
 
 
@@ -62,10 +64,12 @@ export default class BuildingCreateImpact extends Impact {
             ||
             typeof args.costs_parameter == "undefined"
             ||
-            typeof args.population_parameter == "undefined") {
+            typeof args.population_parameter == "undefined"
+            ||
+            typeof args.cost_per_citizen_parameter == "undefined") {
             throw new Error("This is not a sane building_create!");
         }
 
-        return new BuildingCreateImpact(args.type, args.jobs_parameter, args.profit_parameter, args.pollution_parameter, args.costs_parameter, args.population_parameter, args.can_replace);
+        return new BuildingCreateImpact(args.type, args.jobs_parameter, args.profit_parameter, args.pollution_parameter, args.costs_parameter, args.population_parameter, args.cost_per_citizen_parameter, args.can_replace);
     }
 }

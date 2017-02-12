@@ -4,20 +4,23 @@
   <image source="spritesheet.png" width="512" height="512"/>
   <tile id="54">
    <properties>
-    <property name="costs" type="int" value="300"/>
+    <property name="costs" type="int" value="0"/>
+    <property name="costsPerCitizen" type="float" value="0.5"/>
     <property name="pollution" type="float" value="-0.03"/>
    </properties>
   </tile>
   <tile id="59">
    <properties>
+    <property name="costs" type="int" value="200"/>
     <property name="maxPopulation" type="int" value="100"/>
    </properties>
   </tile>
   <tile id="62">
    <properties>
+    <property name="costs" type="int" value="700"/>
     <property name="maxJobs" type="int" value="200"/>
     <property name="pollution" type="float" value="0.05"/>
-    <property name="profit" type="int" value="5000"/>
+    <property name="profit" type="int" value="7000"/>
    </properties>
   </tile>
   <tile id="63">
@@ -61,13 +64,13 @@
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,60,0,63,0,60,0,63,0,60,0,0,60,0,0,0,60,0,0,
+0,0,60,0,0,0,60,0,63,0,60,0,0,60,0,0,0,60,0,0,
 0,0,0,63,0,0,0,0,0,0,0,0,0,0,63,0,55,0,0,0,
 0,0,0,60,0,55,0,0,63,0,60,0,60,0,60,0,0,0,0,0,
-0,0,60,0,63,0,0,60,0,0,0,63,0,0,0,63,0,0,0,0,
+0,0,60,0,63,0,0,60,0,0,0,0,0,0,0,63,0,0,0,0,
 0,0,0,0,0,60,0,0,0,55,0,60,0,0,0,0,0,0,0,0,
 0,0,0,60,0,0,63,0,0,0,0,0,0,63,0,0,60,0,0,0,
-0,0,63,0,63,0,60,0,0,0,60,0,0,55,0,0,0,60,0,0,
+0,0,0,0,63,0,60,0,0,0,60,0,0,55,0,0,0,60,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
