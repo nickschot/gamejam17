@@ -3,7 +3,7 @@
       "text": "Cows are great, pigs are great, so great!",
       "weight": 1,
       "advisor": "hippie",
-      "explanation": "Let build a farm",
+      "explanation": "We could use farms to provide for our people without polluting our great city.",
       "impacts": [
           {
               "type": "building_create",
@@ -84,10 +84,10 @@
   },
 
   {
-      "text": "Crime is not great!",
+      "text": "Crime is not great, we need to solve this problem!",
       "weight": 1,
       "advisor": "policeman",
-      "explanation": "Let build a police station",
+      "explanation": "We could use a police station to prevent the crime.",
       "impacts": [
           {
               "type": "building_create",
@@ -254,7 +254,7 @@
       "text": "Everything in life is luck.",
       "weight": 1,
       "advisor": "businessman",
-      "explanation": "We need some entertainment, let's build a casino!",
+      "explanation": "We should use the tendency to go for the risk and build a casino!",
       "impacts": [
           {
               "type": "building_create",
@@ -337,7 +337,7 @@
       "text": "If you're interested in 'balancing' work and pleasure, stop trying to balance them. Instead make your work more pleasurable.",
       "weight": 1,
       "advisor": "businessman",
-      "explanation": "We need some entertainment, let's build a brothel!",
+      "explanation": "We need a place where we can enjoy the pleasures of our society even though the risks may be larger. Let's build a brothel!",
       "impacts": [
           {
               "type": "building_create",
