@@ -1,5 +1,9 @@
 [
     {
+        "name": "Farm",
+        "sprite": 64
+    },
+    {
         "name": "Industrial",
         "sprite": 63
     },
@@ -30,5 +34,21 @@
     {
         "name": "Jail",
         "sprite": 58
+    },
+    {
+      "name": "PoliceStation",
+      "sprite": 47
+    },
+    {
+      "name": "Hospital",
+      "sprite": 46
+    },
+    {
+      "name": "Brothel",
+      "sprite": 45
+    },
+    {
+      "name": "Casino",
+      "sprite": 44
     }
 ]
