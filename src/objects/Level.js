@@ -7,12 +7,12 @@ export default class Level {
         this.game = game;
 
         this.money = 1000000;
-        this.crime = 0.0;
-        this.greatness = 0.25;
-        this.corporateTax = 0.15;
+        this.crime = 0.20;
+        this.greatness = 0.5;
+        this.corporateTax = 0.10;
         this.wage = 100;
-        this.incomeTax = 0.25;
-        this.welfare = 70;
+        this.incomeTax = 0.10;
+        this.welfare = 50;
 
         this.setGroundStartState();
         this.setBuildingsStartState();
@@ -38,32 +38,69 @@ export default class Level {
         let incomeTax = this.employed * this.wage * this.incomeTax;
         let corporateTax = this.jobFulfillment * this.sumTiles(t => t.properties.profit, 'Buildings') * this.corporateTax;
         let buildingCosts = this.sumTiles(t => t.properties.costs, 'Buildings');
+        let perCitizenCosts = this.sumTiles(t => t.properties.costsPerCitizen, 'Buildings') * this.population;
         let welfare = this.unemployed * this.welfare;
+        let pollution = this.averageTiles(t => t.properties.pollution, 'Ground');
 
-        this.balance =  incomeTax + corporateTax - buildingCosts - welfare;
+        this.balance =  incomeTax + corporateTax - buildingCosts - welfare - perCitizenCosts;
         this.money = this.money + this.balance;
 
         if(this.population) {
-            let targetCrime = Math.min(1, (1.2- (this.welfare/this.wage)) * (this.unemployed / this.population));
-            console.log('targetCrime', targetCrime);
+            let bonusfactor = 1;
+
+            if (pollution > 0.15 && pollution < 0.5) {
+                bonusfactor += pollution;
+            } else if (pollution > 0.5) {
+                bonusfactor += pollution * 2;
+            }
+
+
+
+            let targetCrime = Math.min(1, (1.2- (this.welfare/this.wage)) * (this.unemployed / this.population) * bonusfactor);
             this.crime = 0.95 * this.crime + 0.05 * targetCrime;
+
+            console.log('targetCrime', targetCrime);
+            console.log('total pollution', pollution);
+
+
         } else {
             this.crime = 0;
         }
 
         // Greatness
 
-        if(this.crime > 0.30) {
-            this.greatness -= (this.crime - 0.1) * 0.001;
+
+        // How crime influences greatness
+        if (this.crime < 0.05) {
+            // If there is no crime, you are becoming great
+            // You will become great if you are crimeless for a year
+            let crimeInverted = 1 - this.crime;
+
+            this.greatness += crimeInverted * (1/1500);
+        } else if (this.crime > 0.15) {
+            // Otherwise, if you have more then 15% crime for a year you are not great
+            // You will lose 1/1500 to 6.66/1500 greatness per tick for having crime
+            this.greatness -= (this.crime / 0.15) * (1/1500);
         }
 
-        if((this.unemployed/this.population) > 0.10) {
-            this.greatness -= ((this.unemployed/this.population) - 0.10) * 0.001;
+        // How unemployment influences greatness
+        let unemploymentPercent = this.unemployed/this.population;
+
+        if (unemploymentPercent < 0.05) {
+            // If there is no unemployment, you are becoming great
+            // You will become great if you are crimeless for a year
+            let unemploymentInverted = 1 - unemploymentPercent;
+
+            this.greatness += unemploymentPercent * (1/1500);
+        } else if (unemploymentPercent > 0.15) {
+            // Otherwise, if you have more then 15% crime for a year you are not great
+            // You will lose 1/1500 to 6.66/1500 greatness per tick for having crime
+            this.greatness -= (unemploymentPercent / 0.15) * (1/1500);
         }
 
-        if(this.incomeTax + this.corporateTax > 0.30) {
-            this.greatness -= ((this.incomeTax + this.corporateTax) - 0.30) * 0.001;
-        }
+        // How taxes influence greatness
+        this.greatness -= (this.incomeTax / 5) * (1/1500);
+        this.greatness -= (this.corporateTax / 15) * (1/1500);
 
         for(let tile of this.layerToArray('Ground'))
         {
@@ -98,6 +135,7 @@ export default class Level {
         tile.properties["pollution"] = tile.properties["pollution"] || 0;
         tile.properties["costs"] = tile.properties["costs"] || 0;
         tile.properties["maxPopulation"] = tile.properties["maxPopulation"] || 0;
+        tile.properties["costsPerCitizen"] = tile.properties["costsPerCitizen"] || 0;
 
         // Set initial
         tile.properties["jobs"] = Math.round((1 - this.corporateTax) * tile.properties["maxJobs"]);
@@ -140,6 +178,13 @@ export default class Level {
         return result;
     }
 
+    averageTiles (func, layer) {
+        let result = this.sumTiles(func, layer);
+        let count = this.layerToArray(layer).length;
+
+        return result/count;
+    }
+
     calculateGroundTile(tile) {
         let neighbours = [
             this.getGroundTile(tile.x + 1, tile.y),
@@ -180,15 +225,18 @@ export default class Level {
         tile.properties["newJobs"] = Math.round((1 - this.corporateTax) * tile.properties["maxJobs"]);
 
         if(tile.properties.population) {
+
             let growFactor = 0;
             if(this.jobs >= this.population) {
+                // If there are more jobs then people, your city is growing
                 growFactor += Math.min(0.01, 0.05 * (this.jobs - this.population) / this.population);
-            } else {
+            } else if (this.population * 1.25 <= this.jobs) {
+                // If there are more people then jobs, some will leave, but 25% of the people will stay
                 growFactor += Math.max(-0.01, 0.05 * (1- (this.welfare/this.wage)) * (this.jobs - this.population) / this.population);
             }
 
-            growFactor += Math.min(0, -0.01 * this.crime + 0.005);
-            growFactor += Math.min(0, -0.01 * pollution + 0.005);
+            //growFactor += Math.min(0, -0.01 * this.crime + 0.005);
+            //growFactor += Math.min(0, -0.01 * pollution + 0.005);
             tile.properties.newPopulation = Math.round((1 + growFactor) * tile.properties.population + Math.random() - 0.5);
         } else {
             tile.properties.newPopulation = 0;

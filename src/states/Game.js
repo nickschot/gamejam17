@@ -66,23 +66,36 @@ export default class Game extends Phaser.State {
         this.shows_popup = false;
         this.current_event = null;
 
+        this.current_state = 0;
+
     }
 
     update() {
         if (this.ui.paused) return;
+        // Only simulate a few times
+        if (this.tick % 12 == 0) {
 
-        let event = this.event_manager.spawn();
+            console.log("hallo!");
 
-        if (event) {
-            this.current_event = event;
-            this.ui.show(event);
-        }
+            // spawn 15 simulation ticks
 
-        if(this.tick % 6 == 0) {
-            this.level.update();
+            if (true) {
+                this.level.update();
+            } else if (this.current_state % 5 == 0) {
+                let event = this.event_manager.spawn();
+                this.current_event = event;
+                this.ui.show(event);
+            }
+
+            if (this.current_state >= 35) {
+                this.current_state = 0;
+            }
+
             this.ui.update();
-        }
 
+            this.current_state++;
+
+        }
         this.tick++;
     }
 
