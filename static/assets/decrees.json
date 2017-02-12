@@ -12,6 +12,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "advisor": "businessman",
                     "can_replace": false
                 }
             }
@@ -74,6 +75,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "advisor": "businessman",
                     "can_replace": false
                 }
             }
@@ -136,6 +138,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "advisor": "businessman",
                     "can_replace": false
                 }
             }
@@ -198,6 +201,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "advisor": "hippie",
                     "can_replace": false
                 }
             }
@@ -257,7 +261,8 @@
                 "arguments": {
                     "operator": "add",
                     "variable": "incomeTax",
-                    "parameter": "income_percentage"
+                    "parameter": "income_percentage",
+                    "advisor": "businessman"
                 }
             },
             {
@@ -290,7 +295,8 @@
                 "arguments": {
                     "operator": "subtract",
                     "variable": "incomeTax",
-                    "parameter": "income_percentage"
+                    "parameter": "income_percentage",
+                    "advisor": "businessman"
                 }
             },
             {
@@ -322,7 +328,8 @@
                 "arguments": {
                     "operator": "subtract",
                     "variable": "welfare",
-                    "parameter": "welfare_adjust"
+                    "parameter": "welfare_adjust",
+                    "advisor": "businessman"
                 }
             }
         ],
@@ -346,7 +353,8 @@
                 "arguments": {
                     "operator": "add",
                     "variable": "welfare",
-                    "parameter": "welfare_adjust"
+                    "parameter": "welfare_adjust",
+                    "advisor": "hippie"
                 }
             }
         ],
@@ -371,7 +379,8 @@
                 "arguments": {
                     "operator": "subtract",
                     "variable": "corporateTax",
-                    "parameter": "corporate_tax_percentage"
+                    "parameter": "corporate_tax_percentage",
+                    "advisor": "businessman"
                 }
             },
             {
@@ -404,7 +413,8 @@
                 "arguments": {
                     "operator": "add",
                     "variable": "corporateTax",
-                    "parameter": "corporate_tax_percentage"
+                    "parameter": "corporate_tax_percentage",
+                    "advisor": "hippie"
                 }
             },
             {
@@ -440,6 +450,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "advisor": "hippie",
                     "can_replace": false
                 }
             }
@@ -501,6 +512,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "advisor": "hippie",
                     "can_replace": false
                 }
             }
@@ -562,6 +574,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "advisor": "businessman",
                     "can_replace": false
                 }
             }
@@ -624,6 +637,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "crime_parameter": "crime",
+                    "advisor": "policeman",
                     "can_replace": false
                 }
             }
