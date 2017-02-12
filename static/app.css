@@ -49,19 +49,69 @@ body {
     border-right: 0;
 }
 
+@keyframes logo-in {
+    0% {
+        right: calc(50% - 200px);
+        top: calc(50% - 163px);
+        width: 400px;
+        opacity: 0;
+        transform: scale(0);
+    }
+    20% {
+        right: calc(50% - 200px);
+        top: calc(50% - 163px);
+        width: 400px;
+        opacity: 1;
+        transform: scale(1);
+    }
+    70% {
+        right: calc(50% - 200px);
+        top: calc(50% - 163px);
+        width: 400px;
+        opacity: 1;
+    }
+    100% {
+        top: -20px;
+        right: 25px;
+        width: 150px;
+        opacity: 1;
+    }
+}
+
 #game-header {
     position: absolute;
-    top: -20px;
+    /*top: -20px;
     right: 25px;
-    width: 150px;
+    width: 150px;*/
     z-index: 999;
     background: #FFF;
     border: 7px solid rgb(163, 22, 33);
     border-radius: 40px;
+
+    right: calc(50% - 200px);
+    top: calc(50% - 163px);
+    width: 400px;
+    opacity: 0;
+}
+
+#game-header.animate {
+    animation-name: logo-in;
+    animation-delay: 1s;
+    animation-duration: 4s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-fill-mode: forwards;
 }
 
 #game-header img {
     display: block;
+}
+
+#game-wrapper {
+    background: #d2cdb8;
+    background-image: url('assets/star-menu.svg');
+    background-size: 500px;
+    background-position-y: 50px;
+    background-position-x: 10px;
 }
 
 #menu, #over {
@@ -69,11 +119,12 @@ body {
     max-width:1280px!important;
     max-height: 720px!important;
     text-align:center;
-    background: #d2cdb8;
-    background-image: url('assets/star-menu.svg');
-    background-size: 500px;
-    background-opacity: 0.5;
     padding: 40px 50px 40px 50px;
+}
+
+@keyframes menu-text-in {
+    0% { transform: translateY(60px);opacity: 0; }
+    100% { transform: translateY(0);opacity: 1; }
 }
 
 .menu-text {
@@ -86,6 +137,14 @@ body {
     margin: 0 auto;
     font-family: 'Tangerine', cursive;
     font-size: 30px;
+    opacity: 0;
+}
+
+.menu-text.animate {
+    animation-duration: 0.5s;
+    animation-name: menu-text-in;
+    animation-delay: 5.5s;
+    animation-fill-mode: forwards;
 }
 
 .menu-text p {
@@ -113,6 +172,15 @@ body {
     font-size: 80px;
 }
 
+@keyframes game-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 #game {
     position: relative;
     max-width:1280px!important;
@@ -120,7 +188,17 @@ body {
     margin: 0;
     background: rgb(191, 219, 247);
     display: none;
+    opacity: 0;
 }
+
+#game.animate {
+    display: block;
+    animation-name: game-in;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
 #game-canvas {
     position: relative;
     width: calc(100% - 200px);

@@ -10,9 +10,10 @@ export default class Over extends Phaser.State {
       $('#over').show();
 
       $('#btn-over').on('click', () => {
+          $('#game-header').removeClass('animate');
           $('#btn-over').off('click');
           $('#menu').show();
-          $('#game').hide();
+          $('#game').removeClass('animate');
           $('#over').hide();
           this.state.start('Menu');
       });
