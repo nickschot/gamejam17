@@ -305,28 +305,6 @@ canvas {
     transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-#sidebar-greatness[data-percentage='0']  svg.meter { transform: rotate(-149deg); }
-#sidebar-greatness[data-percentage='1']  svg.meter { transform: rotate(-134.1deg); }
-#sidebar-greatness[data-percentage='2']  svg.meter { transform: rotate(-119.2deg); }
-#sidebar-greatness[data-percentage='3']  svg.meter { transform: rotate(-104.3deg); }
-#sidebar-greatness[data-percentage='4']  svg.meter { transform: rotate(-89.4deg); }
-#sidebar-greatness[data-percentage='5']  svg.meter { transform: rotate(-74.5deg); }
-#sidebar-greatness[data-percentage='6']  svg.meter { transform: rotate(-59.6deg); }
-#sidebar-greatness[data-percentage='7']  svg.meter { transform: rotate(-44.7deg); }
-#sidebar-greatness[data-percentage='8']  svg.meter { transform: rotate(-29.8deg); }
-#sidebar-greatness[data-percentage='9']  svg.meter { transform: rotate(-14.9deg); }
-#sidebar-greatness[data-percentage='10'] svg.meter { transform: rotate(0deg); }
-#sidebar-greatness[data-percentage='11'] svg.meter { transform: rotate(14.9deg); }
-#sidebar-greatness[data-percentage='12'] svg.meter { transform: rotate(29.8deg); }
-#sidebar-greatness[data-percentage='13'] svg.meter { transform: rotate(44.7deg); }
-#sidebar-greatness[data-percentage='14'] svg.meter { transform: rotate(59.6deg); }
-#sidebar-greatness[data-percentage='15'] svg.meter { transform: rotate(74.5deg); }
-#sidebar-greatness[data-percentage='16'] svg.meter { transform: rotate(89.4deg); }
-#sidebar-greatness[data-percentage='17'] svg.meter { transform: rotate(104.3deg); }
-#sidebar-greatness[data-percentage='18'] svg.meter { transform: rotate(119.2deg); }
-#sidebar-greatness[data-percentage='19'] svg.meter { transform: rotate(134.1deg); }
-#sidebar-greatness[data-percentage='20'] svg.meter { transform: rotate(149deg); }
-
 #sidebar-tax, #sidebar-income, #sidebar-balance {
     padding: 10px;
 }
@@ -378,7 +356,7 @@ canvas {
     width: 100%;
     margin-bottom: 5px;
     border-radius: 8px;
-    box-shadow: inset 0 1px 2px 0px rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
 .progress:last-child {
@@ -388,6 +366,7 @@ canvas {
 .progress-bar {
     background: #0c0;
     height: 100%;
+    transition: width 0.3s;
 }
 
 .progress-bar.blue { background: #0078cc; }

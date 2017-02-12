@@ -49,10 +49,12 @@ export default class UI {
             incomeTax,
             corporateTax,
             population,
-            jobs
+            jobs,
+            welfare,
+            unemployed
         } = this.gamestate.level;
 
-        $('#sidebar-greatness').attr('data-percentage', Math.round(greatness*20));
+        $('#sidebar-greatness svg.meter').css('transform', `rotate(${this._mapFromRangeToRange(greatness, 0, 1, -149, 149).toFixed(2)}deg)`);
         $('#state-capital').html(`\$${this._toDecimalNumber(money)}`);
         $('#state-population').html(`${this._toDecimalNumber(population)}`);
         $('#state-jobs').html(`${this._toDecimalNumber(jobs)}`);
@@ -75,6 +77,8 @@ export default class UI {
                 width: 0
             });
         }
+        $('#state-employment').html(`${(100 - unemployed/population*100).toFixed(2)}%`);
+        $('#state-welfare').html(`\$${this._toDecimalNumber(welfare)}`);
 
         $('#state-crime').css('width', `${(crime*100).toFixed(2)}%`);
 
@@ -84,5 +88,9 @@ export default class UI {
 
     _toDecimalNumber(number){
         return number.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0,-3);
+    }
+
+    _mapFromRangeToRange(value, from1, to1, from2, to2){
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
 }
