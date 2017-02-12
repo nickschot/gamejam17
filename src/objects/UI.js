@@ -18,7 +18,8 @@ export default class UI {
     show (showable) {
         $("#game-overlay-decree").addClass("open");
         $("#game-overlay-decree-person").css('background-image', `url('assets/characters/${showable.advisor}.png')`);
-        $("#game-overlay-decree-text").text(showable.text);
+        $("#game-overlay-decree-text-explanation").text(showable.explanation);
+        $("#game-overlay-decree-text-decree").text(showable.text);
 
         this.paused = true;
     }

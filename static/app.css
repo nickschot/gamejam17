@@ -233,17 +233,31 @@ canvas {
     background-repeat: repeat-x;
     background-size: contain;
 
-    padding: 20px;
-    padding-top: 50px;
-
-    font-size: 20pt;
-    font-family: 'Tangerine', cursive;
+    padding: 38px 0 5px 0;
 }
 
 #game-overlay-decree-text::after {
     background-image: url('assets/scroll-right.png');
     right: -50px;
     width: 50px;
+}
+
+#game-overlay-decree-text-wrapper {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 20px 0;
+    font-family: 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+}
+
+#game-overlay-decree-text-explanation {
+    margin-bottom: 30px;
+}
+
+#game-overlay-decree-text-decree {
+    padding-top:10px;
+    font-size: 30px;
+    font-family: 'Tangerine', cursive;
 }
 
 #game-overlay-decree-buttons, #game-overlay-news-buttons {
