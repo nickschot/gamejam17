@@ -89,6 +89,7 @@ export default class Game extends Phaser.State {
 
             if (this.current_state >= 25) {
                 this.current_state = 0;
+                this.level.week++;
             }
 
             this.ui.update();

@@ -14,6 +14,8 @@ export default class Level {
         this.incomeTax = 0.10;
         this.welfare = 50;
 
+        this.week = 1;
+
         this.setGroundStartState();
         this.setBuildingsStartState();
     }
