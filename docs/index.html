@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>gamejam17</title>
+        <meta name="description" content="">
+        <link href="app.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="game-wrapper">
+            <div class="stars"></div>
+                <div id="game-header"><img src="assets/springfield-logo.svg"></div>
+                <div id="menu">
+                    <div class="menu-text">
+                        <p>
+                            Greetings Mr. Mayor,
+                            <br><br>
+                            We are lucky to have you in this time of need. Oback Barama left us in some predicament.
+                            We need you to make us great again. We need a mayor who finally shows some action.
+                            You need to grab them by the ...
+                        </p>
+
+                        <a id="btn-start" class="btn-menu">Start</a>
+                    </div>
+                </div>
+                <div id="game">
+                    <div id="game-canvas">
+                        <div id="game-overlay">
+                            <div id="game-overlay-week-number">Week <span id="game-overlay-week-number-span">0</span></div>
+                            <div id="game-overlay-decree">
+                                <div id="game-overlay-decree-person">
+
+                                </div>
+                                <div id="game-overlay-decree-text">
+                                    <div id="game-overlay-decree-text-wrapper">
+                                        <p id="game-overlay-decree-text-explanation"></p>
+                                        Your comments:<br>
+                                        <p id="game-overlay-decree-text-decree"></p>
+                                    </div>
+                                </div>
+                                <div id="game-overlay-decree-buttons">
+                                    <a id="btn-sign">&#10003;</a>
+                                    <a id="btn-shred">&#x2717;</a>
+                                </div>
+                            </div>
+                            <div id="game-overlay-news">
+                                <div id="game-overlay-news-text">
+
+                                </div>
+                                <div id="game-overlay-news-buttons">
+                                    <a id="btn-ok">OK</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sidebar">
+                        <h2>Greatness</h2>
+                        <div id="sidebar-greatness" class="sidebar-item">
+                            <svg class="meter-base" height="400" width="400" xmlns="http://www.w3.org/2000/svg" viewbox='0 0 400 400' xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+                                    <clipPath id='nw'><polygon points='0 200 200 200 80 0' /></clipPath>
+                                    <clipPath id='sw'><polygon points='0 200 200 200 80 400' /></clipPath>
+                                    <clipPath id='se'><polygon points='400 200 200 200 320 400' /></clipPath>
+                                    <clipPath id='ne'><polygon points='400 200 200 200 320 0' /></clipPath>
+                                    <clipPath id='n'><polygon points='80 0 200 200 320 0' /></clipPath>
+                                </defs>
+
+                                <circle cx='200' cy='200' r='180' fill='#c00' clip-path='url(#sw)' />
+                                <circle cx='200' cy='200' r='180' fill='#f80' clip-path='url(#nw)' />
+                                <circle cx='200' cy='200' r='180' fill='#fc0' clip-path='url(#n)' />
+                                <circle cx='200' cy='200' r='180' fill='#0c0' clip-path='url(#ne)' />
+                                <circle cx='200' cy='200' r='180' fill='#0f0' clip-path='url(#se)' />
+                            </svg>
+                            <svg class="meter" height="400" width="400" xmlns="http://www.w3.org/2000/svg" viewbox='0 0 400 400' xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+                                    <clipPath id='e'> <rect x='200' y='0' width='200' height='400' /> </clipPath>
+                                </defs>
+
+                                <circle cx='200' cy='200' r='80' fill='#567' />
+                                <circle cx='200' cy='200' r='80' fill='#345' clip-path='url(#e)' />
+                                <polygon points='200 50 230 140 170 140' fill='#567'/>
+                                <polygon points='200 50 230 140 170 140' fill='#345' clip-path='url(#e)'/>
+
+                                <circle cx='200' cy='200' r='20' fill='#9ab' />
+                                <circle cx='200' cy='200' r='20' fill='#789' clip-path='url(#e)'/>
+                                <circle cx='200' cy='200' r='20' fill='none' stroke='black' stroke-width='4' />
+                            </svg>
+                        </div>
+                        <h3>Overview</h3>
+                        <div id="sidebar-income" class="sidebar-item">
+                            <h5 class="state-title">capital</h5>
+                            <div id="state-capital" class="state-currency">$0</div>
+
+                            <table class="sidebar-table">
+                                <tr>
+                                    <td>
+                                        <h5 class="state-title">population</h5>
+                                        <div id="state-population" class="state-number">0</div>
+                                    </td>
+                                    <td>
+                                        <h5 class="state-title">jobs</h5>
+                                        <div id="state-jobs" class="state-number">0</div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="progress">
+                                <div class="progress-bar red" style="width:20%" id="state-crime"></div>
+                                <div class="progress-text">crime</div>
+                            </div>
+                        </div>
+
+                        <h3>Economy</h3>
+                        <div id="sidebar-balance" class="sidebar-item">
+                            <div class="progress">
+                                <div class="progress-bar left red" style="width:0;margin-left:50%;" id="state-balance-left"></div>
+                                <div class="progress-bar right green" style="width:0" id="state-balance-right"></div>
+                                <div class="progress-text">balance</div>
+                            </div>
+
+                            <table class="sidebar-table">
+                                <tr>
+                                    <td>
+                                        <h5 class="state-title">employment</h5>
+                                        <div id="state-employment" class="state-number">0%</div>
+                                    </td>
+                                    <td>
+                                        <h5 class="state-title">welfare</h5>
+                                        <div id="state-welfare" class="state-currency">$0</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <h3>Tax</h3>
+                        <div id="sidebar-tax" class="sidebar-item">
+                            <div class="progress">
+                                <div class="progress-bar" style="width:0" id="state-income-tax"></div>
+                                <div class="progress-text">income</div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar blue" style="width:0" id="state-corporate-tax"></div>
+                                <div class="progress-text">corporate</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="over">
+                    <div class="menu-text">
+                        <h2>Game over.</h2>
+                        <br>
+                        <p>
+                            Your empire has collapsed into a permenant state of chaos...
+                        </p>
+
+                        <a id="btn-over" class="btn-menu">To menu</a>
+                    </div>
+                </div>
+            <div class="stars"></div>
+        </div>
+
+        <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+
+        <script src="jquery.min.js"></script>
+        <script src="phaser.min.js"></script>
+        <!-- NOTE: Add third-party library scripts here. -->
+        <script src="game.min.js"></script>
+        <script>window.app.init()</script>
+    </body>
+</html>
