@@ -1,7 +1,9 @@
 [
     {
-        "text": "Pear is taking jobs to China. We have to make Springfield great again. Make Pear create Jobs in Springfield!",
+        "text": "Pear is taking jobs to China. We have to make Springfield great again!",
         "weight": 1,
+        "advisor": "businessman",
+        "explanation": "Those chinese are stealing our jobs, let's build a factory to keep the jobs!",
         "impacts": [
             {
                 "type": "building_create",
@@ -12,7 +14,6 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
-                    "advisor": "businessman",
                     "can_replace": false
                 }
             }
@@ -64,6 +65,8 @@
     },
     {
         "text": "Living in Springfield is great, its just fantastic. We have to have more people living in Springfield. That easy!",
+        "advisor": "businessman",
+        "explanation": "We need more suburbia, let's build some!",
         "weight": 1,
         "impacts": [
             {
@@ -127,6 +130,8 @@
     },
     {
         "text": "Living in Springfield is great, its just fantastic. We have to have more people living in Springfield. That easy!",
+        "advisor": "businessman",
+        "explanation": "Let's build some real estate. We need apartment buildings, right here, right now!",
         "weight": 1,
         "impacts": [
             {
@@ -138,7 +143,6 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
-                    "advisor": "businessman",
                     "can_replace": false
                 }
             }
@@ -189,7 +193,9 @@
         ]
     },
     {
-        "text": "My daughter wants a park. Lets build the best pony park!",
+        "text": "Lets build the best pony park!",
+        "advisor": "hippie",
+        "explanation": "We want a park to relax and enjoy nature!",
         "weight": 1,
         "impacts": [
             {
@@ -201,7 +207,6 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
-                    "advisor": "hippie",
                     "can_replace": false
                 }
             }
@@ -253,6 +258,8 @@
     },
     {
         "text": "I make the best decisions. Not people. I decide where money goes!",
+        "advisor": "businessman",
+        "explanation": "The people are stupid and we need more money, let's increase the taxes!",
         "effect": "Income tax %(income_percentage)%.",
         "weight": 1,
         "impacts": [
@@ -261,8 +268,7 @@
                 "arguments": {
                     "operator": "add",
                     "variable": "incomeTax",
-                    "parameter": "income_percentage",
-                    "advisor": "businessman"
+                    "parameter": "income_percentage"
                 }
             },
             {
@@ -287,6 +293,8 @@
     },
     {
         "text": "We have the best city, we don't need to improve the best city, it is already the best!",
+        "advisor": "businessman",
+        "explanation": "Since we are the best, let's reduce the income tax! We don't need more money!",
         "effect": "Income tax %(income_percentage)%.",
         "weight": 1,
         "impacts": [
@@ -295,8 +303,7 @@
                 "arguments": {
                     "operator": "subtract",
                     "variable": "incomeTax",
-                    "parameter": "income_percentage",
-                    "advisor": "businessman"
+                    "parameter": "income_percentage"
                 }
             },
             {
@@ -322,14 +329,15 @@
     {
         "text": "My friends tell me I'm the best rich. Work makes rich. People who don't work are not great.",
         "weight": 1,
+        "advisor": "businessman",
+        "explanation": "The people that do not contribute to society should not get anything, cut the welfare!",
         "impacts": [
             {
                 "type": "variable_operator",
                 "arguments": {
                     "operator": "subtract",
                     "variable": "welfare",
-                    "parameter": "welfare_adjust",
-                    "advisor": "businessman"
+                    "parameter": "welfare_adjust"
                 }
             }
         ],
@@ -347,14 +355,15 @@
     {
         "text": "Some people can't work. they don't get anything, they are dying. So bad!",
         "weight": 1,
+        "advisor": "hippie",
+        "explanation": "We should help the helpless eventhough they are not contributing to society",
         "impacts": [
             {
                 "type": "variable_operator",
                 "arguments": {
                     "operator": "add",
                     "variable": "welfare",
-                    "parameter": "welfare_adjust",
-                    "advisor": "hippie"
+                    "parameter": "welfare_adjust"
                 }
             }
         ],
@@ -371,7 +380,9 @@
     },
     {
         "text": "My friends have the best companies. Honest businessmen, they are great.",
+        "explanation": "Since we create so much profit you should give us a benefit, decrease the taxes!",
         "effect": "Corporate tax %(income_percentage)%.",
+        "advisor": "businessman",
         "weight": 1,
         "impacts": [
             {
@@ -379,8 +390,7 @@
                 "arguments": {
                     "operator": "subtract",
                     "variable": "corporateTax",
-                    "parameter": "corporate_tax_percentage",
-                    "advisor": "businessman"
+                    "parameter": "corporate_tax_percentage"
                 }
             },
             {
@@ -405,6 +415,8 @@
     },
     {
         "text": "Companies pay no taxes, they steal your money. So bad!.",
+        "explanation": "We want to increase the corporate taxes, because they pollute the city!",
+        "advisor": "hippie",
         "effect": "Corporate tax %(income_percentage)%.",
         "weight": 1,
         "impacts": [
@@ -413,8 +425,7 @@
                 "arguments": {
                     "operator": "add",
                     "variable": "corporateTax",
-                    "parameter": "corporate_tax_percentage",
-                    "advisor": "hippie"
+                    "parameter": "corporate_tax_percentage"
                 }
             },
             {
@@ -439,6 +450,8 @@
     },
     {
         "text": "Pollution is bad, sooo bad! UNLESS someone like you cares a whole awful lot, it's not going to get better. It's not!",
+        "explanation": "We want to save the environment by creating a national forrest!",
+        "advisor": "hippie",
         "weight": 1,
         "impacts": [
             {
@@ -450,7 +463,6 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
-                    "advisor": "hippie",
                     "can_replace": false
                 }
             }
@@ -501,6 +513,8 @@
     },
     {
         "text": "Pollution is bad and we need more jobs! Let's chop some wood!",
+        "explanation": "We want to decrease the pollution by planting a forrest, however we want to make it profitable",
+        "advisor": "hippie",
         "weight": 1,
         "impacts": [
             {
@@ -512,7 +526,6 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
-                    "advisor": "hippie",
                     "can_replace": false
                 }
             }
@@ -563,6 +576,8 @@
     },
     {
         "text": "Great people need great malls. Let's spend money!!",
+        "explanation": "We want to build a mall, this will create jobs!",
+        "advisor": "businessman",
         "weight": 1,
         "impacts": [
             {
@@ -574,7 +589,6 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
-                    "advisor": "businessman",
                     "can_replace": false
                 }
             }
@@ -625,6 +639,8 @@
     },
     {
         "text": "Crime is not great, great cities do not have crime!",
+        "explanation": "We want to build a jail, to decrease the crime rate. This will cost you approx. 600 per day.",
+        "advisor": "policeman",
         "weight": 1,
         "impacts": [
             {
@@ -637,7 +653,6 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "crime_parameter": "crime",
-                    "advisor": "policeman",
                     "can_replace": false
                 }
             }
