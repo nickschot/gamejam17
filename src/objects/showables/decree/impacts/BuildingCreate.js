@@ -45,7 +45,7 @@ export default class BuildingCreateImpact extends Impact {
             "pollution": parameters.find(x => x.name == this.pollution_parameter).instance,
             "costs": parameters.find(x => x.name == this.costs_parameter).instance,
             "maxPopulation": parameters.find(x => x.name == this.population_parameter).instance,
-            "costPerCitizen": parameters.find(x => x.name == this.cost_per_citizen_parameter).instance
+            "costsPerCitizen": parameters.find(x => x.name == this.cost_per_citizen_parameter).instance
         };
 
 
