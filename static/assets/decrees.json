@@ -124,6 +124,68 @@
         ]
     },
     {
+        "text": "Living in Springfield is great, its just fantastic. We have to have more people living in Springfield. That easy!",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "ApartmentBuilding",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "can_replace": false
+                }
+            }
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "round": true,
+                    "min": 0,
+                    "max": 5
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 250,
+                    "max": 500
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 100,
+                    "max": 250
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 200,
+                    "max": 750
+                }
+            }
+        ]
+    },
+    {
         "text": "My daughter wants a park. Lets build the best pony park!",
         "weight": 1,
         "impacts": [
@@ -366,7 +428,7 @@
         ]
     },
     {
-        "text": "Pollution is bad, sooo bad! UNLESS someone like you cares a whole awfull lot, it's not going to get better. It's not!",
+        "text": "Pollution is bad, sooo bad! UNLESS someone like you cares a whole awful lot, it's not going to get better. It's not!",
         "weight": 1,
         "impacts": [
             {
@@ -483,6 +545,138 @@
                     "round": true,
                     "min": 0,
                     "max": 1
+                }
+            }
+        ]
+    },
+    {
+        "text": "Great people need great malls. Let's spend money!!",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "Commercial",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "can_replace": false
+                }
+            }
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "min": 10,
+                    "max": 50
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": 1,
+                    "max": 10
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 500,
+                    "max": 700
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
+            }
+        ]
+    },
+    {
+        "text": "Crime is not great, great cities do not have crime!",
+        "weight": 1,
+        "impacts": [
+            {
+                "type": "building_create",
+                "arguments": {
+                    "type": "Jail",
+                    "jobs_parameter": "jobs",
+                    "profit_parameter": "profit",
+                    "pollution_parameter": "pollution",
+                    "costs_parameter": "costs",
+                    "population_parameter": "population",
+                    "crime_parameter": "crime",
+                    "can_replace": false
+                }
+            }
+        ],
+        "parameters": [
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "jobs",
+                    "min": 10,
+                    "max": 50
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "profit",
+                    "min": -30,
+                    "max": -10
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime",
+                    "min": -0.5,
+                    "max": -0.2
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "costs",
+                    "min": 500,
+                    "max": 700
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "pollution",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
                 }
             }
         ]
