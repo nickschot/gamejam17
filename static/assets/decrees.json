@@ -303,7 +303,7 @@
                 "arguments": {
                     "operator": "subtract",
                     "variable": "incomeTax",
-                    "parameter": "income_percentage",
+                    "parameter": "income_percentage"
                 }
             },
             {
@@ -337,7 +337,7 @@
                 "arguments": {
                     "operator": "subtract",
                     "variable": "welfare",
-                    "parameter": "welfare_adjust",
+                    "parameter": "welfare_adjust"
                 }
             }
         ],
@@ -425,7 +425,7 @@
                 "arguments": {
                     "operator": "add",
                     "variable": "corporateTax",
-                    "parameter": "corporate_tax_percentage",
+                    "parameter": "corporate_tax_percentage"
                 }
             },
             {
