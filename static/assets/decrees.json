@@ -356,7 +356,7 @@
         "text": "Some people can't work. they don't get anything, they are dying. So bad!",
         "weight": 1,
         "advisor": "hippie",
-        "explanation": "We should help the helpless eventhough they are not contributing to society",
+        "explanation": "We should help the helpless even though they are not contributing to society",
         "impacts": [
             {
                 "type": "variable_operator",
@@ -450,7 +450,7 @@
     },
     {
         "text": "Pollution is bad, sooo bad! UNLESS someone like you cares a whole awful lot, it's not going to get better. It's not!",
-        "explanation": "We want to save the environment by creating a national forrest!",
+        "explanation": "We want to save the environment by creating a national forest!",
         "advisor": "hippie",
         "weight": 1,
         "impacts": [
@@ -639,7 +639,7 @@
     },
     {
         "text": "Crime is not great, great cities do not have crime!",
-        "explanation": "We want to build a jail, to decrease the crime rate. This will cost you approx. 600 per day.",
+        "explanation": "We want to build a jail, to decrease the crime rate. This will cost you approx. $600 per day.",
         "advisor": "policeman",
         "weight": 1,
         "impacts": [
