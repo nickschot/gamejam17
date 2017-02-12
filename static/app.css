@@ -158,6 +158,7 @@ canvas {
     margin: 3px auto;
     width: 140px;
     text-align: center;
+    display: none;
 }
 
 #game-overlay-week-number span {
