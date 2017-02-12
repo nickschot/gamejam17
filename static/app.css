@@ -106,15 +106,19 @@ body {
     display: block;
 }
 
+#game-wrapper {
+    background: #d2cdb8;
+    background-image: url('assets/star-menu.svg');
+    background-size: 500px;
+    background-position-y: 50px;
+    background-position-x: 10px;
+}
+
 #menu, #over {
     display: none;
     max-width:1280px!important;
     max-height: 720px!important;
     text-align:center;
-    background: #d2cdb8;
-    background-image: url('assets/star-menu.svg');
-    background-size: 500px;
-    background-opacity: 0.5;
     padding: 40px 50px 40px 50px;
 }
 
@@ -134,7 +138,9 @@ body {
     font-family: 'Tangerine', cursive;
     font-size: 30px;
     opacity: 0;
+}
 
+.menu-text.animate {
     animation-duration: 0.5s;
     animation-name: menu-text-in;
     animation-delay: 5.5s;
