@@ -7,6 +7,7 @@
 export default class Menu extends Phaser.State {
 
   create() {
+      $('#game-header').addClass('animate');
       $('#menu').show();
 
       $('#btn-start').on('click', () => {
