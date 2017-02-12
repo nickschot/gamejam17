@@ -3,9 +3,9 @@
  */
 export default class Showable {
 
-    constructor(text) {
+    constructor(text, advisor) {
+        this.advisor = advisor;
         this.text = text;
-
     }
 
 
