@@ -140,6 +140,27 @@ canvas {
     overflow: hidden;
 }
 
+#game-overlay-week-number {
+    color: rgb(5, 60, 94);
+    border-radius: 15px;
+    box-shadow: 0 2px 3px -1px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.85);
+    overflow: hidden;
+    padding: 5px 20px 2px;
+    font-family: 'Tangerine', cursive;
+    font-weight: bold;
+    font-size: 27px;
+    display: block;
+    margin: 3px auto;
+    width: 140px;
+    text-align: center;
+}
+
+#game-overlay-week-number span {
+    font-size: 27px;
+    margin-left: 10px;
+}
+
 #game-overlay-decree, #game-overlay-news {
     position: absolute;
     bottom: 0;

@@ -51,9 +51,12 @@ export default class UI {
             population,
             jobs,
             welfare,
-            unemployed
+            unemployed,
+
+            week
         } = this.gamestate.level;
 
+        $('#game-overlay-week-number-span').html(week);
         $('#sidebar-greatness svg.meter').css('transform', `rotate(${this._mapFromRangeToRange(greatness, 0, 1, -149, 149).toFixed(2)}deg)`);
         $('#state-capital').html(`\$${this._toDecimalNumber(money)}`);
         $('#state-population').html(`${this._toDecimalNumber(population)}`);
