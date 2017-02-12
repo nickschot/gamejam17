@@ -18,5 +18,13 @@
     {
         "name": "SmallPark",
         "sprite": 55
+    },
+    {
+        "name": "BroadLeafTrees",
+        "sprite": 54
+    },
+    {
+        "name": "PineTrees",
+        "sprite": 56
     }
 ]
