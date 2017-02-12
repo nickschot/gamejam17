@@ -10,3 +10,4 @@ export {default as Boot} from './states/Boot';
 export {default as Preloader} from './states/Preloader';
 export {default as Game} from './states/Game';
 export {default as Menu} from './states/Menu';
+export {default as Over} from './states/Over';

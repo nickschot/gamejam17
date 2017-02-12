@@ -64,8 +64,8 @@ body {
     display: block;
 }
 
-#menu {
-    display: block;
+#menu, #over {
+    display: none;
     max-width:1280px!important;
     max-height: 720px!important;
     text-align:center;
@@ -76,7 +76,7 @@ body {
     padding: 40px 50px 40px 50px;
 }
 
-#menu .menu-text {
+.menu-text {
     border: 5px solid rgb(5, 60, 94);
     padding: 40px;
     display: block;
@@ -88,12 +88,12 @@ body {
     font-size: 30px;
 }
 
-#menu .menu-text p {
+.menu-text p {
     text-align: left;
     margin-bottom: 30px;
 }
 
-#btn-start {
+.btn-menu {
     border: 5px solid rgba(163, 22, 33, 0.5);
     font-family: 'Tagerine', cursive;
     font-weight: bold;
@@ -104,9 +104,13 @@ body {
     display:inline-block;
 }
 
-#btn-start:hover {
+.btn-menu:hover {
     border-color: rgba(163, 22, 33, 1);
     cursor: pointer;
+}
+
+#over h2 {
+    font-size: 80px;
 }
 
 #game {

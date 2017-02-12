@@ -7,10 +7,13 @@
 export default class Menu extends Phaser.State {
 
   create() {
-    // TODO: Stub
+      $('#menu').show();
+
       $('#btn-start').on('click', () => {
+          $('#btn-start').off('click');
           $('#menu').hide();
           $('#game').show();
+          $('#over').hide();
           this.state.start('Game');
       });
   }
