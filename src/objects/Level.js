@@ -15,7 +15,7 @@ export default class Level {
         this.welfare = 70;
 
         this.setGroundStartState();
-        this.setBuildingStartState();
+        this.setBuildingsStartState();
     }
 
     update() {
@@ -86,18 +86,22 @@ export default class Level {
         }
     }
 
-    setBuildingStartState () {
+    setBuildingsStartState () {
         for (let tile of this.layerToArray('Buildings')) {
-            tile.properties["maxJobs"] = tile.properties["maxJobs"] || 0;
-            tile.properties["profit"] = tile.properties["profit"] || 0;
-            tile.properties["pollution"] = tile.properties["pollution"] || 0;
-            tile.properties["costs"] = tile.properties["costs"] || 0;
-            tile.properties["maxPopulation"] = tile.properties["maxPopulation"] || 0;
-
-            // Set initial
-            tile.properties["jobs"] = Math.round((1 - this.corporateTax) * tile.properties["maxJobs"]);
-            tile.properties["population"] = tile.properties["maxPopulation"];
+            this.setBuildingStartState(tile);
         }
+    }
+
+    setBuildingStartState(tile) {
+        tile.properties["maxJobs"] = tile.properties["maxJobs"] || 0;
+        tile.properties["profit"] = tile.properties["profit"] || 0;
+        tile.properties["pollution"] = tile.properties["pollution"] || 0;
+        tile.properties["costs"] = tile.properties["costs"] || 0;
+        tile.properties["maxPopulation"] = tile.properties["maxPopulation"] || 0;
+
+        // Set initial
+        tile.properties["jobs"] = Math.round((1 - this.corporateTax) * tile.properties["maxJobs"]);
+        tile.properties["population"] = tile.properties["maxPopulation"];
     }
 
     getGroundTile(x, y) {
@@ -212,15 +216,12 @@ export default class Level {
         decree.execute(this);
     }
 
-    setBuilding(x, y, building) {
-        console.log(building.type);
-        let tile = this.game.map.putTile( this.game.buildingtypes[building.type].sprite, x, y, 'Buildings');
+    setBuilding(x, y, type, parameters) {
+        let tile = this.game.map.putTile( this.game.buildingtypes[type].sprite, x, y, 'Buildings');
 
-        tile.properties["jobs"] = tile.properties["jobs"] || 0;
-        tile.properties["profit"] = tile.properties["profit"] || 0;
-        tile.properties["pollution"] = tile.properties["pollution"] || 0;
-        tile.properties["costs"] = tile.properties["costs"] || 0;
-        tile.properties["population"] = tile.properties["population"] || 0;
+        tile.properties = parameters;
+        this.setBuildingStartState(tile);
+
     }
 
     layerToArray (layer) {

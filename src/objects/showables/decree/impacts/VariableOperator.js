@@ -13,7 +13,6 @@ export default class VariableOperatorImpact extends Impact {
     }
 
     execute (level, parameters) {
-        console.log(parameters);
         let param = parameters.find(x => x.name == this.parameter).instance;
 
         switch (this.operator) {
