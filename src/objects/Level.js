@@ -56,7 +56,7 @@ export default class Level {
 
 
 
-            let targetCrime = Math.min(1, (1.2- (this.welfare/this.wage)) * (this.unemployed / this.population) * bonusfactor);
+            let targetCrime = Math.min(1, (1.3- (this.welfare/this.wage)) * (this.unemployed / this.population) * bonusfactor);
             this.crime = 0.95 * this.crime + 0.05 * targetCrime;
 
             console.log('targetCrime', targetCrime);
@@ -71,16 +71,16 @@ export default class Level {
 
 
         // How crime influences greatness
-        if (this.crime < 0.05) {
+        if (this.crime < 0.03) {
             // If there is no crime, you are becoming great
             // You will become great if you are crimeless for a year
             let crimeInverted = 1 - this.crime;
 
             this.greatness += crimeInverted * (1/1500);
-        } else if (this.crime > 0.15) {
+        } else if (this.crime > 0.07) {
             // Otherwise, if you have more then 15% crime for a year you are not great
             // You will lose 1/1500 to 6.66/1500 greatness per tick for having crime
-            this.greatness -= (this.crime / 0.15) * (1/1500);
+            this.greatness -= (this.crime / 0.14) * (1/1500);
         }
 
         // How unemployment influences greatness
@@ -99,8 +99,8 @@ export default class Level {
         }
 
         // How taxes influence greatness
-        this.greatness -= (this.incomeTax / 5) * (1/1500);
-        this.greatness -= (this.corporateTax / 15) * (1/1500);
+        this.greatness -= (this.incomeTax / 10) * (1/1500);
+        this.greatness -= (this.corporateTax / 10) * (1/1500);
 
         for(let tile of this.layerToArray('Ground'))
         {

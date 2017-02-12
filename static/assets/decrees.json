@@ -12,6 +12,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "cost_per_citizen_parameter": "cost_per_citizen",
                     "can_replace": false
                 }
             }
@@ -23,29 +24,38 @@
                     "name": "jobs",
                     "round": true,
                     "min": 100,
-                    "max": 350
+                    "max": 300
                 }
             },
             {
                 "type": "value",
                 "arguments": {
                     "name": "profit",
-                    "min": 3500,
-                    "max": 7000
+                    "min": 5000,
+                    "max": 9000
                 }
             },
             {
                 "type": "value",
                 "arguments": {
                     "name": "pollution",
-                    "min": 0.02,
-                    "max": 0.15
+                    "min": 0.025,
+                    "max": 0.075
                 }
             },
             {
                 "type": "value",
                 "arguments": {
                     "name": "costs",
+                    "min": 500,
+                    "max": 900
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "population",
+                    "round": true,
                     "min": 0,
                     "max": 0
                 }
@@ -53,7 +63,7 @@
             {
                 "type": "value",
                 "arguments": {
-                    "name": "population",
+                    "name": "cost_per_citizen",
                     "round": true,
                     "min": 0,
                     "max": 0
@@ -74,6 +84,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "cost_per_citizen_parameter": "cost_per_citizen",
                     "can_replace": false
                 }
             }
@@ -92,8 +103,8 @@
                 "type": "value",
                 "arguments": {
                     "name": "profit",
-                    "min": 250,
-                    "max": 500
+                    "min": 0,
+                    "max": 0
                 }
             },
             {
@@ -108,8 +119,8 @@
                 "type": "value",
                 "arguments": {
                     "name": "costs",
-                    "min": 25,
-                    "max": 75
+                    "min": 100,
+                    "max": 300
                 }
             },
             {
@@ -117,8 +128,17 @@
                 "arguments": {
                     "name": "population",
                     "round": true,
-                    "min": 75,
-                    "max": 200
+                    "min": 50,
+                    "max": 150
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "cost_per_citizen",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
                 }
             }
         ]
@@ -136,6 +156,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "cost_per_citizen_parameter": "cost_per_citizen",
                     "can_replace": false
                 }
             }
@@ -162,16 +183,16 @@
                 "type": "value",
                 "arguments": {
                     "name": "pollution",
-                    "min": -0.30,
-                    "max": -0.13
+                    "min": -0.06,
+                    "max": -0.0
                 }
             },
             {
                 "type": "value",
                 "arguments": {
                     "name": "costs",
-                    "min": 275,
-                    "max": 500
+                    "min": 0,
+                    "max": 0
                 }
             },
             {
@@ -181,6 +202,15 @@
                     "round": true,
                     "min": 0,
                     "max": 2
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "cost_per_citizen",
+                    "round": false,
+                    "min": 0.25,
+                    "max": 0.75
                 }
             }
         ]
@@ -205,6 +235,21 @@
                     "min": 0,
                     "max": 1
                 }
+            },{
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "subtract",
+                    "variable": "greatness",
+                    "parameter": "greatness"
+                }
+            },
+            {
+                "type": "clamp_impact",
+                "arguments": {
+                    "variable": "greatness",
+                    "min": 0,
+                    "max": 1
+                }
             }
         ],
         "parameters": [
@@ -215,6 +260,13 @@
                     "min": 5,
                     "max": 15
                 }
+            },{
+                "type": "value",
+                "arguments": {
+                    "name": "greatness",
+                    "min": 0.03,
+                    "max": 0.07
+                }
             }
         ]
     },
@@ -222,6 +274,14 @@
         "text": "We have the best city, we don't need to improve the best city, it is already the best!",
         "effect": "Income tax %(income_percentage)%.",
         "weight": 1,
+        "spawnconditions": [{
+            "type": "variable_compare",
+            "arguments": {
+                "operator": "above",
+                "variable": "incomeTax",
+                "value": 0
+            }
+        }],
         "impacts": [
             {
                 "type": "variable_operator",
@@ -238,6 +298,21 @@
                     "min": 0,
                     "max": 1
                 }
+            },{
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "add",
+                    "variable": "greatness",
+                    "parameter": "greatness"
+                }
+            },
+            {
+                "type": "clamp_impact",
+                "arguments": {
+                    "variable": "greatness",
+                    "min": 0,
+                    "max": 1
+                }
             }
         ],
         "parameters": [
@@ -248,7 +323,15 @@
                     "min": 5,
                     "max": 15
                 }
+            },{
+                "type": "value",
+                "arguments": {
+                    "name": "greatness",
+                    "min": 0.03,
+                    "max": 0.07
+                }
             }
+
         ]
     },
     {
@@ -303,6 +386,14 @@
         "text": "My friends have the best companies. Honest businessmen, they are great.",
         "effect": "Corporate tax %(income_percentage)%.",
         "weight": 1,
+        "spawnconditions": [{
+            "type": "variable_compare",
+            "arguments": {
+                "operator": "above",
+                "variable": "corporateTax",
+                "value": 0
+            }
+        }],
         "impacts": [
             {
                 "type": "variable_operator",
@@ -319,6 +410,21 @@
                     "min": 0,
                     "max": 1
                 }
+            },{
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "add",
+                    "variable": "greatness",
+                    "parameter": "greatness"
+                }
+            },
+            {
+                "type": "clamp_impact",
+                "arguments": {
+                    "variable": "greatness",
+                    "min": 0,
+                    "max": 1
+                }
             }
         ],
         "parameters": [
@@ -328,6 +434,13 @@
                     "name": "corporate_tax_percentage",
                     "min": 1,
                     "max": 15
+                }
+            },{
+                "type": "value",
+                "arguments": {
+                    "name": "greatness",
+                    "min": 0.03,
+                    "max": 0.07
                 }
             }
         ]
@@ -352,6 +465,21 @@
                     "min": 0,
                     "max": 1
                 }
+            },{
+                "type": "variable_operator",
+                "arguments": {
+                    "operator": "subtract",
+                    "variable": "greatness",
+                    "parameter": "greatness"
+                }
+            },
+            {
+                "type": "clamp_impact",
+                "arguments": {
+                    "variable": "greatness",
+                    "min": 0,
+                    "max": 1
+                }
             }
         ],
         "parameters": [
@@ -361,6 +489,13 @@
                     "name": "corporate_tax_percentage",
                     "min": 5,
                     "max": 15
+                }
+            },{
+                "type": "value",
+                "arguments": {
+                    "name": "greatness",
+                    "min": 0.03,
+                    "max": 0.07
                 }
             }
         ]
@@ -378,6 +513,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "cost_per_citizen_parameter": "cost_per_citizen",
                     "can_replace": false
                 }
             }
@@ -403,16 +539,16 @@
                 "type": "value",
                 "arguments": {
                     "name": "pollution",
-                    "min": -0.30,
-                    "max": -0.13
+                    "min": -0.06,
+                    "max": -0.0
                 }
             },
             {
                 "type": "value",
                 "arguments": {
                     "name": "costs",
-                    "min": 275,
-                    "max": 500
+                    "min": 0,
+                    "max": 0
                 }
             },
             {
@@ -422,6 +558,15 @@
                     "round": true,
                     "min": 0,
                     "max": 2
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "cost_per_citizen",
+                    "round": false,
+                    "min": 0.25,
+                    "max": 0.75
                 }
             }
         ]
@@ -439,6 +584,7 @@
                     "pollution_parameter": "pollution",
                     "costs_parameter": "costs",
                     "population_parameter": "population",
+                    "cost_per_citizen_parameter": "cost_per_citizen",
                     "can_replace": false
                 }
             }
@@ -457,7 +603,7 @@
                 "arguments": {
                     "name": "profit",
                     "min": 0,
-                    "max": 0.5
+                    "max": 50
                 }
             },
             {
@@ -472,8 +618,8 @@
                 "type": "value",
                 "arguments": {
                     "name": "costs",
-                    "min": 275,
-                    "max": 350
+                    "min": 0,
+                    "max": 0
                 }
             },
             {
@@ -483,6 +629,15 @@
                     "round": true,
                     "min": 0,
                     "max": 1
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "cost_per_citizen",
+                    "round": false,
+                    "min": 0.25,
+                    "max": 0.75
                 }
             }
         ]

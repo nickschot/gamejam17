@@ -20,7 +20,7 @@
     <property name="costs" type="int" value="700"/>
     <property name="maxJobs" type="int" value="200"/>
     <property name="pollution" type="float" value="0.05"/>
-    <property name="profit" type="int" value="8000"/>
+    <property name="profit" type="int" value="7000"/>
    </properties>
   </tile>
   <tile id="63">

@@ -79,7 +79,7 @@ export default class Game extends Phaser.State {
 
             // spawn 15 simulation ticks
 
-            if (true) {
+            if (this.current_state < 15) {
                 this.level.update();
             } else if (this.current_state % 5 == 0) {
                 let event = this.event_manager.spawn();
@@ -87,7 +87,7 @@ export default class Game extends Phaser.State {
                 this.ui.show(event);
             }
 
-            if (this.current_state >= 35) {
+            if (this.current_state >= 25) {
                 this.current_state = 0;
             }
 
