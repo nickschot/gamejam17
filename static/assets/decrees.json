@@ -13,6 +13,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -68,6 +69,15 @@
                     "min": 0,
                     "max": 0
                 }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
             }
         ]
     },
@@ -85,6 +95,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -140,6 +151,15 @@
                     "min": 0,
                     "max": 0
                 }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
             }
         ]
     },
@@ -157,6 +177,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -211,6 +232,15 @@
                     "round": false,
                     "min": 0.25,
                     "max": 0.75
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
                 }
             }
         ]
@@ -514,6 +544,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -568,12 +599,21 @@
                     "min": 0.25,
                     "max": 0.75
                 }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": true,
+                    "min": 0,
+                    "max": 0
+                }
             }
         ]
     },
     {
         "text": "Pollution is bad and we need more jobs! Let's chop some wood!",
-        "weight": 1,
+        "weight": 1000,
         "impacts": [
             {
                 "type": "building_create",
@@ -585,6 +625,7 @@
                     "costs_parameter": "costs",
                     "population_parameter": "population",
                     "cost_per_citizen_parameter": "cost_per_citizen",
+                    "crime_factor_parameter": "crime_factor",
                     "can_replace": false
                 }
             }
@@ -638,6 +679,15 @@
                     "round": false,
                     "min": 0.25,
                     "max": 0.75
+                }
+            },
+            {
+                "type": "value",
+                "arguments": {
+                    "name": "crime_factor",
+                    "round": false,
+                    "min": 0,
+                    "max": 0
                 }
             }
         ]
