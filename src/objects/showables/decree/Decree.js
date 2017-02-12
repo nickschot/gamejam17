@@ -9,8 +9,8 @@ import ParameterFactory from './parameters/ParameterFactory';
 
 export default class Decree extends Showable {
 
-    constructor(text, weight, spawnconditions, impacts, parameters) {
-        super(text);
+    constructor(text, advisor, explanation, weight, spawnconditions, impacts, parameters) {
+        super(text, advisor, explanation);
 
         this.weight = weight;
         this.spawnconditions = spawnconditions;
@@ -57,6 +57,8 @@ export default class Decree extends Showable {
 
         return new Decree(
             jsonobj.text,
+            jsonobj.advisor,
+            jsonobj.explanation,
             jsonobj.weight,
             spawnconditions.map(x => SpawnConditionFactory.factory(x)),
             impacts.map(y => ImpactFactory.factory(y)),

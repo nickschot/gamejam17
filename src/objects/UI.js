@@ -17,7 +17,9 @@ export default class UI {
 
     show (showable) {
         $("#game-overlay-decree").addClass("open");
-        $("#game-overlay-decree-text").text(showable.text);
+        $("#game-overlay-decree-person").css('background-image', `url('assets/characters/${showable.advisor}.png')`);
+        $("#game-overlay-decree-text-explanation").text(showable.explanation);
+        $("#game-overlay-decree-text-decree").text(showable.text);
 
         this.paused = true;
     }
@@ -51,9 +53,12 @@ export default class UI {
             population,
             jobs,
             welfare,
-            unemployed
+            unemployed,
+
+            week
         } = this.gamestate.level;
 
+        $('#game-overlay-week-number-span').html(week);
         $('#sidebar-greatness svg.meter').css('transform', `rotate(${this._mapFromRangeToRange(greatness, 0, 1, -149, 149).toFixed(2)}deg)`);
         $('#state-capital').html(`\$${this._toDecimalNumber(money)}`);
         $('#state-population').html(`${this._toDecimalNumber(population)}`);
