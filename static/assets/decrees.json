@@ -1,4 +1,421 @@
 [
+  {
+      "text": "Cows are great, pigs are great, so great!",
+      "weight": 1,
+      "advisor": "hippie",
+      "explanation": "Let build a farm",
+      "impacts": [
+          {
+              "type": "building_create",
+              "arguments": {
+                  "type": "Farm",
+                  "jobs_parameter": "jobs",
+                  "profit_parameter": "profit",
+                  "pollution_parameter": "pollution",
+                  "costs_parameter": "costs",
+                  "population_parameter": "population",
+                  "cost_per_citizen_parameter": "cost_per_citizen",
+                  "crime_factor_parameter": "crime_factor",
+                  "can_replace": false
+              }
+          }
+      ],
+      "parameters": [
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "jobs",
+                  "round": true,
+                  "min": 1,
+                  "max": 3
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "profit",
+                  "min": 50,
+                  "max": 60
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "pollution",
+                  "min": -0.1,
+                  "max": 0.1
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "costs",
+                  "min": 200,
+                  "max": 500
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "population",
+                  "round": true,
+                  "min": 3,
+                  "max": 10
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "cost_per_citizen",
+                  "round": true,
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          { "type": "value",
+            "arguments": {
+              "name": "crime_factor",
+              "round": true,
+              "min": 0,
+              "max": 0
+              }
+          }
+      ]
+  },
+
+  {
+      "text": "Crime is not great!",
+      "weight": 1,
+      "advisor": "policeman",
+      "explanation": "Let build a police station",
+      "impacts": [
+          {
+              "type": "building_create",
+              "arguments": {
+                  "type": "PoliceStation",
+                  "jobs_parameter": "jobs",
+                  "profit_parameter": "profit",
+                  "pollution_parameter": "pollution",
+                  "costs_parameter": "costs",
+                  "population_parameter": "population",
+                  "cost_per_citizen_parameter": "cost_per_citizen",
+                  "crime_factor_parameter": "crime_factor",
+                  "can_replace": false
+              }
+          }
+      ],
+      "parameters": [
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "jobs",
+                  "round": true,
+                  "min": 5,
+                  "max": 10
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "profit",
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "pollution",
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "costs",
+                  "min": 200,
+                  "max": 500
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "population",
+                  "round": true,
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "cost_per_citizen",
+                  "round": true,
+                  "min": 0.3,
+                  "max": 0.4
+              }
+          },
+          { "type": "value",
+            "arguments": {
+              "name": "crime_factor",
+              "round": true,
+              "min": -0.5,
+              "max": -0.4
+              }
+          }
+      ]
+  },
+
+  {
+      "text": "Lets build the best Hospitals!",
+      "weight": 1,
+      "advisor": "hippie",
+      "explanation": "We miss Oback Care!",
+      "impacts": [
+          {
+              "type": "building_create",
+              "arguments": {
+                  "type": "Hospital",
+                  "jobs_parameter": "jobs",
+                  "profit_parameter": "profit",
+                  "pollution_parameter": "pollution",
+                  "costs_parameter": "costs",
+                  "population_parameter": "population",
+                  "cost_per_citizen_parameter": "cost_per_citizen",
+                  "crime_factor_parameter": "crime_factor",
+                  "can_replace": false
+              }
+          }
+      ],
+      "parameters": [
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "jobs",
+                  "round": true,
+                  "min": 10,
+                  "max": 100
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "profit",
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "pollution",
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "costs",
+                  "min": 400,
+                  "max": 500
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "population",
+                  "round": true,
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "cost_per_citizen",
+                  "round": true,
+                  "min": 0.02,
+                  "max": 0.03
+              }
+          },
+          { "type": "value",
+            "arguments": {
+              "name": "crime_factor",
+              "round": true,
+              "min": 0,
+              "max": 0
+              }
+          }
+      ]
+  },
+  {
+      "text": "Everything in life is luck.",
+      "weight": 1,
+      "advisor": "businessman",
+      "explanation": "We need some entertainment, let's build a casino!",
+      "impacts": [
+          {
+              "type": "building_create",
+              "arguments": {
+                  "type": "Casino",
+                  "jobs_parameter": "jobs",
+                  "profit_parameter": "profit",
+                  "pollution_parameter": "pollution",
+                  "costs_parameter": "costs",
+                  "population_parameter": "population",
+                  "cost_per_citizen_parameter": "cost_per_citizen",
+                  "crime_factor_parameter": "crime_factor",
+                  "can_replace": false
+              }
+          }
+      ],
+      "parameters": [
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "jobs",
+                  "round": true,
+                  "min": 5,
+                  "max": 20
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "profit",
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "pollution",
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "costs",
+                  "min": 300,
+                  "max": 400
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "population",
+                  "round": true,
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "cost_per_citizen",
+                  "round": true,
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          { "type": "value",
+            "arguments": {
+              "name": "crime_factor",
+              "round": true,
+              "min": 0.3,
+              "max": 0.5
+              }
+          }
+      ]
+  },
+  {
+      "text": "If you're interested in 'balancing' work and pleasure, stop trying to balance them. Instead make your work more pleasurable.",
+      "weight": 1,
+      "advisor": "businessman",
+      "explanation": "We need some entertainment, let's build a brothel!",
+      "impacts": [
+          {
+              "type": "building_create",
+              "arguments": {
+                  "type": "Brothel",
+                  "jobs_parameter": "jobs",
+                  "profit_parameter": "profit",
+                  "pollution_parameter": "pollution",
+                  "costs_parameter": "costs",
+                  "population_parameter": "population",
+                  "cost_per_citizen_parameter": "cost_per_citizen",
+                  "crime_factor_parameter": "crime_factor",
+                  "can_replace": false
+              }
+          }
+      ],
+      "parameters": [
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "jobs",
+                  "round": true,
+                  "min": 5,
+                  "max": 30
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "profit",
+                  "min": 10,
+                  "max": 20
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "pollution",
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "costs",
+                  "min": 100,
+                  "max": 300
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "population",
+                  "round": true,
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          {
+              "type": "value",
+              "arguments": {
+                  "name": "cost_per_citizen",
+                  "round": true,
+                  "min": 0,
+                  "max": 0
+              }
+          },
+          { "type": "value",
+            "arguments": {
+              "name": "crime_factor",
+              "round": true,
+              "min": 0.2,
+              "max": 0.3
+              }
+          }
+      ]
+  },
     {
         "text": "Pear is taking jobs to China. We have to make Springfield great again!",
         "weight": 1,
