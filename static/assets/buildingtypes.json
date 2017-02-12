@@ -26,5 +26,9 @@
     {
         "name": "PineTrees",
         "sprite": 56
+    },
+    {
+        "name": "Jail",
+        "sprite": 58
     }
 ]
